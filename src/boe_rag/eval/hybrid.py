@@ -25,21 +25,33 @@ DEFAULT_CANDIDATES = 50
 
 
 def reciprocal_rank_fusion(
-    rankings: Sequence[Sequence[str]], k_rrf: int = DEFAULT_K_RRF
+    rankings: Sequence[Sequence[str]],
+    k_rrf: int = DEFAULT_K_RRF,
+    weights: Sequence[float] | None = None,
 ) -> list[tuple[str, float]]:
     """Fuse several ranked id lists into one by Reciprocal Rank Fusion.
 
     Args:
         rankings: Each inner sequence is chunk ids in descending rank order.
         k_rrf: RRF damping constant; larger values flatten rank influence.
+        weights: Optional per-ranking multipliers (weighted RRF); equal by default.
 
     Returns:
         ``(chunk_id, fused_score)`` pairs sorted by descending fused score.
+
+    Raises:
+        ValueError: If ``weights`` does not have one entry per ranking.
     """
+    if weights is None:
+        weights = [1.0] * len(rankings)
+    if len(weights) != len(rankings):
+        raise ValueError(
+            f"need one weight per ranking, got {len(weights)} for {len(rankings)}"
+        )
     fused: dict[str, float] = {}
-    for ranking in rankings:
+    for ranking, weight in zip(rankings, weights, strict=True):
         for rank, chunk_id in enumerate(ranking, start=1):
-            fused[chunk_id] = fused.get(chunk_id, 0.0) + 1.0 / (k_rrf + rank)
+            fused[chunk_id] = fused.get(chunk_id, 0.0) + weight / (k_rrf + rank)
     return sorted(fused.items(), key=lambda item: item[1], reverse=True)
 
 

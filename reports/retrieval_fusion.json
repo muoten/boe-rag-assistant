@@ -1,0 +1,1355 @@
+{
+  "meta": {
+    "Generated": "2026-11-02 23:12 UTC",
+    "Corpus": "`boe-2015-present.parquet` (25920 chunks, 758 byte-identical duplicates folded)",
+    "Cached depth per leg": 100,
+    "Served": "50 per leg, k_rrf=60, fused top 30 reranked",
+    "Best fused variant": "rrf k10 d50 (chosen on silver-dev by MRR)",
+    "Dropped (gold not in corpus)": "gold 0, silver 0",
+    "Silver split": "by document, test 0.5, seed 0"
+  },
+  "sets": {
+    "gold": {
+      "n": 20,
+      "ceiling": {
+        "20": 1.0,
+        "50": 1.0,
+        "100": 1.0
+      },
+      "summary": {
+        "bm25": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7034627092846271,
+            "low": 0.5437043378995434,
+            "high": 0.8506849315068493,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7505427977482656,
+            "low": 0.6011859507142916,
+            "high": 0.8827324383928644,
+            "confidence": 0.95
+          }
+        },
+        "dense": {
+          "recall@5": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.6905128205128206,
+            "low": 0.5238333333333334,
+            "high": 0.8433333333333334,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7398712314377457,
+            "low": 0.5842138717994728,
+            "high": 0.8761859507142915,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 (served)": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7460964912280701,
+            "low": 0.576359649122807,
+            "high": 0.9,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7661732909393884,
+            "low": 0.5946394630357187,
+            "high": 0.9130929753571457,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d20 (ablation)": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.751628787878788,
+            "low": 0.5862121212121212,
+            "high": 0.9,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7819465347786748,
+            "low": 0.6234763882289441,
+            "high": 0.9161732909393884,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d100": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7455952380952381,
+            "low": 0.5753571428571428,
+            "high": 0.9,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7661732909393884,
+            "low": 0.5946394630357187,
+            "high": 0.9130929753571457,
+            "confidence": 0.95
+          }
+        },
+        "rrf k10 d50": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7255555555555555,
+            "low": 0.5602777777777778,
+            "high": 0.875,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7627712784011603,
+            "low": 0.6062809078567901,
+            "high": 0.896597987461772,
+            "confidence": 0.95
+          }
+        },
+        "rrf k30 d50": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7217361111111111,
+            "low": 0.5528472222222222,
+            "high": 0.875,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7477197786179612,
+            "low": 0.579266266296534,
+            "high": 0.8946394630357186,
+            "confidence": 0.95
+          }
+        },
+        "rrf k100 d50": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7460964912280701,
+            "low": 0.576359649122807,
+            "high": 0.9,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7661732909393884,
+            "low": 0.5946394630357187,
+            "high": 0.9130929753571457,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 bm25x2": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7116053921568627,
+            "low": 0.541591911764706,
+            "high": 0.8668345588235291,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7411732909393883,
+            "low": 0.5711479713895818,
+            "high": 0.8880929753571458,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 densex2": {
+          "recall@5": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.85,
+            "low": 0.7,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.6841596638655462,
+            "low": 0.5150259103641458,
+            "high": 0.8379411764705882,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7205285910760186,
+            "low": 0.5517782560805999,
+            "high": 0.8642937337055948,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 (served) + rerank": {
+          "recall@5": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 1.0,
+            "low": 1.0,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8621428571428572,
+            "low": 0.7221428571428572,
+            "high": 0.975,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8942128833397067,
+            "low": 0.7870655007206651,
+            "high": 0.9815464876785729,
+            "confidence": 0.95
+          }
+        },
+        "rrf k10 d50 + rerank": {
+          "recall@5": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 1.0,
+            "low": 1.0,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8621428571428572,
+            "low": 0.7221428571428572,
+            "high": 0.975,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8942128833397067,
+            "low": 0.7870655007206651,
+            "high": 0.9815464876785729,
+            "confidence": 0.95
+          }
+        }
+      },
+      "paired": [
+        {
+          "baseline": "bm25",
+          "candidate": "dense",
+          "metric": "recall@5",
+          "delta": 0.05,
+          "low": -0.1,
+          "high": 0.2,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "bm25",
+          "candidate": "dense",
+          "metric": "mrr",
+          "delta": -0.012949888771806578,
+          "low": -0.20735159817351598,
+          "high": 0.1810756790773913,
+          "p_value": 0.9237076292370763,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "bm25",
+          "candidate": "rrf k60 d50 (served)",
+          "metric": "recall@5",
+          "delta": 0.0,
+          "low": -0.15,
+          "high": 0.15,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "bm25",
+          "candidate": "rrf k60 d50 (served)",
+          "metric": "mrr",
+          "delta": 0.04263378194344308,
+          "low": -0.0849984729231755,
+          "high": 0.17167107265881598,
+          "p_value": 0.5696430356964304,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "dense",
+          "candidate": "rrf k60 d50 (served)",
+          "metric": "recall@5",
+          "delta": -0.05,
+          "low": -0.15,
+          "high": 0.0,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "dense",
+          "candidate": "rrf k60 d50 (served)",
+          "metric": "mrr",
+          "delta": 0.05558367071524965,
+          "low": -0.05750151821862346,
+          "high": 0.17789617071524966,
+          "p_value": 0.37046295370462956,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k60 d20 (ablation)",
+          "metric": "recall@5",
+          "delta": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k60 d20 (ablation)",
+          "metric": "mrr",
+          "delta": 0.005532296650717704,
+          "low": 0.0,
+          "high": 0.014683014354066987,
+          "p_value": 0.49495050494950504,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k10 d50",
+          "metric": "recall@5",
+          "delta": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k10 d50",
+          "metric": "mrr",
+          "delta": -0.02054093567251462,
+          "low": -0.075,
+          "high": 0.010307017543859648,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k60 d50 (served) + rerank",
+          "metric": "recall@5",
+          "delta": 0.05,
+          "low": 0.0,
+          "high": 0.15,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k60 d50 (served) + rerank",
+          "metric": "mrr",
+          "delta": 0.11604636591478697,
+          "low": -0.03635150375939823,
+          "high": 0.276296992481203,
+          "p_value": 0.1521847815218478,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served) + rerank",
+          "candidate": "rrf k10 d50 + rerank",
+          "metric": "recall@5",
+          "delta": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served) + rerank",
+          "candidate": "rrf k10 d50 + rerank",
+          "metric": "mrr",
+          "delta": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        }
+      ],
+      "slices": [
+        {
+          "slice": "legal reference",
+          "n": 0
+        },
+        {
+          "slice": "no legal reference",
+          "n": 20,
+          "bm25 | recall@5": 0.85,
+          "bm25 | mrr": 0.7034627092846271,
+          "dense | recall@5": 0.9,
+          "dense | mrr": 0.6905128205128206,
+          "rrf k60 d50 (served) | recall@5": 0.85,
+          "rrf k60 d50 (served) | mrr": 0.7460964912280701,
+          "rrf k60 d50 (served) + rerank | recall@5": 0.9,
+          "rrf k60 d50 (served) + rerank | mrr": 0.8621428571428572
+        },
+        {
+          "slice": "overlap low (<= 0.67)",
+          "n": 8,
+          "bm25 | recall@5": 0.625,
+          "bm25 | mrr": 0.4669901065449011,
+          "dense | recall@5": 0.75,
+          "dense | mrr": 0.6346153846153846,
+          "rrf k60 d50 (served) | recall@5": 0.625,
+          "rrf k60 d50 (served) | mrr": 0.5214912280701754,
+          "rrf k60 d50 (served) + rerank | recall@5": 0.75,
+          "rrf k60 d50 (served) + rerank | mrr": 0.7803571428571429
+        },
+        {
+          "slice": "overlap mid",
+          "n": 7,
+          "bm25 | recall@5": 1.0,
+          "bm25 | mrr": 0.8571428571428571,
+          "dense | recall@5": 1.0,
+          "dense | mrr": 0.7619047619047619,
+          "rrf k60 d50 (served) | recall@5": 1.0,
+          "rrf k60 d50 (served) | mrr": 1.0,
+          "rrf k60 d50 (served) + rerank | recall@5": 1.0,
+          "rrf k60 d50 (served) + rerank | mrr": 0.9285714285714286
+        },
+        {
+          "slice": "overlap high (> 0.86)",
+          "n": 5,
+          "bm25 | recall@5": 1.0,
+          "bm25 | mrr": 0.8666666666666666,
+          "dense | recall@5": 1.0,
+          "dense | mrr": 0.6799999999999999,
+          "rrf k60 d50 (served) | recall@5": 1.0,
+          "rrf k60 d50 (served) | mrr": 0.75,
+          "rrf k60 d50 (served) + rerank | recall@5": 1.0,
+          "rrf k60 d50 (served) + rerank | mrr": 0.9
+        }
+      ]
+    },
+    "silver-dev": {
+      "n": 866,
+      "ceiling": {
+        "20": 0.9838337182448037,
+        "50": 0.9930715935334873,
+        "100": 0.9953810623556582
+      },
+      "summary": {
+        "bm25": {
+          "recall@5": {
+            "point": 0.8926096997690531,
+            "low": 0.871824480369515,
+            "high": 0.9122401847575058,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9399538106235565,
+            "low": 0.9237875288683602,
+            "high": 0.9549653579676675,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7870677722585873,
+            "low": 0.764284585443817,
+            "high": 0.8093140773368529,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8225403114964006,
+            "low": 0.8023248857390705,
+            "high": 0.84213007189879,
+            "confidence": 0.95
+          }
+        },
+        "dense": {
+          "recall@5": {
+            "point": 0.8706697459584296,
+            "low": 0.8475750577367206,
+            "high": 0.8926096997690531,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9237875288683602,
+            "low": 0.9053117782909931,
+            "high": 0.941108545034642,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7589798595122703,
+            "low": 0.7349091875906961,
+            "high": 0.7826209814146724,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7964912105440161,
+            "low": 0.7748712453202284,
+            "high": 0.8178419709605785,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 (served)": {
+          "recall@5": {
+            "point": 0.9145496535796767,
+            "low": 0.8960739030023095,
+            "high": 0.9330254041570438,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.953810623556582,
+            "low": 0.9387990762124712,
+            "high": 0.9676674364896074,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.805884655710779,
+            "low": 0.7839391127140306,
+            "high": 0.827398377531972,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8405279310253345,
+            "low": 0.8215913319157133,
+            "high": 0.8590818026247431,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d20 (ablation)": {
+          "recall@5": {
+            "point": 0.9122401847575058,
+            "low": 0.8926096997690531,
+            "high": 0.930715935334873,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9515011547344111,
+            "low": 0.9364896073903002,
+            "high": 0.9653579676674365,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8051616854529309,
+            "low": 0.7832161127304544,
+            "high": 0.8267941662344339,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8394752723319349,
+            "low": 0.8205140840871255,
+            "high": 0.8581202730671094,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d100": {
+          "recall@5": {
+            "point": 0.9157043879907621,
+            "low": 0.8972286374133949,
+            "high": 0.9341801385681293,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9572748267898383,
+            "low": 0.9434180138568129,
+            "high": 0.9699769053117783,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8061726398259985,
+            "low": 0.7841571357316479,
+            "high": 0.8276527369232051,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8417229860259557,
+            "low": 0.8229128376383724,
+            "high": 0.8602206426334164,
+            "confidence": 0.95
+          }
+        },
+        "rrf k10 d50": {
+          "recall@5": {
+            "point": 0.9133949191685913,
+            "low": 0.8937644341801386,
+            "high": 0.9318706697459584,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9572748267898383,
+            "low": 0.9434180138568129,
+            "high": 0.9699769053117783,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8078494223490694,
+            "low": 0.7860851311112469,
+            "high": 0.8291566958219865,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8430708084562147,
+            "low": 0.8243734284484984,
+            "high": 0.8612317424899955,
+            "confidence": 0.95
+          }
+        },
+        "rrf k30 d50": {
+          "recall@5": {
+            "point": 0.9157043879907621,
+            "low": 0.8972286374133949,
+            "high": 0.9341801385681293,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.953810623556582,
+            "low": 0.9399538106235565,
+            "high": 0.9676674364896074,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8062441007914923,
+            "low": 0.7843962069476956,
+            "high": 0.8277632199638955,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8408290718094898,
+            "low": 0.8218450379853411,
+            "high": 0.8593869933920197,
+            "confidence": 0.95
+          }
+        },
+        "rrf k100 d50": {
+          "recall@5": {
+            "point": 0.9133949191685913,
+            "low": 0.8937644341801386,
+            "high": 0.9318706697459584,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9549653579676675,
+            "low": 0.941108545034642,
+            "high": 0.9688221709006929,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8059065582818832,
+            "low": 0.7839062744146654,
+            "high": 0.8273639311471271,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8408832348480064,
+            "low": 0.8218921396449419,
+            "high": 0.8593723683864627,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 bm25x2": {
+          "recall@5": {
+            "point": 0.9122401847575058,
+            "low": 0.8926096997690531,
+            "high": 0.930715935334873,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9503464203233256,
+            "low": 0.9353348729792148,
+            "high": 0.964203233256351,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8071001859967933,
+            "low": 0.7851914636110293,
+            "high": 0.828655543595863,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8406496631298586,
+            "low": 0.8214338972569318,
+            "high": 0.8592414585564525,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 densex2": {
+          "recall@5": {
+            "point": 0.9087759815242494,
+            "low": 0.8891454965357968,
+            "high": 0.9272517321016166,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.953810623556582,
+            "low": 0.9399538106235565,
+            "high": 0.9676674364896074,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7987997259884773,
+            "low": 0.7764872726671196,
+            "high": 0.8210020515543357,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8351979514231853,
+            "low": 0.8158759179412791,
+            "high": 0.8542295666052167,
+            "confidence": 0.95
+          }
+        }
+      }
+    },
+    "silver-test": {
+      "n": 883,
+      "ceiling": {
+        "20": 0.9762174405436014,
+        "50": 0.9875424688561721,
+        "100": 0.9966024915062288
+      },
+      "summary": {
+        "bm25": {
+          "recall@5": {
+            "point": 0.9139297848244621,
+            "low": 0.8946772366930917,
+            "high": 0.9320498301245753,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9501698754246886,
+            "low": 0.9354473386183465,
+            "high": 0.9637599093997735,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.800395212933763,
+            "low": 0.7787477772042769,
+            "high": 0.8218362361111471,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8360020203599139,
+            "low": 0.8169868821210463,
+            "high": 0.8546076486649451,
+            "confidence": 0.95
+          }
+        },
+        "dense": {
+          "recall@5": {
+            "point": 0.8901472253680635,
+            "low": 0.8686296715741789,
+            "high": 0.9105322763306908,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.927519818799547,
+            "low": 0.9105322763306908,
+            "high": 0.9445073612684032,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7782722707950588,
+            "low": 0.755582116593114,
+            "high": 0.8011504012962095,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8125668680555803,
+            "low": 0.7923079926626544,
+            "high": 0.832929180580223,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 (served)": {
+          "recall@5": {
+            "point": 0.9297848244620611,
+            "low": 0.912797281993205,
+            "high": 0.9467723669309174,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9614949037372593,
+            "low": 0.9479048697621744,
+            "high": 0.9739524348810872,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8295784916540333,
+            "low": 0.8094009945582201,
+            "high": 0.8501128642181894,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8612752858003112,
+            "low": 0.8440241256115445,
+            "high": 0.87889283274482,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d20 (ablation)": {
+          "recall@5": {
+            "point": 0.9331823329558324,
+            "low": 0.9161947904869762,
+            "high": 0.9490373725934315,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9637599093997735,
+            "low": 0.9501698754246886,
+            "high": 0.9762174405436014,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8292193879977751,
+            "low": 0.8091656717379433,
+            "high": 0.84991837455955,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8617807155195344,
+            "low": 0.8446594791071392,
+            "high": 0.8791925219354316,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d100": {
+          "recall@5": {
+            "point": 0.928652321630804,
+            "low": 0.9116647791619479,
+            "high": 0.9456398640996603,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9626274065685164,
+            "low": 0.9490373725934315,
+            "high": 0.9750849377123443,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8300523040262692,
+            "low": 0.809908950976398,
+            "high": 0.8505342613311773,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8618448678033744,
+            "low": 0.8446754207923888,
+            "high": 0.8793587221139804,
+            "confidence": 0.95
+          }
+        },
+        "rrf k10 d50": {
+          "recall@5": {
+            "point": 0.9365798414496036,
+            "low": 0.9195922989807475,
+            "high": 0.9524348810872028,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9648924122310306,
+            "low": 0.9524348810872028,
+            "high": 0.9762174405436014,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8317219758713094,
+            "low": 0.8117750068966212,
+            "high": 0.8521350504459857,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8638594111621261,
+            "low": 0.8468066697550589,
+            "high": 0.8812107853601951,
+            "confidence": 0.95
+          }
+        },
+        "rrf k30 d50": {
+          "recall@5": {
+            "point": 0.9320498301245753,
+            "low": 0.9150622876557192,
+            "high": 0.9479048697621744,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9626274065685164,
+            "low": 0.9490373725934315,
+            "high": 0.9750849377123443,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8307639882907698,
+            "low": 0.8106461061220602,
+            "high": 0.8513316212334172,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8625123614826589,
+            "low": 0.8453650488691415,
+            "high": 0.8800274493657361,
+            "confidence": 0.95
+          }
+        },
+        "rrf k100 d50": {
+          "recall@5": {
+            "point": 0.9297848244620611,
+            "low": 0.912797281993205,
+            "high": 0.9467723669309174,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9614949037372593,
+            "low": 0.9479048697621744,
+            "high": 0.9739524348810872,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.829546134430283,
+            "low": 0.8093580242538215,
+            "high": 0.8501066966974561,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8612493810961496,
+            "low": 0.8439841657133342,
+            "high": 0.87889283274482,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 bm25x2": {
+          "recall@5": {
+            "point": 0.9309173272933182,
+            "low": 0.9139297848244621,
+            "high": 0.9479048697621744,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9580973952434881,
+            "low": 0.9445073612684032,
+            "high": 0.970554926387316,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8237311218350947,
+            "low": 0.8031967715978178,
+            "high": 0.8444515953154212,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8560984254433253,
+            "low": 0.83831641187246,
+            "high": 0.873929309852313,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 densex2": {
+          "recall@5": {
+            "point": 0.927519818799547,
+            "low": 0.9105322763306908,
+            "high": 0.9445073612684032,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9580973952434881,
+            "low": 0.9445073612684032,
+            "high": 0.970554926387316,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8218108015450316,
+            "low": 0.8015840240168636,
+            "high": 0.8427640047037666,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8544569753691783,
+            "low": 0.8369763896227592,
+            "high": 0.872239945920199,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 (served) + rerank": {
+          "recall@5": {
+            "point": 0.9150622876557192,
+            "low": 0.8958097395243488,
+            "high": 0.9331823329558324,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9580973952434881,
+            "low": 0.9445073612684032,
+            "high": 0.970554926387316,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7778219687159709,
+            "low": 0.755631603568465,
+            "high": 0.7996044754797995,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8210712036789609,
+            "low": 0.8020627873948395,
+            "high": 0.839501069269916,
+            "confidence": 0.95
+          }
+        },
+        "rrf k10 d50 + rerank": {
+          "recall@5": {
+            "point": 0.9139297848244621,
+            "low": 0.8946772366930917,
+            "high": 0.9320498301245753,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.956964892412231,
+            "low": 0.942242355605889,
+            "high": 0.970554926387316,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7777851278538933,
+            "low": 0.7555831445307101,
+            "high": 0.7995720811224638,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.820715073409495,
+            "low": 0.8015856231264825,
+            "high": 0.8392088471896816,
+            "confidence": 0.95
+          }
+        }
+      },
+      "paired": [
+        {
+          "baseline": "bm25",
+          "candidate": "dense",
+          "metric": "recall@5",
+          "delta": -0.02378255945639864,
+          "low": -0.044167610419026046,
+          "high": -0.0033975084937712344,
+          "p_value": 0.030796920307969204,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "bm25",
+          "candidate": "dense",
+          "metric": "mrr",
+          "delta": -0.022122942138704076,
+          "low": -0.04452525704192569,
+          "high": 0.00028610231272295294,
+          "p_value": 0.054894510548945105,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "bm25",
+          "candidate": "rrf k60 d50 (served)",
+          "metric": "recall@5",
+          "delta": 0.015855039637599093,
+          "low": 0.0,
+          "high": 0.031710079275198186,
+          "p_value": 0.0643935606439356,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "bm25",
+          "candidate": "rrf k60 d50 (served)",
+          "metric": "mrr",
+          "delta": 0.02918327872027027,
+          "low": 0.01277500139470446,
+          "high": 0.045723211564669214,
+          "p_value": 0.0006999300069993001,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "dense",
+          "candidate": "rrf k60 d50 (served)",
+          "metric": "recall@5",
+          "delta": 0.039637599093997736,
+          "low": 0.02491506228765572,
+          "high": 0.05549263873159683,
+          "p_value": 9.999000099990002e-05,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "dense",
+          "candidate": "rrf k60 d50 (served)",
+          "metric": "mrr",
+          "delta": 0.051306220858974336,
+          "low": 0.03729377698497038,
+          "high": 0.06544770757166364,
+          "p_value": 9.999000099990002e-05,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k60 d20 (ablation)",
+          "metric": "recall@5",
+          "delta": 0.0033975084937712344,
+          "low": -0.0011325028312570782,
+          "high": 0.009060022650056626,
+          "p_value": 0.37406259374062595,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k60 d20 (ablation)",
+          "metric": "mrr",
+          "delta": -0.0003591036562581357,
+          "low": -0.0015069327992682433,
+          "high": 0.0008119588649130739,
+          "p_value": 0.5705429457054294,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k10 d50",
+          "metric": "recall@5",
+          "delta": 0.006795016987542469,
+          "low": -0.0011325028312570782,
+          "high": 0.014722536806342015,
+          "p_value": 0.14678532146785322,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k10 d50",
+          "metric": "mrr",
+          "delta": 0.00214348421727628,
+          "low": -0.0006862184407007592,
+          "high": 0.00497402957018463,
+          "p_value": 0.1451854814518548,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k60 d50 (served) + rerank",
+          "metric": "recall@5",
+          "delta": -0.014722536806342015,
+          "low": -0.03284258210645526,
+          "high": 0.0033975084937712344,
+          "p_value": 0.15378462153784622,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served)",
+          "candidate": "rrf k60 d50 (served) + rerank",
+          "metric": "mrr",
+          "delta": -0.051756522938062204,
+          "low": -0.07345843182436369,
+          "high": -0.03070385806769774,
+          "p_value": 9.999000099990002e-05,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served) + rerank",
+          "candidate": "rrf k10 d50 + rerank",
+          "metric": "recall@5",
+          "delta": -0.0011325028312570782,
+          "low": -0.0033975084937712344,
+          "high": 0.0,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k60 d50 (served) + rerank",
+          "candidate": "rrf k10 d50 + rerank",
+          "metric": "mrr",
+          "delta": -3.68408620777937e-05,
+          "low": -0.0005394128779567179,
+          "high": 0.0003831983914835434,
+          "p_value": 0.8748125187481252,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        }
+      ],
+      "slices": [
+        {
+          "slice": "legal reference",
+          "n": 740,
+          "bm25 | recall@5": 0.9121621621621622,
+          "bm25 | mrr": 0.7964960387608381,
+          "dense | recall@5": 0.8864864864864865,
+          "dense | mrr": 0.7758895775232876,
+          "rrf k60 d50 (served) | recall@5": 0.9297297297297298,
+          "rrf k60 d50 (served) | mrr": 0.8297820580792757,
+          "rrf k60 d50 (served) + rerank | recall@5": 0.9108108108108108,
+          "rrf k60 d50 (served) + rerank | mrr": 0.7736410022516833
+        },
+        {
+          "slice": "no legal reference",
+          "n": 143,
+          "bm25 | recall@5": 0.9230769230769231,
+          "bm25 | mrr": 0.8205727576048432,
+          "dense | recall@5": 0.9090909090909091,
+          "dense | mrr": 0.7906022919217078,
+          "rrf k60 d50 (served) | recall@5": 0.9300699300699301,
+          "rrf k60 d50 (served) | mrr": 0.8285250709919392,
+          "rrf k60 d50 (served) + rerank | recall@5": 0.9370629370629371,
+          "rrf k60 d50 (served) + rerank | mrr": 0.7994577392304665
+        },
+        {
+          "slice": "overlap low (<= 0.58)",
+          "n": 296,
+          "bm25 | recall@5": 0.8445945945945946,
+          "bm25 | mrr": 0.6885243226750409,
+          "dense | recall@5": 0.8074324324324325,
+          "dense | mrr": 0.6909277096307559,
+          "rrf k60 d50 (served) | recall@5": 0.8783783783783784,
+          "rrf k60 d50 (served) | mrr": 0.7578345242701359,
+          "rrf k60 d50 (served) + rerank | recall@5": 0.8614864864864865,
+          "rrf k60 d50 (served) + rerank | mrr": 0.6963682743288007
+        },
+        {
+          "slice": "overlap mid",
+          "n": 298,
+          "bm25 | recall@5": 0.9429530201342282,
+          "bm25 | mrr": 0.8316287992963143,
+          "dense | recall@5": 0.912751677852349,
+          "dense | mrr": 0.7973509338137926,
+          "rrf k60 d50 (served) | recall@5": 0.9395973154362416,
+          "rrf k60 d50 (served) | mrr": 0.8505395062770318,
+          "rrf k60 d50 (served) + rerank | recall@5": 0.9295302013422819,
+          "rrf k60 d50 (served) + rerank | mrr": 0.7851023789782179
+        },
+        {
+          "slice": "overlap high (> 0.72)",
+          "n": 289,
+          "bm25 | recall@5": 0.9550173010380623,
+          "bm25 | mrr": 0.8827695201328681,
+          "dense | recall@5": 0.9515570934256056,
+          "dense | mrr": 0.8480596359336436,
+          "rrf k60 d50 (served) | recall@5": 0.972318339100346,
+          "rrf k60 d50 (served) | mrr": 0.8814464224082893,
+          "rrf k60 d50 (served) + rerank | recall@5": 0.9550173010380623,
+          "rrf k60 d50 (served) + rerank | mrr": 0.8537414541154619
+        }
+      ]
+    }
+  }
+}
