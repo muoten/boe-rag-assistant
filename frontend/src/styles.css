@@ -240,6 +240,15 @@ body {
   margin: 1.5rem 0 0.75rem;
 }
 
+.other-sources > summary {
+  cursor: pointer;
+}
+
+.other-sources > summary:hover,
+.other-sources > summary:focus-visible {
+  color: var(--text);
+}
+
 .sources-list {
   list-style: none;
   margin: 0;
