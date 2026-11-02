@@ -17,6 +17,9 @@ Configuration via environment (or a local ``.env`` — see ``.env.example`` and
         cross-origin (the deployed UI); unset = same-origin only.
     ``BOE_FRONTEND_URL``  where the API root (``/``) redirects; defaults to the
         GitHub Pages UI.
+    ``BOE_RERANK``  ``false`` serves hybrid retrieval without the cross-encoder
+        (faster on CPU; see ``reports/retrieval_fusion.md``); default on.
+    ``BOE_RRF_K``  RRF damping constant (default 60).
     ``OPENROUTER_API_KEY`` / ``GROQ_API_KEY``  at least one is required for ``/ask``
         (tried in that order; the first with a key leads) — unless Foundry is set.
     ``FOUNDRY_ENDPOINT`` / ``FOUNDRY_DEPLOYMENT``  serve ``/ask`` from a Microsoft
@@ -37,7 +40,7 @@ from fastapi import FastAPI
 
 from boe_rag.eval.cross_encoder import CrossEncoderReranker
 from boe_rag.eval.embedding import E5Embedder
-from boe_rag.eval.hybrid import HybridRetriever
+from boe_rag.eval.hybrid import DEFAULT_K_RRF, HybridRetriever
 from boe_rag.eval.qdrant_store import connect_searcher
 from boe_rag.eval.retriever import DenseRetriever, Searcher, load_embeddings
 from boe_rag.eval.sparse import BM25Index
@@ -163,13 +166,19 @@ def build_engine(corpus_path: Path | None = None) -> RagEngine:
     dense = _build_dense_leg(ids, texts)
     bm25 = BM25Index()
     bm25.index(ids, texts)
-    hybrid = HybridRetriever(dense, bm25)
+    hybrid = HybridRetriever(dense, bm25, k_rrf=_SETTINGS.rrf_k or DEFAULT_K_RRF)
+    rerank = _SETTINGS.rerank is not False
+    logger.info(
+        "Hybrid retrieval with k_rrf=%d, cross-encoder rerank %s.",
+        _SETTINGS.rrf_k or DEFAULT_K_RRF,
+        "on" if rerank else "off",
+    )
 
     return RagEngine(
         retriever=hybrid,
         lookup=lookup,
         provider=FallbackProvider(providers),
-        reranker=CrossEncoderReranker(),
+        reranker=CrossEncoderReranker() if rerank else None,
         tracer=build_tracer(),
     )
 

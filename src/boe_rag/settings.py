@@ -48,6 +48,11 @@ class Settings(BaseSettings):
         reports_dir: Directory of eval report JSON (``BOE_REPORTS_DIR``).
         cors_origins: Comma-separated browser origins allowed to call the API
             cross-origin (``BOE_CORS_ORIGINS``); see :attr:`cors_origins_list`.
+        rerank: Whether to rerank with the cross-encoder (``BOE_RERANK``); unset
+            keeps it on. The fusion ablation found it lowers MRR on the silver
+            set and costs most of a CPU query's latency.
+        rrf_k: RRF damping constant for hybrid retrieval (``BOE_RRF_K``); unset
+            keeps the default of 60.
         frontend_url: URL the API root (``/``) redirects browsers to
             (``BOE_FRONTEND_URL``); the deployed single-page UI. When unset the
             serving entrypoint supplies its own default, so the Space root always
@@ -83,6 +88,8 @@ class Settings(BaseSettings):
 
     cors_origins: str | None = Field(default=None, validation_alias="BOE_CORS_ORIGINS")
     frontend_url: str | None = Field(default=None, validation_alias="BOE_FRONTEND_URL")
+    rerank: bool | None = Field(default=None, validation_alias="BOE_RERANK")
+    rrf_k: int | None = Field(default=None, validation_alias="BOE_RRF_K", gt=0)
 
     qdrant_url: str | None = Field(default=None, validation_alias="QDRANT_URL")
     qdrant_path: str | None = Field(default=None, validation_alias="QDRANT_PATH")

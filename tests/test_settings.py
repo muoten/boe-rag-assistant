@@ -130,3 +130,18 @@ def test_load_environment_missing_file_is_noop(
     monkeypatch.delenv("GROQ_API_KEY", raising=False)
     settings = load_environment(tmp_path / "does-not-exist.env")
     assert settings.groq_api_key is None
+
+
+def test_retrieval_knobs(monkeypatch: pytest.MonkeyPatch) -> None:
+    """BOE_RERANK and BOE_RRF_K parse to typed values; unset means default."""
+    monkeypatch.delenv("BOE_RERANK", raising=False)
+    monkeypatch.delenv("BOE_RRF_K", raising=False)
+    settings = _settings(env_file=None)
+    assert settings.rerank is None and settings.rrf_k is None
+    monkeypatch.setenv("BOE_RERANK", "false")
+    monkeypatch.setenv("BOE_RRF_K", "10")
+    settings = _settings(env_file=None)
+    assert settings.rerank is False and settings.rrf_k == 10
+    monkeypatch.setenv("BOE_RRF_K", "0")
+    with pytest.raises(ValueError):
+        _settings(env_file=None)
