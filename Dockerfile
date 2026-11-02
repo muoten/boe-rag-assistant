@@ -46,9 +46,11 @@ COPY --chown=user scripts ./scripts
 # It is republished in lock-step with the corpus; app.build_engine re-encodes at
 # boot if the ids ever fail to match, so a stale matrix can't serve wrong results.
 ARG CORPUS_REPO_ID=gonzalonao/boe-corpus
+# Cross-platform builds pass --build-arg WARM_ARGS=--download-only (see warm_models.py).
+ARG WARM_ARGS=
 RUN python scripts/fetch_corpus.py --repo-id "${CORPUS_REPO_ID}" --out "${BOE_CORPUS_PATH}" \
  && python scripts/fetch_embeddings.py --repo-id "${CORPUS_REPO_ID}" --out "${BOE_EMBEDDINGS_PATH}" \
- && python scripts/warm_models.py
+ && python scripts/warm_models.py ${WARM_ARGS}
 
 EXPOSE 7860
 CMD ["uvicorn", "boe_rag.service.app:app", "--host", "0.0.0.0", "--port", "7860"]
