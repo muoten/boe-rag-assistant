@@ -12,6 +12,7 @@ import time
 from collections.abc import Callable, Sequence
 
 from boe_rag.llm.base import ChatMessage, LLMError, LLMProvider, LLMRateLimitError
+from boe_rag.llm.foundry import FoundryProvider
 from boe_rag.llm.groq import GroqProvider
 from boe_rag.llm.openrouter import OpenRouterProvider
 
@@ -22,13 +23,14 @@ DEFAULT_COOLDOWN_SECONDS = 60.0
 
 #: Provider builders keyed by short name.
 _BUILDERS: dict[str, Callable[[], LLMProvider]] = {
+    "foundry": FoundryProvider,
     "openrouter": OpenRouterProvider,
     "groq": GroqProvider,
 }
 
 
 def build_provider(name: str) -> LLMProvider:
-    """Construct a single provider by short name (``openrouter``/``groq``).
+    """Construct a single provider by short name (``foundry``/``openrouter``/``groq``).
 
     Args:
         name: Provider short name.
@@ -46,9 +48,12 @@ def build_provider(name: str) -> LLMProvider:
 
 
 def build_available_providers(
-    order: Sequence[str] = ("openrouter", "groq"),
+    order: Sequence[str] = ("foundry", "openrouter", "groq"),
 ) -> list[LLMProvider]:
-    """Build every provider in ``order`` whose API key is configured.
+    """Build every provider in ``order`` that is configured.
+
+    Foundry leads when ``FOUNDRY_ENDPOINT``/``FOUNDRY_DEPLOYMENT`` are set (an Azure
+    deployment); otherwise the chain is unchanged.
 
     Args:
         order: Provider short names in preference order.

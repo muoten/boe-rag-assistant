@@ -32,7 +32,9 @@ RUN pip install --no-cache-dir --user \
 # Install the package (dependencies cached on their own layer).
 COPY --chown=user pyproject.toml README.md ./
 COPY --chown=user src ./src
-RUN pip install --no-cache-dir --user ".[api,ml,hub]"
+# Azure builds add `azure` (Foundry + spending allowance): --build-arg EXTRAS=api,ml,hub,azure
+ARG EXTRAS=api,ml,hub
+RUN pip install --no-cache-dir --user ".[${EXTRAS}]"
 
 # App data and the build scripts.
 COPY --chown=user reports ./reports

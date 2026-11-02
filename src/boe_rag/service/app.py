@@ -18,7 +18,10 @@ Configuration via environment (or a local ``.env`` — see ``.env.example`` and
     ``BOE_FRONTEND_URL``  where the API root (``/``) redirects; defaults to the
         GitHub Pages UI.
     ``OPENROUTER_API_KEY`` / ``GROQ_API_KEY``  at least one is required for ``/ask``
-        (tried in that order; the first with a key leads).
+        (tried in that order; the first with a key leads) — unless Foundry is set.
+    ``FOUNDRY_ENDPOINT`` / ``FOUNDRY_DEPLOYMENT``  serve ``/ask`` from a Microsoft
+        Foundry deployment with managed identity (the ``azure`` extra); it leads
+        the chain. ``QUOTA_CONTAINER_URL`` / ``QUOTA_MONTHLY_EUR`` cap its spend.
     ``LANGFUSE_PUBLIC_KEY`` / ``LANGFUSE_SECRET_KEY`` (+ optional ``LANGFUSE_HOST``)
         opt-in: when both are set, pipeline stages are traced to Langfuse (needs
         the ``obs`` extra); otherwise tracing is a no-op.
@@ -149,8 +152,8 @@ def build_engine(corpus_path: Path | None = None) -> RagEngine:
     providers = build_available_providers()
     if not providers:
         raise LLMError(
-            "No LLM provider configured. Set OPENROUTER_API_KEY (recommended) "
-            "and/or GROQ_API_KEY."
+            "No LLM provider configured. Set OPENROUTER_API_KEY (recommended), "
+            "GROQ_API_KEY, or FOUNDRY_ENDPOINT and FOUNDRY_DEPLOYMENT."
         )
 
     logger.info("Loading corpus from %s ...", path)
