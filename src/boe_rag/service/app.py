@@ -43,7 +43,7 @@ from boe_rag.eval.embedding import E5Embedder
 from boe_rag.eval.hybrid import DEFAULT_K_RRF, HybridRetriever
 from boe_rag.eval.qdrant_store import connect_searcher
 from boe_rag.eval.retriever import DenseRetriever, Searcher, load_embeddings
-from boe_rag.eval.sparse import BM25Index
+from boe_rag.eval.sparse import BM25_COLUMNS, BM25Index, bm25_texts
 from boe_rag.llm.base import LLMError
 from boe_rag.llm.factory import FallbackProvider, build_available_providers
 from boe_rag.service.api import create_app
@@ -120,10 +120,10 @@ def _build_dense_leg(ids: list[str], texts: list[str]) -> Searcher:
 
 def _load_corpus(
     path: Path,
-) -> tuple[list[str], list[str], dict[str, ChunkInfo]]:
-    """Load chunk ids/texts and a chunk-id → :class:`ChunkInfo` lookup."""
+) -> tuple[list[str], list[str], list[str], dict[str, ChunkInfo]]:
+    """Load chunk ids, texts, BM25 texts and a chunk-id → :class:`ChunkInfo` lookup."""
     table = pq.read_table(  # type: ignore[no-untyped-call]
-        path, columns=["chunk_id", "text", "citation", "url_html"]
+        path, columns=["chunk_id", "text", "citation", "url_html", *BM25_COLUMNS]
     )
     data = table.to_pydict()
     ids = list(map(str, data["chunk_id"]))
@@ -134,7 +134,14 @@ def _load_corpus(
         cid: ChunkInfo(citation=cit, text=txt, url=url)
         for cid, txt, cit, url in zip(ids, texts, citations, urls, strict=True)
     }
-    return ids, texts, lookup
+    sparse_texts = bm25_texts(
+        list(map(str, data["document_id"])),
+        list(map(str, data["document_title"])),
+        list(map(int, data["ordinal"])),
+        data["articulo"],
+        texts,
+    )
+    return ids, texts, sparse_texts, lookup
 
 
 def build_engine(corpus_path: Path | None = None) -> RagEngine:
@@ -160,12 +167,12 @@ def build_engine(corpus_path: Path | None = None) -> RagEngine:
         )
 
     logger.info("Loading corpus from %s ...", path)
-    ids, texts, lookup = _load_corpus(path)
+    ids, texts, sparse_texts, lookup = _load_corpus(path)
 
     logger.info("Indexing %d chunks ...", len(ids))
     dense = _build_dense_leg(ids, texts)
     bm25 = BM25Index()
-    bm25.index(ids, texts)
+    bm25.index(ids, sparse_texts)
     hybrid = HybridRetriever(dense, bm25, k_rrf=_SETTINGS.rrf_k or DEFAULT_K_RRF)
     rerank = _SETTINGS.rerank is not False
     logger.info(

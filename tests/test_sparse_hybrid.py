@@ -14,7 +14,7 @@ import pytest
 
 from boe_rag.eval.hybrid import HybridRetriever, reciprocal_rank_fusion
 from boe_rag.eval.retriever import DenseRetriever, FloatMatrix
-from boe_rag.eval.sparse import BM25Index, tokenize_es
+from boe_rag.eval.sparse import BM25Index, bm25_texts, tokenize_es
 
 _DIM = 64
 
@@ -180,3 +180,42 @@ def test_hybrid_recovers_lexical_match_dense_alone_ranks_lower() -> None:
     # The query term only occurs in doc_lex; the lexical leg pins it to rank 1.
     results = hybrid.search("expediente sancionador 12345", k=4)
     assert results[0][0] == "doc_lex"
+
+
+def test_bm25_texts_prefix_titles_and_weight_head_chunks() -> None:
+    """Every chunk carries its title; chunk 0 and the first article carry it twice."""
+    texts = bm25_texts(
+        ["d1", "d1", "d1", "d1", "d2"],
+        ["RD 1/2020", "RD 1/2020", "RD 1/2020", "RD 1/2020", "Ley 2/2021"],
+        [0, 3, 2, 1, 0],
+        [None, "Disposición final única", "Artículo 2", "Artículo 1. Objeto", None],
+        ["preámbulo", "entrada en vigor", "plazos", "objeto", "texto"],
+    )
+    assert texts == [
+        "RD 1/2020. RD 1/2020. preámbulo",
+        "RD 1/2020. entrada en vigor",
+        "RD 1/2020. plazos",
+        "RD 1/2020. RD 1/2020. objeto",
+        "Ley 2/2021. Ley 2/2021. texto",
+    ]
+
+
+def test_a_norm_is_found_by_its_number_through_its_title() -> None:
+    """The object article outranks the norm's shorter boilerplate chunks."""
+    title = "Real Decreto 774/2017, por el que se regula la Comisión"
+    ids = ["head", "boiler", "other"]
+    texts = bm25_texts(
+        ["d1", "d1", "d2"],
+        [title, title, "Orden ABC/1/2020"],
+        [1, 2, 0],
+        ["Artículo 1. Objeto", "Disposición final", None],
+        [
+            "Artículo 1. Objeto. Este real decreto tiene por objeto regular la "
+            "Comisión para el Diálogo Civil con la Plataforma del Tercer Sector.",
+            "Entrada en vigor al día siguiente.",
+            "Esta orden regula otra cosa.",
+        ],
+    )
+    index = BM25Index()
+    index.index(ids, texts)
+    assert index.search("¿Qué regula el Real Decreto 774/2017?", 3)[0][0] == "head"

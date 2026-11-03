@@ -105,13 +105,23 @@ FUSIONS: dict[str, Fusion] = {
 }
 
 
-def _load_corpus(path: Path) -> tuple[list[str], list[str]]:
-    """Load chunk ids and texts."""
+def _load_corpus(path: Path) -> tuple[list[str], list[str], list[str]]:
+    """Load chunk ids, texts and the texts the BM25 leg indexes (with titles)."""
+    from boe_rag.eval.sparse import BM25_COLUMNS, bm25_texts
+
     table = pq.read_table(  # type: ignore[no-untyped-call]
-        path, columns=["chunk_id", "text"]
+        path, columns=["chunk_id", "text", *BM25_COLUMNS]
     )
     data = table.to_pydict()
-    return list(map(str, data["chunk_id"])), list(map(str, data["text"]))
+    texts = list(map(str, data["text"]))
+    sparse_texts = bm25_texts(
+        list(map(str, data["document_id"])),
+        list(map(str, data["document_title"])),
+        list(map(int, data["ordinal"])),
+        data["articulo"],
+        texts,
+    )
+    return list(map(str, data["chunk_id"])), texts, sparse_texts
 
 
 def _in_corpus(
@@ -125,7 +135,7 @@ def _in_corpus(
 def _retrieve_legs(
     examples: Sequence[EvalExample],
     chunk_ids: list[str],
-    texts: list[str],
+    sparse_texts: list[str],
     embeddings: Path,
     depth: int,
     cache: Path,
@@ -133,12 +143,14 @@ def _retrieve_legs(
     """Top-``depth`` BM25 and dense rankings per example, cached on disk."""
     from boe_rag.eval.sparse import tokenize_es
 
-    # The BM25 leg depends on the tokenizer; a probe string keys the cache to it.
+    # The BM25 leg depends on the tokenizer and on what it indexes; a probe
+    # string and the first indexed text key the cache to both.
     stamp = {
         "chunks": len(chunk_ids),
         "depth": depth,
         "embeddings": embeddings.name,
         "tokens": tokenize_es("Ley 39/2015, artículo 14"),
+        "bm25_text": sparse_texts[0][:200],
     }
     legs: dict[str, dict[str, list[str]]] = {}
     if cache.is_file():
@@ -160,7 +172,7 @@ def _retrieve_legs(
     dense.index_precomputed(chunk_ids, matrix)
     logger.info("Indexing BM25 over %d chunks ...", len(chunk_ids))
     bm25 = BM25Index()
-    bm25.index(chunk_ids, texts)
+    bm25.index(chunk_ids, sparse_texts)
     logger.info("Retrieving %d questions from both legs ...", len(todo))
     start = time.monotonic()
     for n, example in enumerate(todo, start=1):
@@ -367,7 +379,7 @@ def main(argv: list[str] | None = None) -> int:
     """Run the ablation and write the .md, .json and per-question .csv."""
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     args = _build_parser().parse_args(argv)
-    chunk_ids, texts = _load_corpus(args.corpus)
+    chunk_ids, texts, sparse_texts = _load_corpus(args.corpus)
     id_set, text_of = set(chunk_ids), dict(zip(chunk_ids, texts, strict=True))
     equivalence: TextEquivalence = build_text_equivalence(chunk_ids, texts)
 
@@ -387,7 +399,7 @@ def main(argv: list[str] | None = None) -> int:
     by_id = {e.example_id: e for e in examples}
 
     legs = _retrieve_legs(
-        examples, chunk_ids, texts, args.embeddings, args.depth, args.cache
+        examples, chunk_ids, sparse_texts, args.embeddings, args.depth, args.cache
     )
     rankings: dict[str, dict[str, list[str]]] = {
         "bm25": {i: legs[i]["bm25"] for i in by_id},
@@ -497,6 +509,7 @@ def main(argv: list[str] | None = None) -> int:
             "Cached depth per leg": args.depth,
             "Served": "50 per leg, k_rrf=10, no rerank (BOE_RRF_K, BOE_RERANK)",
             "BM25 tokens": "norm numbers kept whole (`39/2015` is one token)",
+            "BM25 text": "document title + text; title twice on head chunks",
             "Best fused variant": f"{best} (chosen on {select_on} by MRR)",
             "Dropped (gold not in corpus)": (
                 f"gold {gold_dropped}, silver {silver_dropped}"

@@ -126,6 +126,57 @@ def tokenize_es(text: str) -> list[str]:
     ]
 
 
+#: Corpus columns :func:`bm25_texts` reads, besides ``text``.
+BM25_COLUMNS = ("document_id", "document_title", "ordinal", "articulo")
+
+#: The first article of a norm, which usually states its object.
+_FIRST_ARTICLE_RE = re.compile(r"Artículo (1|primero|único)\b", re.IGNORECASE)
+
+
+def bm25_texts(
+    document_ids: Sequence[str],
+    titles: Sequence[str],
+    ordinals: Sequence[int],
+    articles: Sequence[str | None],
+    texts: Sequence[str],
+) -> list[str]:
+    """Chunk texts as the BM25 leg indexes them: prefixed with the document title.
+
+    A norm never names itself in its own articles ("este real decreto…"), so
+    without its title no chunk of Real Decreto 774/2017 contains ``774/2017`` and
+    "¿Qué regula el Real Decreto 774/2017?" cannot reach it. Every chunk gets the
+    title once; a document's *head* chunks (its first chunk and its first article,
+    usually the object article) get it twice, a crude 2x field weight so that
+    the head outranks short boilerplate chunks ("Entrada en vigor") of the same
+    norm. Only the index changes; passages are shown with their original text.
+
+    Args:
+        document_ids: Document id per chunk.
+        titles: Document title per chunk.
+        ordinals: Chunk position within its document.
+        articles: Article heading per chunk, if any.
+        texts: Chunk texts.
+
+    Returns:
+        The texts to index, aligned with the inputs.
+    """
+    head: set[int] = set()
+    first_article: dict[str, tuple[int, int]] = {}  # document -> (ordinal, index)
+    for i, (doc, ordinal, article) in enumerate(
+        zip(document_ids, ordinals, articles, strict=True)
+    ):
+        if ordinal == 0:
+            head.add(i)
+        is_first = bool(article and _FIRST_ARTICLE_RE.match(article))
+        if is_first and (doc not in first_article or ordinal < first_article[doc][0]):
+            first_article[doc] = (ordinal, i)
+    head.update(i for _, i in first_article.values())
+    return [
+        f"{title}. {title}. {text}" if i in head else f"{title}. {text}"
+        for i, (title, text) in enumerate(zip(titles, texts, strict=True))
+    ]
+
+
 class BM25Index:
     """In-memory Okapi BM25 retriever over a tokenised corpus.
 

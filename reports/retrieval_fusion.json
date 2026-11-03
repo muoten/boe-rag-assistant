@@ -1,11 +1,12 @@
 {
   "meta": {
-    "Generated": "2026-11-03 08:30 UTC",
+    "Generated": "2026-11-03 10:58 UTC",
     "Corpus": "`boe-2015-present.parquet` (25920 chunks, 758 byte-identical duplicates folded)",
     "Cached depth per leg": 100,
     "Served": "50 per leg, k_rrf=10, no rerank (BOE_RRF_K, BOE_RERANK)",
     "BM25 tokens": "norm numbers kept whole (`39/2015` is one token)",
-    "Best fused variant": "rrf k10 d50 (served) (chosen on silver-dev by MRR)",
+    "BM25 text": "document title + text; title twice on head chunks",
+    "Best fused variant": "rrf k60 d50 bm25x2 (chosen on silver-dev by MRR)",
     "Dropped (gold not in corpus)": "gold 0, silver 0",
     "Silver split": "by document, test 0.5, seed 0"
   },
@@ -26,21 +27,21 @@
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9,
-            "low": 0.75,
+            "point": 0.85,
+            "low": 0.7,
             "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.6617960426179603,
-            "low": 0.5048325722983258,
-            "high": 0.8166666666666667,
+            "point": 0.8094561688311689,
+            "low": 0.645614853896104,
+            "high": 0.95,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.7189963100696927,
-            "low": 0.5708254137500102,
-            "high": 0.8559033347125469,
+            "point": 0.8130929753571458,
+            "low": 0.6446394630357186,
+            "high": 0.95,
             "confidence": 0.95
           }
         },
@@ -78,51 +79,25 @@
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.85,
-            "low": 0.7,
+            "point": 0.95,
+            "low": 0.85,
             "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7495454545454546,
-            "low": 0.5832575757575758,
-            "high": 0.9,
+            "point": 0.7237745098039216,
+            "low": 0.5642156862745098,
+            "high": 0.8696078431372548,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.7661732909393884,
-            "low": 0.5946394630357187,
-            "high": 0.9130929753571457,
+            "point": 0.7767940096501906,
+            "low": 0.6361196533668418,
+            "high": 0.8987136940679481,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 (upstream)": {
-          "recall@5": {
-            "point": 0.85,
-            "low": 0.7,
-            "high": 1.0,
-            "confidence": 0.95
-          },
-          "recall@10": {
-            "point": 0.85,
-            "low": 0.7,
-            "high": 1.0,
-            "confidence": 0.95
-          },
-          "mrr": {
-            "point": 0.7462426900584795,
-            "low": 0.5767982456140351,
-            "high": 0.9,
-            "confidence": 0.95
-          },
-          "ndcg@10": {
-            "point": 0.7661732909393884,
-            "low": 0.5946394630357187,
-            "high": 0.9130929753571457,
-            "confidence": 0.95
-          }
-        },
-        "rrf k60 d20 (ablation)": {
           "recall@5": {
             "point": 0.85,
             "low": 0.7,
@@ -136,15 +111,41 @@
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.751628787878788,
-            "low": 0.5862121212121212,
-            "high": 0.9,
+            "point": 0.7183823529411765,
+            "low": 0.5534313725490196,
+            "high": 0.866709558823529,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.7819465347786748,
-            "low": 0.6234763882289441,
-            "high": 0.9161732909393884,
+            "point": 0.7589836502947895,
+            "low": 0.6020448736908304,
+            "high": 0.8946394630357186,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d20 (ablation)": {
+          "recall@5": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.95,
+            "low": 0.85,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7279411764705882,
+            "low": 0.5708149509803923,
+            "high": 0.8708333333333333,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.7805174781984592,
+            "low": 0.6417781358737336,
+            "high": 0.9,
             "confidence": 0.95
           }
         },
@@ -156,21 +157,21 @@
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.85,
-            "low": 0.7,
+            "point": 0.9,
+            "low": 0.75,
             "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7455952380952381,
-            "low": 0.5753571428571428,
-            "high": 0.9,
+            "point": 0.7170540796963947,
+            "low": 0.5508776091081595,
+            "high": 0.8666763519924099,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.7661732909393884,
-            "low": 0.5946394630357187,
-            "high": 0.9130929753571457,
+            "point": 0.7589836502947895,
+            "low": 0.6020448736908304,
+            "high": 0.8946394630357186,
             "confidence": 0.95
           }
         },
@@ -182,21 +183,21 @@
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.85,
-            "low": 0.7,
+            "point": 0.9,
+            "low": 0.75,
             "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.746736111111111,
-            "low": 0.5778472222222222,
-            "high": 0.9,
+            "point": 0.7192873303167421,
+            "low": 0.5558743401206637,
+            "high": 0.8667321832579178,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.7661732909393884,
-            "low": 0.5946394630357187,
-            "high": 0.9130929753571457,
+            "point": 0.7589836502947895,
+            "low": 0.6020448736908304,
+            "high": 0.8946394630357186,
             "confidence": 0.95
           }
         },
@@ -208,21 +209,21 @@
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.85,
-            "low": 0.7,
+            "point": 0.9,
+            "low": 0.75,
             "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7462426900584795,
-            "low": 0.5767982456140351,
-            "high": 0.9,
+            "point": 0.7183823529411765,
+            "low": 0.5534313725490196,
+            "high": 0.866709558823529,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.7661732909393884,
-            "low": 0.5946394630357187,
-            "high": 0.9130929753571457,
+            "point": 0.7589836502947895,
+            "low": 0.6020448736908304,
+            "high": 0.8946394630357186,
             "confidence": 0.95
           }
         },
@@ -234,47 +235,47 @@
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.85,
-            "low": 0.7,
+            "point": 0.9,
+            "low": 0.75,
             "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7116053921568627,
-            "low": 0.541591911764706,
-            "high": 0.8668345588235291,
+            "point": 0.7703787878787879,
+            "low": 0.6031818181818183,
+            "high": 0.9191666666666667,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.7411732909393883,
-            "low": 0.5711479713895818,
-            "high": 0.8880929753571458,
+            "point": 0.7959997289944674,
+            "low": 0.6340607108744124,
+            "high": 0.9315464876785728,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 densex2": {
           "recall@5": {
-            "point": 0.85,
-            "low": 0.7,
+            "point": 0.9,
+            "low": 0.75,
             "high": 1.0,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.85,
-            "low": 0.7,
+            "point": 0.9,
+            "low": 0.75,
             "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7091596638655462,
-            "low": 0.5377857142857142,
-            "high": 0.863580182072829,
+            "point": 0.709938725490196,
+            "low": 0.5414806985294117,
+            "high": 0.8641666666666665,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.7389821033974457,
-            "low": 0.5660571821520372,
-            "high": 0.8880929753571458,
+            "point": 0.7539694436225426,
+            "low": 0.5955285910760186,
+            "high": 0.8889821033974457,
             "confidence": 0.95
           }
         },
@@ -292,14 +293,14 @@
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8621428571428572,
-            "low": 0.7221428571428572,
+            "point": 0.8642857142857142,
+            "low": 0.7285714285714284,
             "high": 0.975,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8942128833397067,
-            "low": 0.7870655007206651,
+            "point": 0.896426308690479,
+            "low": 0.7928526173809581,
             "high": 0.9815464876785729,
             "confidence": 0.95
           }
@@ -318,14 +319,40 @@
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8621428571428572,
-            "low": 0.7221428571428572,
+            "point": 0.8642857142857142,
+            "low": 0.7285714285714284,
             "high": 0.975,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8942128833397067,
-            "low": 0.7870655007206651,
+            "point": 0.896426308690479,
+            "low": 0.7928526173809581,
+            "high": 0.9815464876785729,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 bm25x2 + rerank": {
+          "recall@5": {
+            "point": 0.9,
+            "low": 0.75,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 1.0,
+            "low": 1.0,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8654761904761905,
+            "low": 0.7297619047619047,
+            "high": 0.975,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8975700013792135,
+            "low": 0.7939963100696926,
             "high": 0.9815464876785729,
             "confidence": 0.95
           }
@@ -347,10 +374,10 @@
           "baseline": "bm25",
           "candidate": "dense",
           "metric": "mrr",
-          "delta": 0.02871677789486009,
-          "low": -0.15128538812785386,
-          "high": 0.20872419798618416,
-          "p_value": 0.7352264773522648,
+          "delta": -0.11894334831834832,
+          "low": -0.3139470373376623,
+          "high": 0.07462679507992,
+          "p_value": 0.2642735726427357,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -369,10 +396,10 @@
           "baseline": "bm25",
           "candidate": "rrf k10 d50 (served)",
           "metric": "mrr",
-          "delta": 0.08774941192749414,
-          "low": -0.04737436868686867,
-          "high": 0.22555555555555556,
-          "p_value": 0.24387561243875613,
+          "delta": -0.08568165902724727,
+          "low": -0.21655571603641455,
+          "high": 0.036197598357524764,
+          "p_value": 0.24477552244775522,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -391,10 +418,10 @@
           "baseline": "dense",
           "candidate": "rrf k10 d50 (served)",
           "metric": "mrr",
-          "delta": 0.05903263403263402,
-          "low": -0.052450757575757546,
-          "high": 0.1798091491841492,
-          "p_value": 0.3468653134686531,
+          "delta": 0.03326168929110105,
+          "low": -0.09090676847662141,
+          "high": 0.1499283559577677,
+          "p_value": 0.6445355464453555,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -413,10 +440,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream)",
           "metric": "mrr",
-          "delta": -0.0033027644869750134,
-          "low": -0.008373205741626795,
+          "delta": -0.005392156862745098,
+          "low": -0.016176470588235292,
           "high": 0.0,
-          "p_value": 0.49495050494950504,
+          "p_value": 1.0,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -435,16 +462,38 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream) + rerank",
           "metric": "mrr",
-          "delta": 0.11259740259740261,
-          "low": -0.03766720779220776,
-          "high": 0.2712878787878788,
-          "p_value": 0.1558844115588441,
+          "delta": 0.14051120448179272,
+          "low": -0.016037289915966386,
+          "high": 0.3005978641456582,
+          "p_value": 0.11158884111588842,
           "confidence": 0.95,
           "n_resamples": 10000
         },
         {
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d20 (ablation)",
+          "metric": "recall@5",
+          "delta": 0.05,
+          "low": 0.0,
+          "high": 0.15,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served)",
+          "candidate": "rrf k60 d20 (ablation)",
+          "metric": "mrr",
+          "delta": 0.0041666666666666675,
+          "low": 0.0,
+          "high": 0.0125,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served)",
+          "candidate": "rrf k60 d50 bm25x2",
           "metric": "recall@5",
           "delta": 0.0,
           "low": 0.0,
@@ -455,12 +504,12 @@
         },
         {
           "baseline": "rrf k10 d50 (served)",
-          "candidate": "rrf k60 d20 (ablation)",
+          "candidate": "rrf k60 d50 bm25x2",
           "metric": "mrr",
-          "delta": 0.0020833333333333337,
-          "low": 0.0,
-          "high": 0.005871212121212122,
-          "p_value": 0.49495050494950504,
+          "delta": 0.046604278074866314,
+          "low": -0.04968360071301248,
+          "high": 0.14622549019607844,
+          "p_value": 0.46525347465253475,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -479,10 +528,32 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k10 d50 (served) + rerank",
           "metric": "mrr",
-          "delta": 0.11259740259740261,
-          "low": -0.03766720779220776,
-          "high": 0.2712878787878788,
-          "p_value": 0.1558844115588441,
+          "delta": 0.14051120448179272,
+          "low": -0.016037289915966386,
+          "high": 0.3005978641456582,
+          "p_value": 0.11158884111588842,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served) + rerank",
+          "candidate": "rrf k60 d50 bm25x2 + rerank",
+          "metric": "recall@5",
+          "delta": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served) + rerank",
+          "candidate": "rrf k60 d50 bm25x2 + rerank",
+          "metric": "mrr",
+          "delta": 0.0011904761904761904,
+          "low": 0.0,
+          "high": 0.0035714285714285713,
+          "p_value": 1.0,
           "confidence": 0.95,
           "n_resamples": 10000
         }
@@ -496,35 +567,35 @@
           "slice": "no legal reference",
           "n": 20,
           "bm25 | recall@5": 0.85,
-          "bm25 | mrr": 0.6617960426179604,
+          "bm25 | mrr": 0.8094561688311689,
           "dense | recall@5": 0.9,
           "dense | mrr": 0.6905128205128206,
           "rrf k10 d50 (served) | recall@5": 0.85,
-          "rrf k10 d50 (served) | mrr": 0.7495454545454545,
+          "rrf k10 d50 (served) | mrr": 0.7237745098039216,
           "rrf k10 d50 (served) + rerank | recall@5": 0.9,
-          "rrf k10 d50 (served) + rerank | mrr": 0.8621428571428572
+          "rrf k10 d50 (served) + rerank | mrr": 0.8642857142857142
         },
         {
           "slice": "overlap low (<= 0.67)",
           "n": 8,
           "bm25 | recall@5": 0.625,
-          "bm25 | mrr": 0.4461567732115677,
+          "bm25 | mrr": 0.648640422077922,
           "dense | recall@5": 0.75,
           "dense | mrr": 0.6346153846153846,
           "rrf k10 d50 (served) | recall@5": 0.625,
-          "rrf k10 d50 (served) | mrr": 0.5301136363636364,
+          "rrf k10 d50 (served) | mrr": 0.5281862745098039,
           "rrf k10 d50 (served) + rerank | recall@5": 0.75,
-          "rrf k10 d50 (served) + rerank | mrr": 0.7803571428571429
+          "rrf k10 d50 (served) + rerank | mrr": 0.7857142857142857
         },
         {
           "slice": "overlap mid",
           "n": 7,
           "bm25 | recall@5": 1.0,
-          "bm25 | mrr": 0.7619047619047619,
+          "bm25 | mrr": 0.9285714285714286,
           "dense | recall@5": 1.0,
           "dense | mrr": 0.7619047619047619,
           "rrf k10 d50 (served) | recall@5": 1.0,
-          "rrf k10 d50 (served) | mrr": 1.0,
+          "rrf k10 d50 (served) | mrr": 0.9285714285714286,
           "rrf k10 d50 (served) + rerank | recall@5": 1.0,
           "rrf k10 d50 (served) + rerank | mrr": 0.9285714285714286
         },
@@ -532,7 +603,7 @@
           "slice": "overlap high (> 0.86)",
           "n": 5,
           "bm25 | recall@5": 1.0,
-          "bm25 | mrr": 0.8666666666666666,
+          "bm25 | mrr": 0.9,
           "dense | recall@5": 1.0,
           "dense | mrr": 0.6799999999999999,
           "rrf k10 d50 (served) | recall@5": 1.0,
@@ -545,34 +616,34 @@
     "norm-refs": {
       "n": 14,
       "ceiling": {
-        "20": 0.0,
-        "50": 0.0,
-        "100": 0.07142857142857142
+        "20": 1.0,
+        "50": 1.0,
+        "100": 1.0
       },
       "summary": {
         "bm25": {
           "recall@5": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 1.0,
+            "low": 1.0,
+            "high": 1.0,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 1.0,
+            "low": 1.0,
+            "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.7047619047619048,
+            "low": 0.5428571428571428,
+            "high": 0.8571428571428571,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.7793265586800266,
+            "low": 0.6564438492478061,
+            "high": 0.8945513581632737,
             "confidence": 0.95
           }
         },
@@ -604,183 +675,183 @@
         },
         "rrf k10 d50 (served)": {
           "recall@5": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.7857142857142857,
+            "low": 0.5714285714285714,
+            "high": 1.0,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.9285714285714286,
+            "low": 0.7857142857142857,
+            "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.29399350649350653,
+            "low": 0.22619047619047622,
+            "high": 0.36482683982683983,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.4428228610874281,
+            "low": 0.3532619518539134,
+            "high": 0.5172342369671885,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 (upstream)": {
           "recall@5": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.6428571428571429,
+            "low": 0.35714285714285715,
+            "high": 0.8571428571428571,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.9285714285714286,
+            "low": 0.7857142857142857,
+            "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.2104875283446712,
+            "low": 0.16660856009070296,
+            "high": 0.266156462585034,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.37321079030299037,
+            "low": 0.300794366699147,
+            "high": 0.4350406945138677,
             "confidence": 0.95
           }
         },
         "rrf k60 d20 (ablation)": {
           "recall@5": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.7857142857142857,
+            "low": 0.5714285714285714,
+            "high": 1.0,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.9285714285714286,
+            "low": 0.7857142857142857,
+            "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.31431663574520713,
+            "low": 0.24373840445269018,
+            "high": 0.38690476190476186,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.45971184050148267,
+            "low": 0.36918139384713555,
+            "high": 0.5363060538373084,
             "confidence": 0.95
           }
         },
         "rrf k60 d100": {
           "recall@5": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.35714285714285715,
+            "low": 0.14285714285714285,
+            "high": 0.6428571428571429,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 1.0,
+            "low": 1.0,
+            "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.00046992481203007516,
-            "low": 0.0,
-            "high": 0.0014097744360902255,
+            "point": 0.16465419501133788,
+            "low": 0.13679067460317462,
+            "high": 0.19413265306122449,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.3520361200696676,
+            "low": 0.325631619322541,
+            "high": 0.37952995453750876,
             "confidence": 0.95
           }
         },
         "rrf k30 d50": {
           "recall@5": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.6428571428571429,
+            "low": 0.35714285714285715,
+            "high": 0.8571428571428571,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.9285714285714286,
+            "low": 0.7857142857142857,
+            "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.21102865388579675,
+            "low": 0.1676404349618635,
+            "high": 0.2665534168212739,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.37321079030299037,
+            "low": 0.300794366699147,
+            "high": 0.4350406945138677,
             "confidence": 0.95
           }
         },
         "rrf k100 d50": {
           "recall@5": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.6428571428571429,
+            "low": 0.35714285714285715,
+            "high": 0.8571428571428571,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.9285714285714286,
+            "low": 0.7857142857142857,
+            "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.2104875283446712,
+            "low": 0.16660856009070296,
+            "high": 0.266156462585034,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.37321079030299037,
+            "low": 0.300794366699147,
+            "high": 0.4350406945138677,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 bm25x2": {
           "recall@5": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.7857142857142857,
+            "low": 0.5714285714285714,
+            "high": 1.0,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 1.0,
+            "low": 1.0,
+            "high": 1.0,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.32568027210884354,
+            "low": 0.23809523809523808,
+            "high": 0.4523809523809523,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.48786144653484287,
+            "low": 0.41861794539601754,
+            "high": 0.5844159564399714,
             "confidence": 0.95
           }
         },
@@ -798,9 +869,9 @@
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.019811658669503695,
+            "low": 0.019380885535498323,
+            "high": 0.020306857511590348,
             "confidence": 0.95
           },
           "ndcg@10": {
@@ -812,53 +883,79 @@
         },
         "rrf k10 d50 (served) + rerank": {
           "recall@5": {
-            "point": 0.0,
+            "point": 0.14285714285714285,
             "low": 0.0,
-            "high": 0.0,
+            "high": 0.35714285714285715,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.5,
+            "low": 0.21428571428571427,
+            "high": 0.7857142857142857,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.12219209362066505,
+            "low": 0.08737066504923648,
+            "high": 0.16608002860235002,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.17853352486298577,
+            "low": 0.08205701500850444,
+            "high": 0.27693654869565854,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 (upstream) + rerank": {
           "recall@5": {
-            "point": 0.0,
+            "point": 0.14285714285714285,
             "low": 0.0,
-            "high": 0.0,
+            "high": 0.35714285714285715,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.5,
+            "low": 0.21428571428571427,
+            "high": 0.7857142857142857,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.12219209362066505,
+            "low": 0.08737066504923648,
+            "high": 0.16608002860235002,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.0,
-            "low": 0.0,
-            "high": 0.0,
+            "point": 0.17853352486298577,
+            "low": 0.08205701500850444,
+            "high": 0.27693654869565854,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 bm25x2 + rerank": {
+          "recall@5": {
+            "point": 0.5,
+            "low": 0.21428571428571427,
+            "high": 0.7857142857142857,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9285714285714286,
+            "low": 0.7857142857142857,
+            "high": 1.0,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.23813025210084032,
+            "low": 0.16915266106442578,
+            "high": 0.31317839635854317,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.3958289259426015,
+            "low": 0.30908192521656264,
+            "high": 0.4739392505555688,
             "confidence": 0.95
           }
         }
@@ -868,10 +965,10 @@
           "baseline": "bm25",
           "candidate": "dense",
           "metric": "recall@5",
-          "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": -1.0,
+          "low": -1.0,
+          "high": -1.0,
+          "p_value": 0.00029997000299970003,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -879,10 +976,10 @@
           "baseline": "bm25",
           "candidate": "dense",
           "metric": "mrr",
-          "delta": 0.0008928571428571429,
-          "low": 0.0,
-          "high": 0.002678571428571429,
-          "p_value": 1.0,
+          "delta": -0.7038690476190476,
+          "low": -0.8571428571428571,
+          "high": -0.5401785714285714,
+          "p_value": 0.00029997000299970003,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -890,10 +987,10 @@
           "baseline": "bm25",
           "candidate": "rrf k10 d50 (served)",
           "metric": "recall@5",
-          "delta": 0.0,
-          "low": 0.0,
+          "delta": -0.21428571428571427,
+          "low": -0.42857142857142855,
           "high": 0.0,
-          "p_value": 1.0,
+          "p_value": 0.24917508249175083,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -901,10 +998,10 @@
           "baseline": "bm25",
           "candidate": "rrf k10 d50 (served)",
           "metric": "mrr",
-          "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": -0.4107683982683983,
+          "low": -0.5130952380952382,
+          "high": -0.3078990800865801,
+          "p_value": 0.00029997000299970003,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -912,10 +1009,10 @@
           "baseline": "dense",
           "candidate": "rrf k10 d50 (served)",
           "metric": "recall@5",
-          "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": 0.7857142857142857,
+          "low": 0.5714285714285714,
+          "high": 1.0,
+          "p_value": 0.0013998600139986002,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -923,10 +1020,10 @@
           "baseline": "dense",
           "candidate": "rrf k10 d50 (served)",
           "metric": "mrr",
-          "delta": -0.0008928571428571429,
-          "low": -0.002678571428571429,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": 0.29310064935064933,
+          "low": 0.22418831168831174,
+          "high": 0.3642857142857143,
+          "p_value": 0.00029997000299970003,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -934,10 +1031,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream)",
           "metric": "recall@5",
-          "delta": 0.0,
-          "low": 0.0,
+          "delta": -0.14285714285714285,
+          "low": -0.35714285714285715,
           "high": 0.0,
-          "p_value": 1.0,
+          "p_value": 0.5051494850514948,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -945,10 +1042,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream)",
           "metric": "mrr",
-          "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": -0.08350597814883527,
+          "low": -0.13282570603999172,
+          "high": -0.04050968872397444,
+          "p_value": 0.0012998700129987,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -956,10 +1053,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream) + rerank",
           "metric": "recall@5",
-          "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": -0.6428571428571429,
+          "low": -0.9285714285714286,
+          "high": -0.2857142857142857,
+          "p_value": 0.010798920107989201,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -967,10 +1064,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream) + rerank",
           "metric": "mrr",
-          "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": -0.17180141287284148,
+          "low": -0.2565904259431045,
+          "high": -0.08075839339232198,
+          "p_value": 0.0040995900409959,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -989,10 +1086,32 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d20 (ablation)",
           "metric": "mrr",
+          "delta": 0.02032312925170068,
+          "low": -0.02023809523809524,
+          "high": 0.0608843537414966,
+          "p_value": 0.34566543345665435,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served)",
+          "candidate": "rrf k60 d50 bm25x2",
+          "metric": "recall@5",
           "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
+          "low": -0.21428571428571427,
+          "high": 0.21428571428571427,
           "p_value": 1.0,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served)",
+          "candidate": "rrf k60 d50 bm25x2",
+          "metric": "mrr",
+          "delta": 0.031686765615337044,
+          "low": -0.034523809523809526,
+          "high": 0.12097247990105134,
+          "p_value": 0.5621437856214379,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1000,10 +1119,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k10 d50 (served) + rerank",
           "metric": "recall@5",
-          "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": -0.6428571428571429,
+          "low": -0.9285714285714286,
+          "high": -0.2857142857142857,
+          "p_value": 0.010798920107989201,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1011,10 +1130,32 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k10 d50 (served) + rerank",
           "metric": "mrr",
-          "delta": 0.0,
-          "low": 0.0,
-          "high": 0.0,
-          "p_value": 1.0,
+          "delta": -0.17180141287284148,
+          "low": -0.2565904259431045,
+          "high": -0.08075839339232198,
+          "p_value": 0.0040995900409959,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served) + rerank",
+          "candidate": "rrf k60 d50 bm25x2 + rerank",
+          "metric": "recall@5",
+          "delta": 0.35714285714285715,
+          "low": 0.14285714285714285,
+          "high": 0.6428571428571429,
+          "p_value": 0.06229377062293771,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served) + rerank",
+          "candidate": "rrf k60 d50 bm25x2 + rerank",
+          "metric": "mrr",
+          "delta": 0.11593815848017529,
+          "low": 0.04876104244145211,
+          "high": 0.19496786039590663,
+          "p_value": 0.0024997500249975004,
           "confidence": 0.95,
           "n_resamples": 10000
         }
@@ -1023,14 +1164,14 @@
         {
           "slice": "legal reference",
           "n": 14,
-          "bm25 | recall@5": 0.0,
-          "bm25 | mrr": 0.0,
+          "bm25 | recall@5": 1.0,
+          "bm25 | mrr": 0.7047619047619048,
           "dense | recall@5": 0.0,
           "dense | mrr": 0.0008928571428571429,
-          "rrf k10 d50 (served) | recall@5": 0.0,
-          "rrf k10 d50 (served) | mrr": 0.0,
-          "rrf k10 d50 (served) + rerank | recall@5": 0.0,
-          "rrf k10 d50 (served) + rerank | mrr": 0.0
+          "rrf k10 d50 (served) | recall@5": 0.7857142857142857,
+          "rrf k10 d50 (served) | mrr": 0.29399350649350653,
+          "rrf k10 d50 (served) + rerank | recall@5": 0.14285714285714285,
+          "rrf k10 d50 (served) + rerank | mrr": 0.12219209362066505
         },
         {
           "slice": "no legal reference",
@@ -1039,14 +1180,14 @@
         {
           "slice": "overlap low (<= 0.50)",
           "n": 13,
-          "bm25 | recall@5": 0.0,
-          "bm25 | mrr": 0.0,
+          "bm25 | recall@5": 1.0,
+          "bm25 | mrr": 0.7435897435897435,
           "dense | recall@5": 0.0,
           "dense | mrr": 0.0,
-          "rrf k10 d50 (served) | recall@5": 0.0,
-          "rrf k10 d50 (served) | mrr": 0.0,
-          "rrf k10 d50 (served) + rerank | recall@5": 0.0,
-          "rrf k10 d50 (served) + rerank | mrr": 0.0
+          "rrf k10 d50 (served) | recall@5": 0.8461538461538461,
+          "rrf k10 d50 (served) | mrr": 0.3096153846153846,
+          "rrf k10 d50 (served) + rerank | recall@5": 0.07692307692307693,
+          "rrf k10 d50 (served) + rerank | mrr": 0.10595045979661365
         },
         {
           "slice": "overlap mid",
@@ -1055,48 +1196,48 @@
         {
           "slice": "overlap high (> 0.50)",
           "n": 1,
-          "bm25 | recall@5": 0.0,
-          "bm25 | mrr": 0.0,
+          "bm25 | recall@5": 1.0,
+          "bm25 | mrr": 0.2,
           "dense | recall@5": 0.0,
           "dense | mrr": 0.0125,
           "rrf k10 d50 (served) | recall@5": 0.0,
-          "rrf k10 d50 (served) | mrr": 0.0,
-          "rrf k10 d50 (served) + rerank | recall@5": 0.0,
-          "rrf k10 d50 (served) + rerank | mrr": 0.0
+          "rrf k10 d50 (served) | mrr": 0.09090909090909091,
+          "rrf k10 d50 (served) + rerank | recall@5": 1.0,
+          "rrf k10 d50 (served) + rerank | mrr": 0.3333333333333333
         }
       ]
     },
     "silver-dev": {
       "n": 866,
       "ceiling": {
-        "20": 0.9838337182448037,
-        "50": 0.9930715935334873,
-        "100": 0.9942263279445728
+        "20": 0.9896073903002309,
+        "50": 0.9988452655889145,
+        "100": 0.9988452655889145
       },
       "summary": {
         "bm25": {
           "recall@5": {
-            "point": 0.9041570438799076,
-            "low": 0.8845265588914549,
-            "high": 0.9226327944572749,
+            "point": 0.9353348729792148,
+            "low": 0.9191685912240185,
+            "high": 0.9515011547344111,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9422632794457275,
-            "low": 0.9260969976905312,
-            "high": 0.9572748267898383,
+            "point": 0.9665127020785219,
+            "low": 0.953810623556582,
+            "high": 0.9780600461893765,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7961683670752276,
-            "low": 0.7737133953129743,
-            "high": 0.818110694492501,
+            "point": 0.8454268288767176,
+            "low": 0.8260701299849765,
+            "high": 0.8649497829366115,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8303473551740445,
-            "low": 0.8106424749983571,
-            "high": 0.849326790304978,
+            "point": 0.8738658643242666,
+            "low": 0.8570930874596167,
+            "high": 0.8904723853403951,
             "confidence": 0.95
           }
         },
@@ -1128,209 +1269,209 @@
         },
         "rrf k10 d50 (served)": {
           "recall@5": {
-            "point": 0.9122401847575058,
-            "low": 0.8926096997690531,
-            "high": 0.930715935334873,
-            "confidence": 0.95
-          },
-          "recall@10": {
-            "point": 0.9572748267898383,
-            "low": 0.9434180138568129,
-            "high": 0.9699769053117783,
-            "confidence": 0.95
-          },
-          "mrr": {
-            "point": 0.8139062475695887,
-            "low": 0.7919294459910045,
-            "high": 0.8347856880707033,
-            "confidence": 0.95
-          },
-          "ndcg@10": {
-            "point": 0.8475600626762289,
-            "low": 0.8287676799025244,
-            "high": 0.8655009083105656,
-            "confidence": 0.95
-          }
-        },
-        "rrf k60 d50 (upstream)": {
-          "recall@5": {
-            "point": 0.9168591224018475,
-            "low": 0.8983833718244804,
-            "high": 0.9341801385681293,
-            "confidence": 0.95
-          },
-          "recall@10": {
-            "point": 0.9561200923787528,
-            "low": 0.9422632794457275,
-            "high": 0.9699769053117783,
-            "confidence": 0.95
-          },
-          "mrr": {
-            "point": 0.8125537764396383,
-            "low": 0.7906644095689629,
-            "high": 0.8336965457375388,
-            "confidence": 0.95
-          },
-          "ndcg@10": {
-            "point": 0.8462032681215527,
-            "low": 0.8272042484908343,
-            "high": 0.8645238134187608,
-            "confidence": 0.95
-          }
-        },
-        "rrf k60 d20 (ablation)": {
-          "recall@5": {
-            "point": 0.9145496535796767,
-            "low": 0.8960739030023095,
-            "high": 0.9330254041570438,
-            "confidence": 0.95
-          },
-          "recall@10": {
-            "point": 0.9515011547344111,
-            "low": 0.9364896073903002,
-            "high": 0.9653579676674365,
-            "confidence": 0.95
-          },
-          "mrr": {
-            "point": 0.8115885467612132,
-            "low": 0.7895556933337343,
-            "high": 0.8328549029300013,
-            "confidence": 0.95
-          },
-          "ndcg@10": {
-            "point": 0.8444254039785452,
-            "low": 0.8251337884952021,
-            "high": 0.8627441634489605,
-            "confidence": 0.95
-          }
-        },
-        "rrf k60 d100": {
-          "recall@5": {
-            "point": 0.9191685912240185,
-            "low": 0.9006928406466512,
-            "high": 0.9364896073903002,
-            "confidence": 0.95
-          },
-          "recall@10": {
-            "point": 0.9595842956120092,
-            "low": 0.9457274826789839,
-            "high": 0.9722863741339491,
-            "confidence": 0.95
-          },
-          "mrr": {
-            "point": 0.8127250603491839,
-            "low": 0.790802196075732,
-            "high": 0.8339734590083443,
-            "confidence": 0.95
-          },
-          "ndcg@10": {
-            "point": 0.8474202273732356,
-            "low": 0.8284844290513426,
-            "high": 0.8654127251232524,
-            "confidence": 0.95
-          }
-        },
-        "rrf k30 d50": {
-          "recall@5": {
-            "point": 0.9168591224018475,
-            "low": 0.8983833718244804,
-            "high": 0.9353348729792148,
-            "confidence": 0.95
-          },
-          "recall@10": {
-            "point": 0.953810623556582,
-            "low": 0.9399249422632797,
-            "high": 0.9676674364896074,
-            "confidence": 0.95
-          },
-          "mrr": {
-            "point": 0.8132837628103955,
-            "low": 0.7914748283862414,
-            "high": 0.8340943425426829,
-            "confidence": 0.95
-          },
-          "ndcg@10": {
-            "point": 0.8460646659890306,
-            "low": 0.826851858913575,
-            "high": 0.8642240053281189,
-            "confidence": 0.95
-          }
-        },
-        "rrf k100 d50": {
-          "recall@5": {
-            "point": 0.9168591224018475,
-            "low": 0.8983833718244804,
-            "high": 0.9341801385681293,
-            "confidence": 0.95
-          },
-          "recall@10": {
-            "point": 0.9561200923787528,
-            "low": 0.9422632794457275,
-            "high": 0.9699769053117783,
-            "confidence": 0.95
-          },
-          "mrr": {
-            "point": 0.8125392597203954,
-            "low": 0.7906452721190099,
-            "high": 0.833698815906691,
-            "confidence": 0.95
-          },
-          "ndcg@10": {
-            "point": 0.8461826347999042,
-            "low": 0.8271989423952347,
-            "high": 0.8645037622464589,
-            "confidence": 0.95
-          }
-        },
-        "rrf k60 d50 bm25x2": {
-          "recall@5": {
-            "point": 0.9168591224018475,
-            "low": 0.8983833718244804,
-            "high": 0.9341801385681293,
-            "confidence": 0.95
-          },
-          "recall@10": {
             "point": 0.9491916859122402,
             "low": 0.9341801385681293,
             "high": 0.9630484988452656,
             "confidence": 0.95
           },
+          "recall@10": {
+            "point": 0.9780600461893765,
+            "low": 0.9676674364896074,
+            "high": 0.9872979214780601,
+            "confidence": 0.95
+          },
           "mrr": {
-            "point": 0.8128522856203879,
-            "low": 0.7907810823855682,
-            "high": 0.8339889385625769,
+            "point": 0.8417445305131527,
+            "low": 0.8221564698716857,
+            "high": 0.8605669297274465,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8446323252485479,
-            "low": 0.8253903815152895,
-            "high": 0.8632438490887809,
+            "point": 0.8748108355848254,
+            "low": 0.8587320430749135,
+            "high": 0.8902435141553906,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 (upstream)": {
+          "recall@5": {
+            "point": 0.9445727482678984,
+            "low": 0.9295612009237876,
+            "high": 0.9595842956120092,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9734411085450346,
+            "low": 0.9618937644341802,
+            "high": 0.9838337182448037,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8377764560314986,
+            "low": 0.8179637053797596,
+            "high": 0.8570471740363933,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8703082116694104,
+            "low": 0.8537575554247293,
+            "high": 0.8866234039015439,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d20 (ablation)": {
+          "recall@5": {
+            "point": 0.9457274826789839,
+            "low": 0.930715935334873,
+            "high": 0.9607390300230947,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9711316397228638,
+            "low": 0.9595842956120092,
+            "high": 0.9815242494226328,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8367322758929462,
+            "low": 0.8169155733158955,
+            "high": 0.8562439158798979,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8692005928751748,
+            "low": 0.8524171887563188,
+            "high": 0.8855749154774394,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d100": {
+          "recall@5": {
+            "point": 0.9480369515011547,
+            "low": 0.9330254041570438,
+            "high": 0.9630484988452656,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9711316397228638,
+            "low": 0.9595842956120092,
+            "high": 0.9815242494226328,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8381680547002568,
+            "low": 0.8184781640735732,
+            "high": 0.8576346928190937,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8700576100214038,
+            "low": 0.85344715315749,
+            "high": 0.886399517297489,
+            "confidence": 0.95
+          }
+        },
+        "rrf k30 d50": {
+          "recall@5": {
+            "point": 0.9457274826789839,
+            "low": 0.930715935334873,
+            "high": 0.9607390300230947,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9734411085450346,
+            "low": 0.9618937644341802,
+            "high": 0.9838337182448037,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8381868790487347,
+            "low": 0.8185481394824365,
+            "high": 0.8574388558720315,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8707095559862386,
+            "low": 0.8542803121299762,
+            "high": 0.8869651472594925,
+            "confidence": 0.95
+          }
+        },
+        "rrf k100 d50": {
+          "recall@5": {
+            "point": 0.9434180138568129,
+            "low": 0.9272517321016166,
+            "high": 0.9584295612009238,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.9734411085450346,
+            "low": 0.9618937644341802,
+            "high": 0.9838337182448037,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8375520931612748,
+            "low": 0.8176859795539053,
+            "high": 0.8569053938392863,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8701116841135677,
+            "low": 0.8535169600653013,
+            "high": 0.8864803523711435,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 bm25x2": {
+          "recall@5": {
+            "point": 0.9457274826789839,
+            "low": 0.930715935334873,
+            "high": 0.9607390300230947,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.976905311778291,
+            "low": 0.9665127020785219,
+            "high": 0.9861431870669746,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.8489854250320205,
+            "low": 0.8294649741339409,
+            "high": 0.8681489379759463,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8796516671494683,
+            "low": 0.8635231184206985,
+            "high": 0.89553779469904,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 densex2": {
           "recall@5": {
-            "point": 0.9099307159353349,
-            "low": 0.8903002309468823,
-            "high": 0.9284064665127021,
+            "point": 0.9341801385681293,
+            "low": 0.9168591224018475,
+            "high": 0.9503464203233256,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9549653579676675,
-            "low": 0.9410796766743651,
-            "high": 0.9688221709006929,
+            "point": 0.9618937644341802,
+            "low": 0.9491916859122402,
+            "high": 0.9745958429561201,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7976383456881515,
-            "low": 0.7753475374552533,
-            "high": 0.8196367722334027,
+            "point": 0.8242926017780273,
+            "low": 0.8034461195620075,
+            "high": 0.8446839664803176,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8346248817271876,
-            "low": 0.8153968592103589,
-            "high": 0.8533679457755384,
+            "point": 0.8571318974881007,
+            "low": 0.839240615624625,
+            "high": 0.8746102681598223,
             "confidence": 0.95
           }
         }
@@ -1339,34 +1480,34 @@
     "silver-test": {
       "n": 883,
       "ceiling": {
-        "20": 0.9796149490373726,
-        "50": 0.9909399773499433,
-        "100": 0.9954699886749717
+        "20": 0.9909399773499433,
+        "50": 1.0,
+        "100": 1.0
       },
       "summary": {
         "bm25": {
           "recall@5": {
-            "point": 0.912797281993205,
-            "low": 0.8935447338618346,
-            "high": 0.9309173272933182,
+            "point": 0.9445073612684032,
+            "low": 0.928652321630804,
+            "high": 0.9592298980747452,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9535673839184597,
-            "low": 0.9388448471121178,
-            "high": 0.9671574178935447,
+            "point": 0.970554926387316,
+            "low": 0.9592298980747452,
+            "high": 0.9807474518686297,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7965148871373974,
-            "low": 0.7747440354857031,
-            "high": 0.8180152916851595,
+            "point": 0.8648666592818225,
+            "low": 0.8460857304154444,
+            "high": 0.8831169720952224,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8338519846158072,
-            "low": 0.8150071091090971,
-            "high": 0.852196827465293,
+            "point": 0.8898642398816232,
+            "low": 0.8738113135860895,
+            "high": 0.9056311068182817,
             "confidence": 0.95
           }
         },
@@ -1398,261 +1539,287 @@
         },
         "rrf k10 d50 (served)": {
           "recall@5": {
-            "point": 0.9377123442808607,
-            "low": 0.9207248018120046,
-            "high": 0.9535673839184597,
+            "point": 0.9535673839184597,
+            "low": 0.9388448471121178,
+            "high": 0.9671574178935447,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9660249150622876,
-            "low": 0.9535673839184597,
-            "high": 0.9773499433748585,
+            "point": 0.9762174405436014,
+            "low": 0.9660249150622876,
+            "high": 0.9852774631936579,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8327011728417089,
-            "low": 0.8125917569952888,
-            "high": 0.8529608162097624,
+            "point": 0.8544585349080038,
+            "low": 0.8361120860696495,
+            "high": 0.873314003393708,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8648713220318451,
-            "low": 0.8477239801736324,
-            "high": 0.8819117768128362,
+            "point": 0.8839243801010224,
+            "low": 0.8685080331202006,
+            "high": 0.8996352192734324,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 (upstream)": {
           "recall@5": {
-            "point": 0.9331823329558324,
-            "low": 0.9161947904869762,
-            "high": 0.9490373725934315,
+            "point": 0.9524348810872028,
+            "low": 0.9377123442808607,
+            "high": 0.9660249150622876,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9626274065685164,
-            "low": 0.9490373725934315,
-            "high": 0.9750849377123443,
+            "point": 0.9728199320498301,
+            "low": 0.9614949037372593,
+            "high": 0.9830124575311439,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8299529394977183,
-            "low": 0.8098229595714782,
-            "high": 0.8504041186189,
+            "point": 0.8531143276869221,
+            "low": 0.834472969654497,
+            "high": 0.8719291535496332,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8619323446491944,
-            "low": 0.8445979346438438,
-            "high": 0.8791549908863965,
+            "point": 0.8819831968581751,
+            "low": 0.8661328614996896,
+            "high": 0.8979147333526781,
             "confidence": 0.95
           }
         },
         "rrf k60 d20 (ablation)": {
           "recall@5": {
-            "point": 0.9331823329558324,
-            "low": 0.9161947904869762,
-            "high": 0.9490373725934315,
+            "point": 0.9513023782559457,
+            "low": 0.9365798414496036,
+            "high": 0.9648924122310306,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9626274065685164,
-            "low": 0.9490373725934315,
-            "high": 0.9750849377123443,
+            "point": 0.9728199320498301,
+            "low": 0.9614949037372593,
+            "high": 0.9830124575311439,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8292336393966602,
-            "low": 0.8090912034302613,
-            "high": 0.8496276000889982,
+            "point": 0.8526665841773443,
+            "low": 0.8338968182427617,
+            "high": 0.8715147972955954,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8615502371194299,
-            "low": 0.8443831774241554,
-            "high": 0.8788985746680027,
+            "point": 0.8817600059704754,
+            "low": 0.8658129869756596,
+            "high": 0.897754951855355,
             "confidence": 0.95
           }
         },
         "rrf k60 d100": {
           "recall@5": {
-            "point": 0.9331823329558324,
-            "low": 0.9161947904869762,
-            "high": 0.9490373725934315,
+            "point": 0.9524348810872028,
+            "low": 0.9377123442808607,
+            "high": 0.9660249150622876,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9626274065685164,
-            "low": 0.9490373725934315,
-            "high": 0.9750849377123443,
+            "point": 0.9750849377123443,
+            "low": 0.9648924122310306,
+            "high": 0.9852774631936579,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8304703035715824,
-            "low": 0.8103894320464098,
-            "high": 0.8508555217972787,
+            "point": 0.8530151309416789,
+            "low": 0.834366970790491,
+            "high": 0.8718714296076736,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8621591319600642,
-            "low": 0.8448519629122988,
-            "high": 0.8793761832380628,
+            "point": 0.8824311571122105,
+            "low": 0.8666083827144722,
+            "high": 0.8982362096653018,
             "confidence": 0.95
           }
         },
         "rrf k30 d50": {
           "recall@5": {
-            "point": 0.9365798414496036,
-            "low": 0.9207248018120046,
-            "high": 0.9524348810872028,
+            "point": 0.9524348810872028,
+            "low": 0.9377123442808607,
+            "high": 0.9660249150622876,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9626274065685164,
-            "low": 0.9490373725934315,
-            "high": 0.9750849377123443,
+            "point": 0.9739524348810872,
+            "low": 0.9626274065685164,
+            "high": 0.984144960362401,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8312887005578755,
-            "low": 0.8111328019227199,
-            "high": 0.8515204342952024,
+            "point": 0.8538188181522547,
+            "low": 0.8352179079902581,
+            "high": 0.8725728971155269,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8630003180466126,
-            "low": 0.8457657757463989,
-            "high": 0.8801721610661979,
+            "point": 0.8828277977352125,
+            "low": 0.8670662022941471,
+            "high": 0.8986739938883446,
             "confidence": 0.95
           }
         },
         "rrf k100 d50": {
           "recall@5": {
-            "point": 0.9331823329558324,
-            "low": 0.9161947904869762,
-            "high": 0.9490373725934315,
+            "point": 0.9524348810872028,
+            "low": 0.9377123442808607,
+            "high": 0.9660249150622876,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9626274065685164,
-            "low": 0.9490373725934315,
-            "high": 0.9750849377123443,
+            "point": 0.9728199320498301,
+            "low": 0.9614949037372593,
+            "high": 0.9830124575311439,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8300995647767465,
-            "low": 0.8099552767978386,
-            "high": 0.8505790502160393,
+            "point": 0.8529289217567726,
+            "low": 0.8342810508786743,
+            "high": 0.8717865331154008,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8620560796595409,
-            "low": 0.8447784208191864,
-            "high": 0.8792906826975128,
+            "point": 0.8818223622545409,
+            "low": 0.8659615928210215,
+            "high": 0.8977964822106026,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 bm25x2": {
           "recall@5": {
-            "point": 0.9354473386183465,
-            "low": 0.9184597961494904,
-            "high": 0.9513023782559457,
+            "point": 0.9558323895809739,
+            "low": 0.942242355605889,
+            "high": 0.9694224235560589,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9637599093997735,
-            "low": 0.9513023782559457,
-            "high": 0.9750849377123443,
+            "point": 0.9739524348810872,
+            "low": 0.9626274065685164,
+            "high": 0.984144960362401,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8257430701361195,
-            "low": 0.8053836958721696,
-            "high": 0.846130385856995,
+            "point": 0.8690933117886028,
+            "low": 0.8508142836446894,
+            "high": 0.887291653293849,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8591597744239964,
-            "low": 0.841722387441038,
-            "high": 0.8763426626701231,
+            "point": 0.8941882605442892,
+            "low": 0.8788906307800582,
+            "high": 0.9095508671212419,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 densex2": {
           "recall@5": {
-            "point": 0.9297848244620611,
-            "low": 0.912797281993205,
-            "high": 0.9467723669309174,
+            "point": 0.9388448471121178,
+            "low": 0.9229898074745186,
+            "high": 0.9546998867497168,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.9603624009060022,
-            "low": 0.9467723669309174,
-            "high": 0.9728199320498301,
+            "point": 0.9637599093997735,
+            "low": 0.9512740656851645,
+            "high": 0.9750849377123443,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.8246999094694851,
-            "low": 0.8044245740288005,
-            "high": 0.8453195088559956,
+            "point": 0.8383853547930533,
+            "low": 0.8190755535894865,
+            "high": 0.8582066518260212,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8572844204998074,
-            "low": 0.8397784617610163,
-            "high": 0.8746053530320997,
+            "point": 0.8685988287842387,
+            "low": 0.8519493783036587,
+            "high": 0.8853268134542219,
             "confidence": 0.95
           }
         },
         "rrf k10 d50 (served) + rerank": {
           "recall@5": {
-            "point": 0.912797281993205,
-            "low": 0.8935447338618346,
-            "high": 0.9309173272933182,
+            "point": 0.9195922989807475,
+            "low": 0.9014722536806342,
+            "high": 0.9377123442808607,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.956964892412231,
-            "low": 0.942242355605889,
-            "high": 0.9694224235560589,
+            "point": 0.9682899207248018,
+            "low": 0.9558323895809739,
+            "high": 0.9796149490373726,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7787559415602532,
-            "low": 0.7564717448803541,
-            "high": 0.8005261244549594,
+            "point": 0.7834301681443601,
+            "low": 0.7617787684216799,
+            "high": 0.8047181265996459,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.8213673593591724,
-            "low": 0.8021688429844224,
-            "high": 0.8398769906510529,
+            "point": 0.8275296838509483,
+            "low": 0.8094179051029047,
+            "high": 0.8450383058428185,
             "confidence": 0.95
           }
         },
         "rrf k60 d50 (upstream) + rerank": {
           "recall@5": {
-            "point": 0.912797281993205,
-            "low": 0.8935447338618346,
-            "high": 0.9309173272933182,
+            "point": 0.9195922989807475,
+            "low": 0.9014722536806342,
+            "high": 0.9377123442808607,
             "confidence": 0.95
           },
           "recall@10": {
-            "point": 0.956964892412231,
-            "low": 0.942242355605889,
-            "high": 0.970554926387316,
+            "point": 0.9671574178935447,
+            "low": 0.9546998867497168,
+            "high": 0.9784824462061155,
             "confidence": 0.95
           },
           "mrr": {
-            "point": 0.7790975607115262,
-            "low": 0.7568071196538554,
-            "high": 0.8008298891818183,
+            "point": 0.7838274429470711,
+            "low": 0.7621024936941259,
+            "high": 0.8052421611249545,
             "confidence": 0.95
           },
           "ndcg@10": {
-            "point": 0.821649949506104,
-            "low": 0.8025339449387494,
-            "high": 0.8400798605243369,
+            "point": 0.8275084982433231,
+            "low": 0.8094133179406605,
+            "high": 0.845078520893687,
+            "confidence": 0.95
+          }
+        },
+        "rrf k60 d50 bm25x2 + rerank": {
+          "recall@5": {
+            "point": 0.927519818799547,
+            "low": 0.9093997734994338,
+            "high": 0.9445073612684032,
+            "confidence": 0.95
+          },
+          "recall@10": {
+            "point": 0.970554926387316,
+            "low": 0.9592298980747452,
+            "high": 0.9807474518686297,
+            "confidence": 0.95
+          },
+          "mrr": {
+            "point": 0.7882532985449179,
+            "low": 0.7667993537543367,
+            "high": 0.809227682197317,
+            "confidence": 0.95
+          },
+          "ndcg@10": {
+            "point": 0.8319315592462573,
+            "low": 0.8140722727965687,
+            "high": 0.8493083810070752,
             "confidence": 0.95
           }
         }
@@ -1662,10 +1829,10 @@
           "baseline": "bm25",
           "candidate": "dense",
           "metric": "recall@5",
-          "delta": -0.022650056625141562,
-          "low": -0.04303510758776897,
-          "high": -0.0022650056625141564,
-          "p_value": 0.0402959704029597,
+          "delta": -0.05436013590033975,
+          "low": -0.07474518686296716,
+          "high": -0.03397508493771234,
+          "p_value": 9.999000099990002e-05,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1673,10 +1840,10 @@
           "baseline": "bm25",
           "candidate": "dense",
           "metric": "mrr",
-          "delta": -0.018242616342338452,
-          "low": -0.04028751858714328,
-          "high": 0.003950457252328754,
-          "p_value": 0.10978902109789021,
+          "delta": -0.08659438848676348,
+          "low": -0.1088305137244192,
+          "high": -0.06461378729991729,
+          "p_value": 9.999000099990002e-05,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1684,10 +1851,10 @@
           "baseline": "bm25",
           "candidate": "rrf k10 d50 (served)",
           "metric": "recall@5",
-          "delta": 0.02491506228765572,
-          "low": 0.010192525481313703,
-          "high": 0.039637599093997736,
-          "p_value": 0.0020997900209979003,
+          "delta": 0.009060022650056626,
+          "low": -0.0033975084937712344,
+          "high": 0.022650056625141562,
+          "p_value": 0.23027697230276972,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1695,10 +1862,10 @@
           "baseline": "bm25",
           "candidate": "rrf k10 d50 (served)",
           "metric": "mrr",
-          "delta": 0.03618628570431153,
-          "low": 0.019530330292791206,
-          "high": 0.053436994300855745,
-          "p_value": 9.999000099990002e-05,
+          "delta": -0.010408124373818476,
+          "low": -0.025989305647522803,
+          "high": 0.005009580696027196,
+          "p_value": 0.1882811718828117,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1706,9 +1873,9 @@
           "baseline": "dense",
           "candidate": "rrf k10 d50 (served)",
           "metric": "recall@5",
-          "delta": 0.04756511891279728,
-          "low": 0.03284258210645526,
-          "high": 0.06342015855039637,
+          "delta": 0.06342015855039637,
+          "low": 0.04756511891279728,
+          "high": 0.08040770101925254,
           "p_value": 9.999000099990002e-05,
           "confidence": 0.95,
           "n_resamples": 10000
@@ -1717,9 +1884,9 @@
           "baseline": "dense",
           "candidate": "rrf k10 d50 (served)",
           "metric": "mrr",
-          "delta": 0.05442890204664998,
-          "low": 0.04136765104755152,
-          "high": 0.06804272519191844,
+          "delta": 0.07618626411294502,
+          "low": 0.062227869911674,
+          "high": 0.09074423299843778,
           "p_value": 9.999000099990002e-05,
           "confidence": 0.95,
           "n_resamples": 10000
@@ -1728,10 +1895,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream)",
           "metric": "recall@5",
-          "delta": -0.004530011325028313,
-          "low": -0.011325028312570781,
-          "high": 0.0011325028312570782,
-          "p_value": 0.29077092290770923,
+          "delta": -0.0011325028312570782,
+          "low": -0.007927519818799546,
+          "high": 0.0056625141562853904,
+          "p_value": 1.0,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1739,10 +1906,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream)",
           "metric": "mrr",
-          "delta": -0.002748233343990582,
-          "low": -0.005901852404065378,
-          "high": 0.0001400010646751815,
-          "p_value": 0.07889211078892111,
+          "delta": -0.0013442072210817241,
+          "low": -0.004159451015790358,
+          "high": 0.0013035987691645903,
+          "p_value": 0.36776322367763226,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1750,10 +1917,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream) + rerank",
           "metric": "recall@5",
-          "delta": -0.02491506228765572,
-          "low": -0.044167610419026046,
-          "high": -0.006795016987542469,
-          "p_value": 0.0124987501249875,
+          "delta": -0.03397508493771234,
+          "low": -0.052095130237825596,
+          "high": -0.015855039637599093,
+          "p_value": 0.0005999400059994001,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1761,9 +1928,9 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d50 (upstream) + rerank",
           "metric": "mrr",
-          "delta": -0.0536036121301826,
-          "low": -0.07497159471692565,
-          "high": -0.03294390308429232,
+          "delta": -0.07063109196093287,
+          "low": -0.0921638157447924,
+          "high": -0.049474772279666804,
           "p_value": 9.999000099990002e-05,
           "confidence": 0.95,
           "n_resamples": 10000
@@ -1772,10 +1939,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d20 (ablation)",
           "metric": "recall@5",
-          "delta": -0.004530011325028313,
-          "low": -0.011325028312570781,
-          "high": 0.0011325028312570782,
-          "p_value": 0.2896710328967103,
+          "delta": -0.0022650056625141564,
+          "low": -0.009060022650056626,
+          "high": 0.004530011325028313,
+          "p_value": 0.7647235276472353,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1783,10 +1950,32 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k60 d20 (ablation)",
           "metric": "mrr",
-          "delta": -0.003467533445048658,
-          "low": -0.007010528103746349,
-          "high": -0.00021840984755290517,
-          "p_value": 0.0453954604539546,
+          "delta": -0.0017919507306595568,
+          "low": -0.004762049598013183,
+          "high": 0.0010553477600016422,
+          "p_value": 0.23327667233276672,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served)",
+          "candidate": "rrf k60 d50 bm25x2",
+          "metric": "recall@5",
+          "delta": 0.0022650056625141564,
+          "low": -0.0056625141562853904,
+          "high": 0.010192525481313703,
+          "p_value": 0.7702229777022298,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served)",
+          "candidate": "rrf k60 d50 bm25x2",
+          "metric": "mrr",
+          "delta": 0.014634776880599035,
+          "low": 0.003949877990177102,
+          "high": 0.025405257946173956,
+          "p_value": 0.008099190080991902,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1794,10 +1983,10 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k10 d50 (served) + rerank",
           "metric": "recall@5",
-          "delta": -0.02491506228765572,
-          "low": -0.044167610419026046,
-          "high": -0.006795016987542469,
-          "p_value": 0.0124987501249875,
+          "delta": -0.03397508493771234,
+          "low": -0.052095130237825596,
+          "high": -0.015855039637599093,
+          "p_value": 0.0005999400059994001,
           "confidence": 0.95,
           "n_resamples": 10000
         },
@@ -1805,10 +1994,32 @@
           "baseline": "rrf k10 d50 (served)",
           "candidate": "rrf k10 d50 (served) + rerank",
           "metric": "mrr",
-          "delta": -0.05394523128145575,
-          "low": -0.07532765757790155,
-          "high": -0.033288226570083804,
+          "delta": -0.07102836676364369,
+          "low": -0.09271237360627416,
+          "high": -0.04997373050194852,
           "p_value": 9.999000099990002e-05,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served) + rerank",
+          "candidate": "rrf k60 d50 bm25x2 + rerank",
+          "metric": "recall@5",
+          "delta": 0.007927519818799546,
+          "low": 0.0011325028312570782,
+          "high": 0.015855039637599093,
+          "p_value": 0.06469353064693531,
+          "confidence": 0.95,
+          "n_resamples": 10000
+        },
+        {
+          "baseline": "rrf k10 d50 (served) + rerank",
+          "candidate": "rrf k60 d50 bm25x2 + rerank",
+          "metric": "mrr",
+          "delta": 0.004823130400557832,
+          "low": 0.0013190138347906422,
+          "high": 0.008629897827795247,
+          "p_value": 0.007599240075992401,
           "confidence": 0.95,
           "n_resamples": 10000
         }
@@ -1817,62 +2028,62 @@
         {
           "slice": "legal reference",
           "n": 740,
-          "bm25 | recall@5": 0.9108108108108108,
-          "bm25 | mrr": 0.7928825987284455,
+          "bm25 | recall@5": 0.9472972972972973,
+          "bm25 | mrr": 0.8755855642821869,
           "dense | recall@5": 0.8864864864864865,
           "dense | mrr": 0.7758895775232876,
-          "rrf k10 d50 (served) | recall@5": 0.9378378378378378,
-          "rrf k10 d50 (served) | mrr": 0.8347084817933164,
-          "rrf k10 d50 (served) + rerank | recall@5": 0.9081081081081082,
-          "rrf k10 d50 (served) + rerank | mrr": 0.7745199963020328
+          "rrf k10 d50 (served) | recall@5": 0.9567567567567568,
+          "rrf k10 d50 (served) | mrr": 0.861970420804044,
+          "rrf k10 d50 (served) + rerank | recall@5": 0.9148648648648648,
+          "rrf k10 d50 (served) + rerank | mrr": 0.7789212687896899
         },
         {
           "slice": "no legal reference",
           "n": 143,
-          "bm25 | recall@5": 0.9230769230769231,
-          "bm25 | mrr": 0.8153113446382677,
+          "bm25 | recall@5": 0.9300699300699301,
+          "bm25 | mrr": 0.8093981998393763,
           "dense | recall@5": 0.9090909090909091,
           "dense | mrr": 0.7906022919217078,
           "rrf k10 d50 (served) | recall@5": 0.9370629370629371,
-          "rrf k10 d50 (served) | mrr": 0.8223136999452789,
-          "rrf k10 d50 (served) + rerank | recall@5": 0.9370629370629371,
-          "rrf k10 d50 (served) + rerank | mrr": 0.8006762177216723
+          "rrf k10 d50 (served) | mrr": 0.8155858386627618,
+          "rrf k10 d50 (served) + rerank | recall@5": 0.9440559440559441,
+          "rrf k10 d50 (served) + rerank | mrr": 0.8067629340356613
         },
         {
           "slice": "overlap low (<= 0.60)",
           "n": 315,
-          "bm25 | recall@5": 0.8412698412698413,
-          "bm25 | mrr": 0.6956900201441442,
+          "bm25 | recall@5": 0.9142857142857143,
+          "bm25 | mrr": 0.8134094397050253,
           "dense | recall@5": 0.8158730158730159,
           "dense | mrr": 0.6995846043548614,
-          "rrf k10 d50 (served) | recall@5": 0.8825396825396825,
-          "rrf k10 d50 (served) | mrr": 0.7635735157467493,
-          "rrf k10 d50 (served) + rerank | recall@5": 0.8571428571428571,
-          "rrf k10 d50 (served) + rerank | mrr": 0.7028917582927607
+          "rrf k10 d50 (served) | recall@5": 0.9142857142857143,
+          "rrf k10 d50 (served) | mrr": 0.8049115935564665,
+          "rrf k10 d50 (served) + rerank | recall@5": 0.873015873015873,
+          "rrf k10 d50 (served) + rerank | mrr": 0.7181951261399883
         },
         {
           "slice": "overlap mid",
           "n": 284,
-          "bm25 | recall@5": 0.9507042253521126,
-          "bm25 | mrr": 0.8227296809528409,
+          "bm25 | recall@5": 0.9612676056338029,
+          "bm25 | mrr": 0.892412506049758,
           "dense | recall@5": 0.9119718309859155,
           "dense | mrr": 0.7964233629705555,
-          "rrf k10 d50 (served) | recall@5": 0.9612676056338029,
-          "rrf k10 d50 (served) | mrr": 0.8558108652587841,
-          "rrf k10 d50 (served) + rerank | recall@5": 0.9330985915492958,
-          "rrf k10 d50 (served) + rerank | mrr": 0.7854682778098271
+          "rrf k10 d50 (served) | recall@5": 0.971830985915493,
+          "rrf k10 d50 (served) | mrr": 0.8727602407819235,
+          "rrf k10 d50 (served) + rerank | recall@5": 0.9366197183098591,
+          "rrf k10 d50 (served) + rerank | mrr": 0.7819041775907973
         },
         {
           "slice": "overlap high (> 0.72)",
           "n": 284,
-          "bm25 | recall@5": 0.954225352112676,
-          "bm25 | mrr": 0.8821304915715127,
+          "bm25 | recall@5": 0.9612676056338029,
+          "bm25 | mrr": 0.8943948412698413,
           "dense | recall@5": 0.9507042253521126,
           "dense | mrr": 0.8473979917486546,
-          "rrf k10 d50 (served) | recall@5": 0.9753521126760564,
-          "rrf k10 d50 (served) | mrr": 0.8862647620616486,
+          "rrf k10 d50 (served) | recall@5": 0.9788732394366197,
+          "rrf k10 d50 (served) | mrr": 0.8911120632796276,
           "rrf k10 d50 (served) + rerank | recall@5": 0.954225352112676,
-          "rrf k10 d50 (served) + rerank | mrr": 0.8561887381601865
+          "rrf k10 d50 (served) + rerank | mrr": 0.8573119271182651
         }
       ]
     }
