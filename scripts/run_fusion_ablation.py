@@ -6,12 +6,16 @@ the production corpus, with paired significance tests instead of bare means.
 Each question's BM25 and dense rankings are retrieved **once** (top ``--depth``)
 and cached; every fused variant is derived from those cached rankings, so the
 RRF constant, the per-leg candidate depth and leg weights can be compared at no
-extra retrieval cost. The served configuration (50 candidates per leg, k_rrf=60,
-the fused top 30 reranked by the cross-encoder) is always included.
+extra retrieval cost. The served configuration (50 candidates per leg, k_rrf=10,
+no reranking: ``BOE_RRF_K=10``, ``BOE_RERANK=false``) is always included, also
+with the fused top 30 reranked by the cross-encoder.
 
 Question sets, reported separately:
 
 - **gold** — the hand-curated golden set, never used to choose anything;
+- **norm-refs** — hand-checked "¿Qué regula <norma>?" questions whose gold chunk
+  is the norm's own object article: the query is little more than a norm number,
+  which is where BM25 tokenisation of ``N/YYYY`` matters;
 - **silver-dev** / **silver-test** — the generated silver set split by source
   document (``eval.split``). The best fused variant is *chosen* on dev and
   *reported* on test, so tuning does not flatter the result.
@@ -67,7 +71,9 @@ logger = logging.getLogger(__name__)
 METRICS = ("recall@5", "recall@10", "mrr", "ndcg@10")
 #: Metrics the paired tests and slices use.
 TESTED = ("recall@5", "mrr")
-SERVED = "rrf k60 d50 (served)"
+SERVED = "rrf k10 d50 (served)"
+#: What upstream serves: k_rrf=60, then the cross-encoder rerank.
+UPSTREAM = "rrf k60 d50 (upstream)"
 
 
 @dataclass(frozen=True, slots=True)
@@ -88,10 +94,10 @@ class Fusion:
 
 #: Fused variants. Depth 20 is the setting of the committed hybrid ablation.
 FUSIONS: dict[str, Fusion] = {
-    SERVED: Fusion(50, 60),
+    SERVED: Fusion(50, 10),
+    UPSTREAM: Fusion(50, 60),
     "rrf k60 d20 (ablation)": Fusion(20, 60),
     "rrf k60 d100": Fusion(100, 60),
-    "rrf k10 d50": Fusion(50, 10),
     "rrf k30 d50": Fusion(50, 30),
     "rrf k100 d50": Fusion(50, 100),
     "rrf k60 d50 bm25x2": Fusion(50, 60, (1.0, 2.0)),
@@ -125,7 +131,15 @@ def _retrieve_legs(
     cache: Path,
 ) -> dict[str, dict[str, list[str]]]:
     """Top-``depth`` BM25 and dense rankings per example, cached on disk."""
-    stamp = {"chunks": len(chunk_ids), "depth": depth, "embeddings": embeddings.name}
+    from boe_rag.eval.sparse import tokenize_es
+
+    # The BM25 leg depends on the tokenizer; a probe string keys the cache to it.
+    stamp = {
+        "chunks": len(chunk_ids),
+        "depth": depth,
+        "embeddings": embeddings.name,
+        "tokens": tokenize_es("Ley 39/2015, artículo 14"),
+    }
     legs: dict[str, dict[str, list[str]]] = {}
     if cache.is_file():
         stored = json.loads(cache.read_text())
@@ -326,6 +340,12 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--gold", type=Path, default=Path("eval_data/seed_evalset.jsonl")
     )
+    parser.add_argument(
+        "--norm-refs",
+        type=Path,
+        default=Path("eval_data/norm_reference_evalset.jsonl"),
+        help="Norm-reference questions; skipped if the file is missing.",
+    )
     parser.add_argument("--silver", type=Path, help="Generated evalset .jsonl.")
     parser.add_argument("--limit-silver", type=int, help="Use the first N silver.")
     parser.add_argument("--depth", type=int, default=100, help="Cached per leg.")
@@ -353,6 +373,8 @@ def main(argv: list[str] | None = None) -> int:
 
     gold, gold_dropped = _in_corpus(load_evalset(args.gold), id_set)
     sets: dict[str, list[EvalExample]] = {"gold": gold}
+    if args.norm_refs.is_file():
+        sets["norm-refs"], _ = _in_corpus(load_evalset(args.norm_refs), id_set)
     silver_dropped = 0
     if args.silver:
         silver = load_evalset(args.silver)[: args.limit_silver]
@@ -400,7 +422,7 @@ def main(argv: list[str] | None = None) -> int:
         report_on = [
             e for name, group in sets.items() if name != "silver-dev" for e in group
         ]
-        for base in dict.fromkeys([SERVED, best]):
+        for base in dict.fromkeys([SERVED, UPSTREAM, best]):
             logger.info("Reranking %s for %d questions ...", base, len(report_on))
             reranked = _rerank_all(report_on, rankings[base], text_of, args.rerank_pool)
             name = f"{base} + rerank"
@@ -424,6 +446,8 @@ def main(argv: list[str] | None = None) -> int:
         ("bm25", "dense"),
         ("bm25", SERVED),
         ("dense", SERVED),
+        (SERVED, UPSTREAM),
+        (SERVED, f"{UPSTREAM} + rerank"),
         (SERVED, "rrf k60 d20 (ablation)"),
         (SERVED, best),
         (SERVED, f"{SERVED} + rerank"),
@@ -471,7 +495,8 @@ def main(argv: list[str] | None = None) -> int:
             "Corpus": f"`{args.corpus.name}` ({len(chunk_ids)} chunks, "
             f"{equivalence.num_redundant} byte-identical duplicates folded)",
             "Cached depth per leg": args.depth,
-            "Served": "50 per leg, k_rrf=60, fused top 30 reranked",
+            "Served": "50 per leg, k_rrf=10, no rerank (BOE_RRF_K, BOE_RERANK)",
+            "BM25 tokens": "norm numbers kept whole (`39/2015` is one token)",
             "Best fused variant": f"{best} (chosen on {select_on} by MRR)",
             "Dropped (gold not in corpus)": (
                 f"gold {gold_dropped}, silver {silver_dropped}"

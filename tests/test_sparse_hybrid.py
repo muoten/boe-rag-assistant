@@ -40,6 +40,16 @@ def test_tokenize_preserves_accents_and_enye() -> None:
     assert tokenize_es("añadido pequeño") == ["añadido", "pequeño"]
 
 
+def test_tokenize_keeps_norm_numbers_whole() -> None:
+    """``39/2015`` is one token, so its halves elsewhere don't match it."""
+    assert tokenize_es("Ley 39/2015") == ["ley", "39r2015"]
+    collision = tokenize_es("El artículo 39 de la Ley 40/2015, de 1 de octubre")
+    assert "39r2015" not in collision
+    assert collision[:3] == ["artículo", "39", "ley"]
+    assert tokenize_es("Orden HAC/1495/2025") == ["orden", "hac", "1495r2025"]
+    assert "1r2024" not in tokenize_es("del 01/01/2024")
+
+
 # --- BM25 --------------------------------------------------------------------
 
 

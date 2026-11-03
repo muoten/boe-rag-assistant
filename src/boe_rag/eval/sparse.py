@@ -29,6 +29,11 @@ DEFAULT_B = 0.75
 #: Matches runs of digits and (accented) letters; everything else is a boundary.
 _TOKEN_RE = re.compile(r"[0-9a-záéíóúüñ]+")
 
+#: A norm number such as ``39/2015``. Split on the slash, its halves would also
+#: match "artículo 39 de la Ley 40/2015" or "Ley 7/2005, de 24 de mayo", so it
+#: is kept as one token (``39r2015``) instead.
+_NORM_REF_RE = re.compile(r"(?<!\d)(?<!\d/)(\d{1,4})/(\d{4})(?![\d/])")
+
 #: High-frequency Spanish function words that carry little retrieval signal.
 _STOPWORDS: frozenset[str] = frozenset(
     {
@@ -111,11 +116,12 @@ def tokenize_es(text: str) -> list[str]:
 
     Returns:
         Lowercased single-token terms with stopwords and 1-character tokens
-        removed, in order of appearance.
+        removed, in order of appearance. A norm number ``N/YYYY`` is one token.
     """
+    text = _NORM_REF_RE.sub(r"\1r\2", text.lower())
     return [
         token
-        for token in _TOKEN_RE.findall(text.lower())
+        for token in _TOKEN_RE.findall(text)
         if len(token) > 1 and token not in _STOPWORDS
     ]
 
