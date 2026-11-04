@@ -428,7 +428,7 @@ on the live UI. Two views:
 
 - **Asistente** — *Preguntar* gives a grounded answer with each source linked back to boe.es
   (`/ask`); *Buscar pasajes* shows the raw ranked retrieval with relevance scores (`/search`).
-- **Calidad** (`#/calidad`) — a metrics page that renders the headline eval numbers straight
+- **Acerca de** (`#/acerca`) — credits, then a metrics page that renders the headline eval numbers straight
   from the committed `reports/*.json`: gold/silver retrieval (recall@10, MRR, nDCG with
   bootstrap CIs), the dense → hybrid → +cross-encoder ablation, LLM-judged answer quality, and
   the adversarial security posture by category. The data is assembled at build time by
@@ -448,7 +448,7 @@ cd frontend
 npm install
 # point the SPA at the local API (frontend/.env): VITE_API_BASE_URL=http://localhost:8000
 npm run dev
-# → http://localhost:5173/        (assistant + #/calidad quality page)
+# → http://localhost:5173/        (assistant + #/acerca about page)
 ```
 
 ## Deployment (Phase 6)

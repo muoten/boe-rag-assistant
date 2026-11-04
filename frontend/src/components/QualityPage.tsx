@@ -35,7 +35,7 @@ function RetrievalCards({ stats }: { stats: RetrievalStats }) {
   );
 }
 
-/** The quality page: headline eval metrics rendered from the committed reports. */
+/** The about page: credits, then headline eval metrics from the committed reports. */
 export function QualityPage() {
   const { retrieval, ablation, generation, security } = quality;
   const generatedDate = new Date(quality.generated).toLocaleDateString("es-ES", {
@@ -46,11 +46,29 @@ export function QualityPage() {
 
   return (
     <div className="quality">
-      <p className="quality-intro">
-        Cada cifra procede de un <em>eval</em> reproducible versionado en el repositorio
-        (<code>reports/</code>); no son estimaciones. La recuperación se mide con
-        equivalencia textual; las respuestas, con un juez LLM.
-      </p>
+      <section className="quality-section">
+        <h2>Créditos</h2>
+        <p className="quality-note">
+          Este proyecto parte de{" "}
+          <a href="https://github.com/gonzalonao/boe-rag-assistant">
+            boe-rag-assistant
+          </a>
+          , de Gonzalo López Crespo, publicado con licencia MIT. Esta versión (
+          <a href="https://github.com/muoten/boe-rag-assistant">
+            muoten/boe-rag-assistant
+          </a>
+          ) lo despliega en Azure y modifica la recuperación.
+        </p>
+      </section>
+
+      <section className="quality-section">
+        <h2>Calidad</h2>
+        <p className="quality-intro">
+          Cada cifra procede de un <em>eval</em> reproducible versionado en el
+          repositorio (<code>reports/</code>); no son estimaciones. La recuperación se
+          mide con equivalencia textual; las respuestas, con un juez LLM.
+        </p>
+      </section>
 
       <section className="quality-section">
         <h2>Recuperación</h2>

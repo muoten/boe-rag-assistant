@@ -341,6 +341,10 @@ body {
   margin: 0 0 1rem;
 }
 
+.quality-note a {
+  color: var(--text);
+}
+
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

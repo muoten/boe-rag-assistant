@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import { AssistantView } from "./components/AssistantView";
 import { QualityPage } from "./components/QualityPage";
 
-type View = "assistant" | "quality";
+type View = "assistant" | "about";
 
-const QUALITY_HASH = "#/calidad";
+const ABOUT_HASH = "#/acerca";
+/** The page's former address, kept so existing links still land on it. */
+const LEGACY_ABOUT_HASH = "#/calidad";
 
-/** Map the URL hash to a view, so the quality page is directly linkable. */
+/** Map the URL hash to a view, so the about page is directly linkable. */
 function viewFromHash(): View {
-  return window.location.hash === QUALITY_HASH ? "quality" : "assistant";
+  const { hash } = window.location;
+  return hash === ABOUT_HASH || hash === LEGACY_ABOUT_HASH ? "about" : "assistant";
 }
 
 export function App() {
@@ -21,7 +24,7 @@ export function App() {
   }, []);
 
   function go(next: View) {
-    window.location.hash = next === "quality" ? QUALITY_HASH : "";
+    window.location.hash = next === "about" ? ABOUT_HASH : "";
   }
 
   return (
@@ -43,11 +46,11 @@ export function App() {
           </button>
           <button
             type="button"
-            className={`nav-tab ${view === "quality" ? "active" : ""}`}
-            aria-current={view === "quality" ? "page" : undefined}
-            onClick={() => go("quality")}
+            className={`nav-tab ${view === "about" ? "active" : ""}`}
+            aria-current={view === "about" ? "page" : undefined}
+            onClick={() => go("about")}
           >
-            Calidad
+            Acerca de
           </button>
         </nav>
       </header>
