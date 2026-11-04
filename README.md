@@ -429,8 +429,9 @@ on the live UI. Two views:
 - **Asistente** — *Preguntar* gives a grounded answer with each source linked back to boe.es
   (`/ask`); *Buscar pasajes* shows the raw ranked retrieval with relevance scores (`/search`).
 - **Acerca de** (`#/acerca`) — credits, then a metrics page that renders the headline eval numbers straight
-  from the committed `reports/*.json`: gold/silver retrieval (recall@10, MRR, nDCG with
-  bootstrap CIs), the dense → hybrid → +cross-encoder ablation, LLM-judged answer quality, and
+  from the committed `reports/*.json`: the served retrieval on gold, silver and norm-reference
+  questions (recall@5, MRR, nDCG with bootstrap CIs), BM25, dense, hybrid and +cross-encoder
+  side by side, LLM-judged answer quality, and
   the adversarial security posture by category. The data is assembled at build time by
   [`frontend/scripts/build-quality-data.mjs`](frontend/scripts/build-quality-data.mjs), so the
   page can never drift from the evals it reports.

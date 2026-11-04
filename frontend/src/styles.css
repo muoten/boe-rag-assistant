@@ -456,12 +456,6 @@ body {
   color: var(--text-muted);
 }
 
-.quality-generated {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-align: right;
-}
-
 /* --- footer --- */
 .app-footer {
   margin-top: 3rem;

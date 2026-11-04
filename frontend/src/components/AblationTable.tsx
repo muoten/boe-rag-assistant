@@ -2,35 +2,34 @@ import type { AblationRow } from "../types";
 
 interface AblationTableProps {
   rows: AblationRow[];
-  k: number;
 }
 
 const format = (value: number) => value.toFixed(3);
 
-/** The retrieval ablation as a table: each pipeline stage against its metrics.
+/** The retrieval ablation as a table: each system against its metrics.
  *
- * The last stage is highlighted as the one actually served, so a reader sees the
- * lift the reranker adds over the dense and hybrid baselines.
+ * The system actually served is highlighted, so a reader can compare it with its
+ * two legs and with the reranker it runs without.
  */
-export function AblationTable({ rows, k }: AblationTableProps) {
+export function AblationTable({ rows }: AblationTableProps) {
   return (
     <div className="table-wrap">
       <table className="metric-table">
         <thead>
           <tr>
-            <th scope="col">Etapa</th>
-            <th scope="col">Recall@{k}</th>
+            <th scope="col">Sistema</th>
+            <th scope="col">Recall@5</th>
             <th scope="col">MRR</th>
-            <th scope="col">nDCG@{k}</th>
+            <th scope="col">nDCG@10</th>
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, i) => (
-            <tr key={row.name} className={i === rows.length - 1 ? "served" : undefined}>
+          {rows.map((row) => (
+            <tr key={row.name} className={row.served ? "served" : undefined}>
               <th scope="row">{row.name}</th>
-              <td>{format(row.recall_at_k)}</td>
+              <td>{format(row.recall_at_5)}</td>
               <td>{format(row.mrr)}</td>
-              <td>{format(row.ndcg_at_k)}</td>
+              <td>{format(row.ndcg_at_10)}</td>
             </tr>
           ))}
         </tbody>

@@ -30,11 +30,10 @@ export interface MetricCI {
 
 /** Headline retrieval metrics for one eval set (gold or silver). */
 export interface RetrievalStats {
-  k: number;
   num_queries: number;
-  recall_at_k: number;
+  recall_at_5: number;
   mrr: number;
-  ndcg_at_k: number;
+  ndcg_at_10: number;
   recall_ci: MetricCI | null;
   mrr_ci: MetricCI | null;
 }
@@ -42,9 +41,10 @@ export interface RetrievalStats {
 /** One pipeline stage in the retrieval ablation. */
 export interface AblationRow {
   name: string;
-  recall_at_k: number;
+  served: boolean;
+  recall_at_5: number;
   mrr: number;
-  ndcg_at_k: number;
+  ndcg_at_10: number;
 }
 
 /** End-to-end answer-quality metrics (LLM-judged). */
@@ -71,14 +71,16 @@ export interface SecurityStats {
 
 /** The full curated quality dataset rendered by the quality page. */
 export interface QualityData {
-  generated: string;
+  retrieval_measured: string;
   retrieval: {
     gold: RetrievalStats;
     silver: RetrievalStats;
+    norm_refs: RetrievalStats;
   };
   ablation: {
-    k: number;
-    rows: AblationRow[];
+    gold: AblationRow[];
+    silver: AblationRow[];
+    norm_refs: AblationRow[];
   };
   generation: GenerationStats;
   security: SecurityStats;

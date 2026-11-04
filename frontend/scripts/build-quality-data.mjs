@@ -36,43 +36,56 @@ function field(report, key, where) {
   return value;
 }
 
-/** Project a retrieval report into the page's gold/silver stats shape. */
-function retrievalStats(report, where) {
-  const recallCi = report.recall_at_k_ci;
-  const mrrCi = report.mrr_ci;
+// The fusion report's system names, mapped to the page's labels. Its served entry is
+// the configuration deployed on Azure (see the report's "Served" metadata).
+const SERVED = "rrf k10 d50 (served)";
+const SYSTEMS = [
+  ["bm25", "BM25"],
+  ["dense", "Denso (e5)"],
+  [SERVED, "Híbrido RRF (en producción)"],
+  [`${SERVED} + rerank`, "Híbrido + cross-encoder (no servido)"],
+];
+
+/** A system's summary in one evaluation set of the fusion report. */
+function systemSummary(set, key, where) {
+  const summary = field(set, "summary", where)[key];
+  if (!summary) {
+    throw new Error(`Report ${where} is missing the "${key}" system.`);
+  }
+  return summary;
+}
+
+/** Project one evaluation set into the page's headline stats for the served system. */
+function retrievalStats(report, name) {
+  const where = `retrieval_fusion.${name}`;
+  const set = field(report.sets, name, "retrieval_fusion");
+  const summary = systemSummary(set, SERVED, where);
+  const point = (metric) => field(field(summary, metric, where), "point", where);
+  const ci = (metric) => ({ low: summary[metric].low, high: summary[metric].high });
   return {
-    k: field(report, "k", where),
-    num_queries: field(report, "num_queries", where),
-    recall_at_k: field(report, "recall_at_k", where),
-    mrr: field(report, "mrr", where),
-    ndcg_at_k: field(report, "ndcg_at_k", where),
-    recall_ci: recallCi ? { low: recallCi.low, high: recallCi.high } : null,
-    mrr_ci: mrrCi ? { low: mrrCi.low, high: mrrCi.high } : null,
+    num_queries: field(set, "n", where),
+    recall_at_5: point("recall@5"),
+    mrr: point("mrr"),
+    ndcg_at_10: point("ndcg@10"),
+    recall_ci: ci("recall@5"),
+    mrr_ci: ci("mrr"),
   };
 }
 
-// The reranker ablation report keys, mapped to human-readable pipeline stages.
-const ABLATION_STAGES = [
-  ["dense", "Denso (e5)"],
-  ["hybrid (RRF)", "Híbrido (RRF)"],
-  ["hybrid + cross-encoder", "Híbrido + cross-encoder"],
-];
-
-function ablation(report) {
-  const rows = ABLATION_STAGES.map(([key, name]) => {
-    const stage = report[key];
-    if (!stage) {
-      throw new Error(`retrieval_rerank.json is missing the "${key}" stage.`);
-    }
+/** The systems of one evaluation set, side by side. */
+function ablation(report, name) {
+  const where = `retrieval_fusion.${name}`;
+  const set = field(report.sets, name, "retrieval_fusion");
+  return SYSTEMS.map(([key, label]) => {
+    const summary = systemSummary(set, key, where);
     return {
-      name,
-      recall_at_k: field(stage, "recall_at_k", `retrieval_rerank.${key}`),
-      mrr: field(stage, "mrr", `retrieval_rerank.${key}`),
-      ndcg_at_k: field(stage, "ndcg_at_k", `retrieval_rerank.${key}`),
+      name: label,
+      served: key === SERVED,
+      recall_at_5: summary["recall@5"].point,
+      mrr: summary.mrr.point,
+      ndcg_at_10: summary["ndcg@10"].point,
     };
   });
-  const k = report.dense ? field(report.dense, "k", "retrieval_rerank.dense") : 10;
-  return { k, rows };
 }
 
 function security(report) {
@@ -87,19 +100,24 @@ function security(report) {
   };
 }
 
-const gold = readReport("retrieval_baseline.json");
-const silver = readReport("evalset_silver_retrieval.json");
-const rerank = readReport("retrieval_rerank.json");
+const fusion = readReport("retrieval_fusion.json");
 const e2e = readReport("e2e_baseline.json");
 const sec = readReport("security_eval.json");
 
 const data = {
-  generated: new Date().toISOString(),
+  retrieval_measured: field(fusion.meta, "Generated", "retrieval_fusion.meta")
+    .replace(" ", "T")
+    .replace(" UTC", ":00Z"),
   retrieval: {
-    gold: retrievalStats(gold, "retrieval_baseline"),
-    silver: retrievalStats(silver, "evalset_silver_retrieval"),
+    gold: retrievalStats(fusion, "gold"),
+    silver: retrievalStats(fusion, "silver-test"),
+    norm_refs: retrievalStats(fusion, "norm-refs"),
   },
-  ablation: ablation(rerank),
+  ablation: {
+    gold: ablation(fusion, "gold"),
+    silver: ablation(fusion, "silver-test"),
+    norm_refs: ablation(fusion, "norm-refs"),
+  },
   generation: {
     num_queries: field(e2e, "num_queries", "e2e_baseline"),
     mean_faithfulness: field(e2e, "mean_faithfulness", "e2e_baseline"),

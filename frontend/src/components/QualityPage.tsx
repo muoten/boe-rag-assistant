@@ -21,8 +21,8 @@ function RetrievalCards({ stats }: { stats: RetrievalStats }) {
   return (
     <div className="metric-grid">
       <MetricCard
-        label={`Recall@${stats.k}`}
-        value={pct(stats.recall_at_k)}
+        label="Recall@5"
+        value={pct(stats.recall_at_5)}
         {...(recallDetail ? { detail: recallDetail } : {})}
       />
       <MetricCard
@@ -30,7 +30,7 @@ function RetrievalCards({ stats }: { stats: RetrievalStats }) {
         value={stats.mrr.toFixed(3)}
         {...(mrrDetail ? { detail: mrrDetail } : {})}
       />
-      <MetricCard label={`nDCG@${stats.k}`} value={stats.ndcg_at_k.toFixed(3)} />
+      <MetricCard label="nDCG@10" value={stats.ndcg_at_10.toFixed(3)} />
     </div>
   );
 }
@@ -38,11 +38,14 @@ function RetrievalCards({ stats }: { stats: RetrievalStats }) {
 /** The about page: credits, then headline eval metrics from the committed reports. */
 export function QualityPage() {
   const { retrieval, ablation, generation, security } = quality;
-  const generatedDate = new Date(quality.generated).toLocaleDateString("es-ES", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const measuredDate = new Date(quality.retrieval_measured).toLocaleDateString(
+    "es-ES",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    },
+  );
 
   return (
     <div className="quality">
@@ -72,30 +75,50 @@ export function QualityPage() {
 
       <section className="quality-section">
         <h2>Recuperación</h2>
+        <p className="quality-note">
+          Lo que se sirve en producción, medido el {measuredDate}. Recall@5 cuenta los
+          pasajes en los que se fundamenta cada respuesta.
+        </p>
         <h3 className="quality-subhead">
           Conjunto oro · {retrieval.gold.num_queries} preguntas curadas a mano
         </h3>
         <RetrievalCards stats={retrieval.gold} />
         <h3 className="quality-subhead">
-          Conjunto plata · {retrieval.silver.num_queries.toLocaleString("es-ES")}{" "}
+          Conjunto plata (test) · {retrieval.silver.num_queries.toLocaleString("es-ES")}{" "}
           preguntas generadas automáticamente
         </h3>
         <RetrievalCards stats={retrieval.silver} />
+        <h3 className="quality-subhead">
+          Referencias normativas · {retrieval.norm_refs.num_queries} preguntas «¿Qué
+          regula la norma X?»
+        </h3>
+        <RetrievalCards stats={retrieval.norm_refs} />
       </section>
 
       <section className="quality-section">
         <h2>Pipeline de recuperación</h2>
         <p className="quality-note">
-          Ablación sobre el conjunto oro: el <strong>cross-encoder</strong> reordena los
-          candidatos del híbrido y es la etapa que se sirve en producción.
+          En producción se fusionan BM25 y búsqueda densa con RRF,{" "}
+          <strong>sin reordenar</strong>. El <strong>cross-encoder</strong> empeoró la
+          recuperación en el conjunto plata y en las referencias normativas, y añade
+          latencia; en el conjunto oro mejora el MRR, sin diferencia estadísticamente
+          significativa. En las referencias normativas, BM25 por sí solo supera al
+          híbrido servido.
         </p>
-        <AblationTable rows={ablation.rows} k={ablation.k} />
+        <h3 className="quality-subhead">Conjunto oro</h3>
+        <AblationTable rows={ablation.gold} />
+        <h3 className="quality-subhead">Conjunto plata (test)</h3>
+        <AblationTable rows={ablation.silver} />
+        <h3 className="quality-subhead">Referencias normativas</h3>
+        <AblationTable rows={ablation.norm_refs} />
       </section>
 
       <section className="quality-section">
         <h2>Calidad de las respuestas</h2>
         <p className="quality-note">
-          Juez LLM sobre {generation.num_queries} preguntas de extremo a extremo.
+          Juez LLM sobre {generation.num_queries} preguntas de extremo a extremo. Medido
+          en julio de 2026, antes de los cambios actuales en la recuperación y sin
+          repetir desde entonces.
         </p>
         <div className="metric-grid">
           <MetricCard label="Fidelidad" value={pct(generation.mean_faithfulness)} />
@@ -112,7 +135,8 @@ export function QualityPage() {
         <h2>Robustez adversarial</h2>
         <p className="quality-note">
           {security.num_passed} de {security.num_cases} casos superados (
-          {pct(security.pass_rate)}).
+          {pct(security.pass_rate)}). Medido en julio de 2026, sin repetir desde
+          entonces.
         </p>
         <ul className="security-list">
           {security.by_category.map((cat) => (
@@ -129,8 +153,6 @@ export function QualityPage() {
           ))}
         </ul>
       </section>
-
-      <p className="quality-generated">Datos generados el {generatedDate}.</p>
     </div>
   );
 }
