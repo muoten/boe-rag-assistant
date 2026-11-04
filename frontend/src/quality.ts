@@ -19,4 +19,4 @@ export const longDate = (iso: string) =>
   });
 
 /** The knowledge-base sentence shown on both views. */
-export const corpusScope = `una selección de ${quality.corpus.documents.toLocaleString("es-ES")} documentos del BOE publicados entre el ${longDate(quality.corpus.first_published)} y el ${longDate(quality.corpus.last_published)}`;
+export const corpusScope = `una parte del BOE: ${quality.corpus.documents.toLocaleString("es-ES")} documentos publicados entre el ${longDate(quality.corpus.first_published)} y el ${longDate(quality.corpus.last_published)}`;

@@ -12,6 +12,9 @@ const MESSAGES: Record<number, string> = {
   503: "El servicio de generación no está disponible ahora mismo. Vuelve a intentarlo en un momento.",
 };
 
+/** A cold start took about a minute when measured; this is well past that. */
+const TIMEOUT_MS = 120_000;
+
 /** POST a JSON body to an API endpoint, mapping failures to a typed ApiError. */
 async function postJson<T>(path: string, body: unknown): Promise<T> {
   let response: Response;
@@ -20,8 +23,14 @@ async function postJson<T>(path: string, body: unknown): Promise<T> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
+      signal: AbortSignal.timeout(TIMEOUT_MS),
     });
-  } catch {
+  } catch (err) {
+    if (err instanceof DOMException && err.name === "TimeoutError") {
+      throw new ApiError(
+        "El servicio no ha respondido en dos minutos. Inténtalo de nuevo; si estaba arrancando, ahora debería ir más rápido.",
+      );
+    }
     throw new ApiError(
       "No se ha podido conectar con el servicio. Comprueba tu conexión e inténtalo de nuevo.",
     );

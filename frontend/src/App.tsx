@@ -38,8 +38,7 @@ export function App() {
         </p>
         {view === "assistant" ? (
           <p className="app-corpus">
-            Base de conocimiento: {corpusScope}. No incluye todo el BOE, así que muchas
-            normas no están.
+            Base de conocimiento: {corpusScope}. Muchas normas no están.
           </p>
         ) : null}
         <nav className="app-nav" aria-label="Secciones">

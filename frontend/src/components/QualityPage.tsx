@@ -72,9 +72,10 @@ export function QualityPage() {
           {corpus.passages.toLocaleString("es-ES")} pasajes. No incluye todo el BOE: en
           una muestra de {sample.days} días, {sample.in_corpus} de los{" "}
           {sample.documents} documentos de la Sección I (Disposiciones generales)
-          estaban en esta selección, alrededor de un{" "}
-          {Math.round((sample.in_corpus / sample.documents) * 100)} %. Muchas normas,
-          como la Ley 39/2015, no están.
+          estaban incluidos, alrededor de un{" "}
+          {Math.round((sample.in_corpus / sample.documents) * 100)} %. El texto de
+          muchas normas, como la Ley 39/2015, no está. Algunas aparecen citadas en otros
+          documentos, y las respuestas sobre ellas se basan solo en esas menciones.
         </p>
       </section>
 

@@ -198,6 +198,17 @@ body {
   color: var(--text-muted);
 }
 
+.status-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.status-elapsed {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 .status.error {
   color: #ffb4be;
   background: var(--accent-soft);

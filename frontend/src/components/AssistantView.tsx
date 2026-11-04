@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ApiError, ask, search } from "../api";
 import type { AnswerResponse, SearchResponse } from "../types";
 import { AnswerPanel } from "./AnswerPanel";
@@ -12,6 +12,40 @@ const LOADING_COPY: Record<Mode, string> = {
   ask: "Buscando en el BOE y redactando una respuesta fundamentada…",
   search: "Recuperando los pasajes más relevantes del BOE…",
 };
+
+/** The loading notice: what's happening, what to expect, and the time so far.
+ *
+ * The service scales to zero, so the first request after a while waits about a
+ * minute with nothing else to show for it.
+ */
+function LoadingStatus({ mode }: { mode: Mode }) {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const started = Date.now();
+    const timer = window.setInterval(
+      () => setSeconds(Math.floor((Date.now() - started) / 1000)),
+      1000,
+    );
+    return () => window.clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="status loading">
+      <span className="spinner" aria-hidden="true" />
+      <div aria-live="polite">
+        {LOADING_COPY[mode]}
+        <p className="status-hint">
+          Suele tardar unos segundos. Si el servicio estaba en reposo, puede tardar
+          alrededor de un minuto en arrancar.{" "}
+          <span aria-hidden="true" className="status-elapsed">
+            {seconds} s
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+}
 
 /** The interactive tool: ask for a grounded answer, or search raw passages. */
 export function AssistantView() {
@@ -98,12 +132,7 @@ export function AssistantView() {
         </p>
       )}
 
-      {status === "loading" && (
-        <div className="status loading" aria-live="polite">
-          <span className="spinner" aria-hidden="true" />
-          {LOADING_COPY[mode]}
-        </div>
-      )}
+      {status === "loading" && <LoadingStatus mode={mode} />}
 
       {status === "error" && error && (
         <div className="status error" role="alert">
