@@ -114,11 +114,12 @@ export function QualityPage() {
         <h2>Pipeline de recuperación</h2>
         <p className="quality-note">
           En producción se fusionan BM25 y búsqueda densa con RRF,{" "}
-          <strong>sin reordenar</strong>. El <strong>cross-encoder</strong> empeoró la
-          recuperación en el conjunto plata y en las referencias normativas, y añade
-          latencia; en el conjunto oro mejora el MRR, sin diferencia estadísticamente
-          significativa. En las referencias normativas, BM25 por sí solo supera al
-          híbrido servido.
+          <strong>sin reordenar</strong>. El <strong>cross-encoder</strong>, medido
+          sobre el corpus anterior (la mitad de pasajes), empeoró la recuperación en el
+          conjunto plata y en las referencias normativas, y añade latencia; en el
+          conjunto oro mejoró el MRR, sin diferencia estadísticamente significativa. Su
+          fila no es directamente comparable con las demás. En las referencias
+          normativas, BM25 por sí solo supera al híbrido servido.
         </p>
         <h3 className="quality-subhead">Conjunto oro</h3>
         <AblationTable rows={ablation.gold} />

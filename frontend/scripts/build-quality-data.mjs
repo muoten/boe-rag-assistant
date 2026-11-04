@@ -43,7 +43,12 @@ const SYSTEMS = [
   ["bm25", "BM25"],
   ["dense", "Denso (e5)"],
   [SERVED, "Híbrido RRF (en producción)"],
-  [`${SERVED} + rerank`, "Híbrido + cross-encoder (no servido)"],
+];
+// The reranker wasn't re-run on the current corpus, so its row comes from the report
+// on the previous one, and says so.
+const RERANK = [
+  `${SERVED} + rerank`,
+  "Híbrido + cross-encoder (no servido, corpus anterior)",
 ];
 
 /** A system's summary in one evaluation set of the fusion report. */
@@ -73,10 +78,13 @@ function retrievalStats(report, name) {
 }
 
 /** The systems of one evaluation set, side by side. */
-function ablation(report, name) {
+function ablation(report, previous, name) {
   const where = `retrieval_fusion.${name}`;
-  const set = field(report.sets, name, "retrieval_fusion");
-  return SYSTEMS.map(([key, label]) => {
+  const rows = [
+    ...SYSTEMS.map(([key, label]) => [field(report.sets, name, where), key, label]),
+    [field(previous.sets, name, where), ...RERANK],
+  ];
+  return rows.map(([set, key, label]) => {
     const summary = systemSummary(set, key, where);
     return {
       name: label,
@@ -101,6 +109,7 @@ function security(report) {
 }
 
 const fusion = readReport("retrieval_fusion.json");
+const previousFusion = readReport("retrieval_fusion_1x.json");
 const corpus = readReport("corpus_summary.json");
 const e2e = readReport("e2e_baseline.json");
 const sec = readReport("security_eval.json");
@@ -122,9 +131,9 @@ const data = {
     norm_refs: retrievalStats(fusion, "norm-refs"),
   },
   ablation: {
-    gold: ablation(fusion, "gold"),
-    silver: ablation(fusion, "silver-test"),
-    norm_refs: ablation(fusion, "norm-refs"),
+    gold: ablation(fusion, previousFusion, "gold"),
+    silver: ablation(fusion, previousFusion, "silver-test"),
+    norm_refs: ablation(fusion, previousFusion, "norm-refs"),
   },
   generation: {
     num_queries: field(e2e, "num_queries", "e2e_baseline"),
