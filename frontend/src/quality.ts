@@ -8,3 +8,15 @@ import data from "./quality-data.json";
 import type { QualityData } from "./types";
 
 export const quality = data as QualityData;
+
+/** Format an ISO date in long Spanish form (e.g. "1 de enero de 2015"). */
+export const longDate = (iso: string) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+
+/** The knowledge-base sentence shown on both views. */
+export const corpusScope = `una selección de ${quality.corpus.documents.toLocaleString("es-ES")} documentos del BOE publicados entre el ${longDate(quality.corpus.first_published)} y el ${longDate(quality.corpus.last_published)}`;

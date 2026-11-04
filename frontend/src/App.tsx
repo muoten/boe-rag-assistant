@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AssistantView } from "./components/AssistantView";
 import { QualityPage } from "./components/QualityPage";
+import { corpusScope } from "./quality";
 
 type View = "assistant" | "about";
 
@@ -35,6 +36,12 @@ export function App() {
           Respuestas <strong>citadas y verificables</strong> sobre legislación española,
           fundamentadas en el Boletín Oficial del Estado.
         </p>
+        {view === "assistant" ? (
+          <p className="app-corpus">
+            Base de conocimiento: {corpusScope}. No incluye todo el BOE, así que muchas
+            normas no están.
+          </p>
+        ) : null}
         <nav className="app-nav" aria-label="Secciones">
           <button
             type="button"

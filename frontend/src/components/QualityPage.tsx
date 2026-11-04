@@ -1,4 +1,4 @@
-import { quality } from "../quality";
+import { corpusScope, quality } from "../quality";
 import type { MetricCI, RetrievalStats } from "../types";
 import { AblationTable } from "./AblationTable";
 import { MetricCard } from "./MetricCard";
@@ -37,7 +37,8 @@ function RetrievalCards({ stats }: { stats: RetrievalStats }) {
 
 /** The about page: credits, then headline eval metrics from the committed reports. */
 export function QualityPage() {
-  const { retrieval, ablation, generation, security } = quality;
+  const { corpus, retrieval, ablation, generation, security } = quality;
+  const sample = corpus.section_one_sample;
   const measuredDate = new Date(quality.retrieval_measured).toLocaleDateString(
     "es-ES",
     {
@@ -61,6 +62,19 @@ export function QualityPage() {
             muoten/boe-rag-assistant
           </a>
           ) lo despliega en Azure y modifica la recuperación.
+        </p>
+      </section>
+
+      <section className="quality-section">
+        <h2>Base de conocimiento</h2>
+        <p className="quality-note">
+          Las respuestas se basan en {corpusScope}, divididos en{" "}
+          {corpus.passages.toLocaleString("es-ES")} pasajes. No incluye todo el BOE: en
+          una muestra de {sample.days} días, {sample.in_corpus} de los{" "}
+          {sample.documents} documentos de la Sección I (Disposiciones generales)
+          estaban en esta selección, alrededor de un{" "}
+          {Math.round((sample.in_corpus / sample.documents) * 100)} %. Muchas normas,
+          como la Ley 39/2015, no están.
         </p>
       </section>
 

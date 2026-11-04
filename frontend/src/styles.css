@@ -51,6 +51,13 @@ body {
   margin: 0.5rem auto 0;
 }
 
+.app-corpus {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  max-width: 62ch;
+  margin: 0.75rem auto 0;
+}
+
 /* --- top-level nav --- */
 .app-nav {
   display: inline-flex;

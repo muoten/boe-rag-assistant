@@ -1,0 +1,11 @@
+{
+  "documents": 1063,
+  "passages": 25920,
+  "first_published": "2015-01-01",
+  "last_published": "2026-09-14",
+  "section_one_sample": {
+    "days": 50,
+    "documents": 207,
+    "in_corpus": 14
+  }
+}

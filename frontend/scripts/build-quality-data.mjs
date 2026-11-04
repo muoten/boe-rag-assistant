@@ -101,10 +101,18 @@ function security(report) {
 }
 
 const fusion = readReport("retrieval_fusion.json");
+const corpus = readReport("corpus_summary.json");
 const e2e = readReport("e2e_baseline.json");
 const sec = readReport("security_eval.json");
 
 const data = {
+  corpus: {
+    documents: field(corpus, "documents", "corpus_summary"),
+    passages: field(corpus, "passages", "corpus_summary"),
+    first_published: field(corpus, "first_published", "corpus_summary"),
+    last_published: field(corpus, "last_published", "corpus_summary"),
+    section_one_sample: field(corpus, "section_one_sample", "corpus_summary"),
+  },
   retrieval_measured: field(fusion.meta, "Generated", "retrieval_fusion.meta")
     .replace(" ", "T")
     .replace(" UTC", ":00Z"),

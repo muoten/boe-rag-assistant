@@ -70,7 +70,17 @@ export interface SecurityStats {
 }
 
 /** The full curated quality dataset rendered by the quality page. */
+/** What the corpus holds, from reports/corpus_summary.json. */
+export interface CorpusSummary {
+  documents: number;
+  passages: number;
+  first_published: string;
+  last_published: string;
+  section_one_sample: { days: number; documents: number; in_corpus: number };
+}
+
 export interface QualityData {
+  corpus: CorpusSummary;
   retrieval_measured: string;
   retrieval: {
     gold: RetrievalStats;

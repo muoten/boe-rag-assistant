@@ -434,7 +434,9 @@ on the live UI. Two views:
   side by side, LLM-judged answer quality, and
   the adversarial security posture by category. The data is assembled at build time by
   [`frontend/scripts/build-quality-data.mjs`](frontend/scripts/build-quality-data.mjs), so the
-  page can never drift from the evals it reports.
+  page can never drift from the evals it reports. Both views state what the corpus covers, from
+  `reports/corpus_summary.json`: re-run [`scripts/summarize_corpus.py`](scripts/summarize_corpus.py)
+  when the corpus changes.
 
 ```bash
 # Terminal 1 — the API (CORS open for the dev server origin):

@@ -28,6 +28,7 @@ export function AnswerPanel({ result }: AnswerPanelProps) {
         <p className="refusal">
           No he encontrado base suficiente en el BOE para responder a esa pregunta, así
           que prefiero no inventar. Prueba a reformularla o a preguntar por otra norma.
+          Puede que la norma no esté en la selección de documentos consultada.
         </p>
       </section>
     );
