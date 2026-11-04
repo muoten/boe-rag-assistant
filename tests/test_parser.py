@@ -34,6 +34,45 @@ def test_parse_sumario_handles_one_or_many_layouts(
     assert by_id["BOE-A-2024-716"].section_name == "I. Disposiciones generales"
 
 
+@pytest.mark.parametrize(
+    "department",
+    [
+        {"item": {"identificador": "BOE-A-1"}},
+        {"epigrafe": {"item": {"identificador": "BOE-A-1"}}},
+        {"epigrafe": [{"item": [{"identificador": "BOE-A-1"}]}]},
+        {"texto": {"item": {"identificador": "BOE-A-1"}}},
+        {"texto": {"epigrafe": [{"item": {"identificador": "BOE-A-1"}}]}},
+    ],
+)
+def test_parse_sumario_finds_documents_in_every_department_layout(
+    department: dict[str, Any],
+) -> None:
+    """Documents are found with or without ``texto``, with or without ``epigrafe``."""
+
+    def complete(node: Any) -> None:
+        if isinstance(node, list):
+            for value in node:
+                complete(value)
+        elif isinstance(node, dict):
+            if "identificador" in node:
+                node.update(titulo="T", url_xml="https://www.boe.es/x.xml")
+            for value in node.values():
+                complete(value)
+
+    complete(department)
+    payload = {
+        "data": {
+            "sumario": {
+                "diario": [{"seccion": [{"codigo": "1", "departamento": [department]}]}]
+            }
+        }
+    }
+
+    items = parse_sumario(payload, frozenset({"1"}))
+
+    assert [item.identifier for item in items] == ["BOE-A-1"]
+
+
 def test_parse_sumario_empty_for_unknown_section(
     sumario_payload: dict[str, Any],
 ) -> None:

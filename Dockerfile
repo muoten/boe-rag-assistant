@@ -55,11 +55,12 @@ RUN python scripts/fetch_corpus.py --repo-id "${CORPUS_REPO_ID}" --out "${BOE_CO
 EXPOSE 7860
 CMD ["uvicorn", "boe_rag.service.app:app", "--host", "0.0.0.0", "--port", "7860"]
 
-# Azure (--target azure): replaces the fetched matrix with one embedded from
-# "title. text" (precompute_embeddings.py --with-titles). It isn't published, so it
-# comes from the build context, and the build fails if it doesn't fit the corpus.
+# Azure (--target azure): replaces the fetched corpus and matrix with a larger corpus
+# (extend_corpus_sample.py) embedded from "title. text". Neither is published, so they
+# come from the build context, and the build fails if they don't fit each other.
 FROM base AS azure
-COPY --chown=user data/corpus/boe-embeddings-title.npz ${BOE_EMBEDDINGS_PATH}
+COPY --chown=user data/corpus/boe-pilot-x2.parquet ${BOE_CORPUS_PATH}
+COPY --chown=user data/corpus/boe-pilot-x2.npz ${BOE_EMBEDDINGS_PATH}
 RUN python scripts/check_embeddings.py --corpus "${BOE_CORPUS_PATH}" --embeddings "${BOE_EMBEDDINGS_PATH}"
 
 # Default target: the image above, unchanged.

@@ -100,15 +100,16 @@ def _parse_section(
 def _iter_department_items(dep: dict[str, Any]) -> list[dict[str, Any]]:
     """Yield raw item dicts under a department, across both layout variants.
 
-    Documents may sit directly under ``texto.item`` or be grouped under
-    ``texto.epigrafe[].item``; this flattens both.
+    Documents may sit directly under the department or under its ``texto``, and
+    in either place as ``item`` or grouped under ``epigrafe[].item``; this flattens
+    all four. The API uses each of them, even within a single issue.
     """
+    collected: list[dict[str, Any]] = []
     texto = dep.get("texto")
-    if not isinstance(texto, dict):
-        return []
-    collected: list[dict[str, Any]] = list(_as_list(texto.get("item")))
-    for epigrafe in _as_list(texto.get("epigrafe")):
-        collected.extend(_as_list(epigrafe.get("item")))
+    for parent in (dep, texto if isinstance(texto, dict) else {}):
+        collected.extend(_as_list(parent.get("item")))
+        for epigrafe in _as_list(parent.get("epigrafe")):
+            collected.extend(_as_list(epigrafe.get("item")))
     return collected
 
 

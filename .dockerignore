@@ -20,7 +20,8 @@ htmlcov/
 .env.*
 
 data/
-!data/corpus/boe-embeddings-title.npz
+!data/corpus/boe-pilot-x2.parquet
+!data/corpus/boe-pilot-x2.npz
 models/
 eval_data/
 tests/

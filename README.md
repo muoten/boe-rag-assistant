@@ -471,9 +471,9 @@ hardware — everything the running container needs is baked in at build time:
 At serving time the app reads `BOE_EMBEDDINGS_PATH` and skips the startup encode
 when the precomputed matrix matches the corpus (falling back to encoding if it is
 stale, so a mismatched file can never serve wrong results). The Azure image
-(`--target azure`) instead bakes a local matrix embedded from "title. text"
-(`precompute_embeddings.py --with-titles`) and fails the build if it doesn't match the
-corpus. Each **version tag**
+(`--target azure`) instead bakes a larger local corpus and its matrix, embedded from
+"title. text" ([`extend_corpus_sample.py`](scripts/extend_corpus_sample.py)), and fails the
+build if they don't match. Each **version tag**
 (`vMAJOR.MINOR.PATCH`) pushed to the repo triggers
 [`.github/workflows/deploy-space.yml`](.github/workflows/deploy-space.yml), which swaps
 in the Space card ([`deploy/space/README.md`](deploy/space/README.md)) as the Space README
