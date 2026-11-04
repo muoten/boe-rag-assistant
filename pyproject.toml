@@ -63,6 +63,9 @@ api = [
 azure = [
     "azure-identity==1.27.0",
     "azure-storage-blob==12.31.0",
+    # Latency telemetry to Application Insights (BOE_TELEMETRY=azure_monitor).
+    "opentelemetry-sdk==1.45.2",
+    "azure-monitor-opentelemetry-exporter==1.0.0b58",
 ]
 # Optional observability: export per-stage pipeline spans to Langfuse. Off by
 # default (NoOpTracer); enabled only when the LANGFUSE_* env vars are set. Kept

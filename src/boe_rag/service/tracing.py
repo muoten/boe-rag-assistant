@@ -12,6 +12,8 @@ Langfuse span in :meth:`Tracer.span` and forwarding :meth:`Span.update` to it;
 nothing else in the codebase changes. :func:`build_tracer` returns it when the
 ``LANGFUSE_*`` environment variables are set and a :class:`NoOpTracer` otherwise,
 so observability is opt-in and the ``langfuse`` package stays an optional extra.
+``BOE_TELEMETRY=azure_monitor`` selects the content-free latency tracer in
+:mod:`boe_rag.service.azure_monitor` instead.
 """
 
 from __future__ import annotations
@@ -191,11 +193,16 @@ def build_tracer() -> Tracer:
     ``LANGFUSE_SECRET_KEY`` are set (the Langfuse client also reads
     ``LANGFUSE_HOST`` from the environment); otherwise returns a
     :class:`NoOpTracer`, so tracing stays opt-in and the ``langfuse`` package is
-    imported only when it is actually wanted.
+    imported only when it is actually wanted. ``BOE_TELEMETRY=azure_monitor`` takes
+    precedence over both.
 
     Returns:
-        A :class:`Tracer`: Langfuse-backed when configured, else a no-op.
+        A :class:`Tracer`: Azure Monitor or Langfuse when configured, else a no-op.
     """
+    if os.environ.get("BOE_TELEMETRY") == "azure_monitor":
+        from boe_rag.service.azure_monitor import azure_monitor_telemetry
+
+        return azure_monitor_telemetry().tracer
     if not (
         os.environ.get("LANGFUSE_PUBLIC_KEY") and os.environ.get("LANGFUSE_SECRET_KEY")
     ):

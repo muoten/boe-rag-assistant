@@ -28,11 +28,16 @@ Configuration via environment (or a local ``.env`` — see ``.env.example`` and
     ``LANGFUSE_PUBLIC_KEY`` / ``LANGFUSE_SECRET_KEY`` (+ optional ``LANGFUSE_HOST``)
         opt-in: when both are set, pipeline stages are traced to Langfuse (needs
         the ``obs`` extra); otherwise tracing is a no-op.
+    ``BOE_TELEMETRY``  ``azure_monitor`` exports content-free latency spans to
+        Application Insights instead (the ``azure`` extra), using
+        ``APPLICATIONINSIGHTS_CONNECTION_STRING`` and ``AZURE_CLIENT_ID``.
 """
 
 from __future__ import annotations
 
 import logging
+import os
+import time
 from pathlib import Path
 
 import pyarrow.parquet as pq
@@ -203,12 +208,23 @@ def build_app(corpus_path: Path | None = None) -> FastAPI:
     Returns:
         The ASGI application (the FastAPI JSON API).
     """
+    started_ns = time.time_ns()
     engine = build_engine(corpus_path)
-    return create_app(
+    application = create_app(
         engine,
         cors_origins=_SETTINGS.cors_origins_list,
         frontend_url=_SETTINGS.frontend_url or DEFAULT_FRONTEND_URL,
     )
+    if os.environ.get("BOE_TELEMETRY") == "azure_monitor":
+        from boe_rag.service.azure_monitor import (
+            RequestTelemetry,
+            azure_monitor_telemetry,
+        )
+
+        telemetry = azure_monitor_telemetry()
+        application.add_middleware(RequestTelemetry, tracer=telemetry.otel_tracer)
+        telemetry.record_boot(started_ns)
+    return application
 
 
 app = build_app()
