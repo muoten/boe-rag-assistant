@@ -27,6 +27,7 @@ dev = [
     "pytest==9.0.3",
     "pre-commit==4.6.0",
     "fastapi==0.137.0",  # service layer; TestClient runs in CI without uvicorn
+    "opentelemetry-sdk==1.45.2",  # latency telemetry tests; same pin as the `azure` extra
 ]
 # Pinned <1.0 to stay compatible with the `ml` extra (sentence-transformers).
 hub = [

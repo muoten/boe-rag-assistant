@@ -34,7 +34,7 @@ def _write_corpus(path: Path) -> None:
             "text": ["uno", "dos"],
         }
     )
-    pq.write_table(table, path)
+    pq.write_table(table, path)  # type: ignore[no-untyped-call]
 
 
 @pytest.mark.parametrize(
