@@ -7,7 +7,7 @@
 #   * precomputed E5 passage embeddings,
 #   * the embedding + cross-encoder model weights (HF cache).
 # At runtime the service just loads them and serves on port 7860.
-FROM python:3.12-slim
+FROM python:3.12-slim AS base
 
 # Hugging Face Spaces run the container as uid 1000; match it so the baked-in
 # caches and data are owned by (and writable for) the runtime user.
@@ -54,3 +54,13 @@ RUN python scripts/fetch_corpus.py --repo-id "${CORPUS_REPO_ID}" --out "${BOE_CO
 
 EXPOSE 7860
 CMD ["uvicorn", "boe_rag.service.app:app", "--host", "0.0.0.0", "--port", "7860"]
+
+# Azure (--target azure): replaces the fetched matrix with one embedded from
+# "title. text" (precompute_embeddings.py --with-titles). It isn't published, so it
+# comes from the build context, and the build fails if it doesn't fit the corpus.
+FROM base AS azure
+COPY --chown=user data/corpus/boe-embeddings-title.npz ${BOE_EMBEDDINGS_PATH}
+RUN python scripts/check_embeddings.py --corpus "${BOE_CORPUS_PATH}" --embeddings "${BOE_EMBEDDINGS_PATH}"
+
+# Default target: the image above, unchanged.
+FROM base

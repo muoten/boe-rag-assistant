@@ -11,6 +11,9 @@ Example:
     python scripts/precompute_embeddings.py \
         --corpus data/corpus/boe-2024.parquet \
         --out data/corpus/boe-2024-embeddings.npz
+
+``--with-titles`` embeds each passage as "title. text". Most chunks never name their
+norm, so this lets the dense leg match a question about it.
 """
 
 from __future__ import annotations
@@ -28,21 +31,30 @@ from boe_rag.eval.retriever import save_embeddings
 logger = logging.getLogger(__name__)
 
 
-def precompute(corpus: Path, out: Path, model_name: str) -> Path:
+def precompute(
+    corpus: Path, out: Path, model_name: str, *, with_titles: bool = False
+) -> Path:
     """Embed every passage in ``corpus`` and save the matrix to ``out``.
 
     Args:
         corpus: Path to the corpus Parquet (needs ``chunk_id`` and ``text``).
         out: Destination ``.npz`` path for the embeddings.
         model_name: Sentence-Transformers model id to embed with.
+        with_titles: Embed "title. text" (needs ``document_title``).
 
     Returns:
         The destination path.
     """
-    table = pq.read_table(corpus, columns=["chunk_id", "text"])  # type: ignore[no-untyped-call]
+    columns = ["chunk_id", "text", *(["document_title"] if with_titles else [])]
+    table = pq.read_table(corpus, columns=columns)  # type: ignore[no-untyped-call]
     data = table.to_pydict()
     chunk_ids = [str(cid) for cid in data["chunk_id"]]
     texts = [str(text) for text in data["text"]]
+    if with_titles:
+        texts = [
+            f"{title}. {text}"
+            for title, text in zip(data["document_title"], texts, strict=True)
+        ]
     logger.info("Embedding %d passages with %s ...", len(texts), model_name)
 
     embedder = E5Embedder(model_name=model_name)
@@ -76,12 +88,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--model", default=DEFAULT_MODEL, help="Sentence-Transformers model id."
     )
+    parser.add_argument(
+        "--with-titles",
+        action="store_true",
+        help='Embed "title. text" instead of the text alone.',
+    )
     args = parser.parse_args(argv)
 
     if not args.corpus.is_file():
         print(f"ERROR: corpus not found: {args.corpus}", file=sys.stderr)
         return 1
-    precompute(args.corpus, args.out, args.model)
+    precompute(args.corpus, args.out, args.model, with_titles=args.with_titles)
     return 0
 
 

@@ -509,6 +509,7 @@ def main(argv: list[str] | None = None) -> int:
             "Cached depth per leg": args.depth,
             "Served": "50 per leg, k_rrf=10, no rerank (BOE_RRF_K, BOE_RERANK)",
             "BM25 tokens": "norm numbers kept whole (`39/2015` is one token)",
+            "Dense embeddings": f"`{args.embeddings.name}`",
             "BM25 text": "document title + text; title twice on head chunks",
             "Best fused variant": f"{best} (chosen on {select_on} by MRR)",
             "Dropped (gold not in corpus)": (
