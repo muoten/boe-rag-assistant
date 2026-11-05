@@ -11,7 +11,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from pathlib import Path
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 class EvalExample(BaseModel):
@@ -24,16 +24,30 @@ class EvalExample(BaseModel):
         answer: Optional reference answer, used by end-to-end (generation) evals.
         category: Optional topic/category tag for slicing metrics.
         difficulty: Optional difficulty tag (e.g. ``easy``/``medium``/``hard``).
+        answerable: Whether the corpus holds the answer. An unanswerable example
+            has no relevant chunks and expects a refusal.
+        expected_facts: Facts a complete answer must state, for end-to-end evals.
     """
 
     model_config = ConfigDict(frozen=True)
 
     example_id: str = Field(min_length=1)
     question: str = Field(min_length=1)
-    relevant_chunk_ids: tuple[str, ...] = Field(min_length=1)
+    relevant_chunk_ids: tuple[str, ...] = ()
     answer: str | None = None
     category: str | None = None
     difficulty: str | None = None
+    answerable: bool = True
+    expected_facts: tuple[str, ...] = ()
+
+    @model_validator(mode="after")
+    def _answerable_has_chunks(self) -> EvalExample:
+        """Require relevant chunks exactly when the example is answerable."""
+        if self.answerable != bool(self.relevant_chunk_ids):
+            raise ValueError(
+                "answerable examples need relevant chunks; unanswerable ones have none"
+            )
+        return self
 
 
 def load_evalset(path: Path) -> list[EvalExample]:

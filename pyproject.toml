@@ -68,6 +68,12 @@ azure = [
     "opentelemetry-sdk==1.45.2",
     "azure-monitor-opentelemetry-exporter==1.0.0b58",
 ]
+# End-to-end evaluation with MLflow's built-in judges (scripts/run_standard_eval.py).
+# Never imported by the service or CI.
+judges = [
+    "mlflow==3.18.0",
+    "litellm==1.108.0",
+]
 # Optional observability: export per-stage pipeline spans to Langfuse. Off by
 # default (NoOpTracer); enabled only when the LANGFUSE_* env vars are set. Kept
 # to the OpenTelemetry-based v3 line, which the tracing adapter targets.
