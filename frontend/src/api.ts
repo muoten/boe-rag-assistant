@@ -1,3 +1,4 @@
+import pregenerated from "./pregenerated-examples.json";
 import type { AnswerResponse, SearchResponse } from "./types";
 
 // Base URL of the JSON API. Injected at build time (VITE_API_BASE_URL = the
@@ -41,6 +42,28 @@ async function postJson<T>(path: string, body: unknown): Promise<T> {
     );
   }
   return (await response.json()) as T;
+}
+
+/** The day the example responses were saved by scripts/pregenerate-examples.mjs. */
+export const PREGENERATED_ON = new Date(pregenerated.generated).toLocaleDateString(
+  "es-ES",
+  { dateStyle: "long", timeZone: "UTC" },
+);
+
+// Maps, since a typed question such as "constructor" would find a plain object's own.
+const SAVED_ANSWERS = new Map<string, AnswerResponse>(Object.entries(pregenerated.ask));
+const SAVED_RESULTS = new Map<string, SearchResponse>(
+  Object.entries(pregenerated.search),
+);
+
+/** The saved answer to exactly this question, which needs no running service. */
+export function pregeneratedAnswer(question: string): AnswerResponse | undefined {
+  return SAVED_ANSWERS.get(question);
+}
+
+/** The saved passages for exactly this query, which need no running service. */
+export function pregeneratedResults(query: string): SearchResponse | undefined {
+  return SAVED_RESULTS.get(query);
 }
 
 /**

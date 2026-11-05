@@ -6,6 +6,7 @@
   "description": "Custom React frontend for the BOE RAG Assistant — grounded, cited answers about Spanish legislation.",
   "scripts": {
     "quality:data": "node scripts/build-quality-data.mjs",
+    "examples:pregenerate": "node scripts/pregenerate-examples.mjs",
     "predev": "node scripts/build-quality-data.mjs",
     "dev": "vite",
     "prebuild": "node scripts/build-quality-data.mjs",

@@ -1,0 +1,355 @@
+{
+  "generated": "2026-11-05",
+  "ask": {
+    "¿Dónde tiene su sede principal el Instituto Vasco de Finanzas?": {
+      "answer": "Según el artículo 1, apartado 2, de la Ley 19/2023, “Tiene su sede principal en el municipio de Bilbao” [1].",
+      "refused": false,
+      "sources": [
+        {
+          "chunk_id": "BOE-A-2024-993::0012",
+          "citation": "Ley 19/2023, Artículo 1",
+          "text": "Artículo 1. Naturaleza, adscripción, sede y régimen jurídico. 1. El Instituto Vasco de Finanzas es un ente público de derecho privado, con personalidad jurídica propia y plena capacidad de obrar para el cumplimiento de sus fines y funciones, adscrito al departamento competente en materia de finanzas y política financiera a través de la persona titular del mismo. 2. Tiene su sede principal en el municipio de Bilbao, sin perjuicio del establecimiento de otras dependencias en los ámbitos territoriales que determine el Consejo de Administración. 3. Se regirá por lo dispuesto en la presente ley, por la normativa aplicable a los entes públicos de derecho privado y por sus propios estatutos. En sus relaciones con terceros y en el desarrollo de su actividad y, en concreto, en sus operaciones de concesión de financiación, se regirá por el derecho privado. 4. No obstante, se someterá al derecho administrativo en el ejercicio de potestades administrativas, en sus relaciones internas y de organización, en su funcionamiento interno, en la formación de la voluntad de sus órganos y en las obligaciones derivadas en materia de transparencia y participación ciudadana, así como en aquellas materias reguladas por disposiciones de carácter general aplicables a los entes públicos de derecho privado. 5. En particular, se someterán al derecho administrativo los actos dictados con sujeción a una ley perteneciente al ordenamiento jurídico administrativo que incluya a los entes públicos de derecho privado en su ámbito de aplicación y, en concreto, los actos que dicten los órganos competentes del Instituto Vasco de Finanzas en materia de contratación y en materia de transparencia y participación ciudadana.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.17424242424242425
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0013",
+          "citation": "Ley 19/2023, Artículo 2",
+          "text": "Artículo 2. Fines y principios de actuación. 1. El Instituto Vasco de Finanzas tiene como finalidad actuar como instrumento de la política financiera y de crédito público de las entidades del sector público de la Comunidad Autónoma de Euskadi, impulsando de manera sostenible el desarrollo económico y social de la Comunidad Autónoma de Euskadi, a través de la gestión de los instrumentos públicos de financiación y participación pública en los sectores económicos vascos. 2. En el cumplimiento de sus fines y de las funciones encomendadas, el Instituto Vasco de Finanzas se regirá por los principios de legalidad, objetividad, transparencia, publicidad, eficacia y eficiencia, cooperación y lealtad institucional, racionalidad económico-financiera, interés general y social y buena gestión, así como por el resto de los principios que informan el funcionamiento y la interacción con la ciudadanía del sector público de la Comunidad Autónoma de Euskadi. Asimismo, el Instituto Vasco de Finanzas, en su organización y funcionamiento, así como en el ejercicio de los derechos y responsabilidades que asume mediante la participación en otras empresas e instituciones, desarrollará sus funciones con autonomía de gestión, respetando los principios de sostenibilidad financiera propios de un productor de mercado, empleando criterios de gestión profesional y de gestión por objetivos orientados al bien común y al interés general conforme a los principios de responsabilidad ambiental, social y de gobernanza. 3. La actuación del Instituto Vasco de Finanzas se someterá a las directrices generales que en relación con la política financiera y de crédito público le pueda señalar el Gobierno Vasco o el departamento al que se encuentre adscrito.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.1388888888888889
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0002",
+          "citation": "Ley 19/2023",
+          "text": "Tras unos años en los que la actividad del instituto apenas se limitó a su participación en la concesión de préstamos correspondientes al programa para la realización de inversiones científico-tecnológicas en la Comunidad Autónoma del País Vasco, a partir de 2013, el Gobierno Vasco ha pretendido impulsar los instrumentos de acción financiera de la Comunidad Autónoma de Euskadi, particularmente, reforzando el Instituto Vasco de Finanzas y atrayendo hacia sí la gestión de los instrumentos de financiación pública. A tal fin, se inició una reordenación societaria con el fin de centralizar, aglutinar y racionalizar, en torno al Instituto Vasco de Finanzas, el conjunto de instrumentos financieros y participaciones societarias de carácter exclusivamente financiero que, para la instrumentación de la política, básicamente, de promoción económica, tenía la Comunidad Autónoma de Euskadi, dando pleno sentido a las funciones para las que el instituto fue creado y buscando la mejora y optimización de la gestión financiera de la Administración pública vasca. En pocas palabras, se pretendía concentrar en el Instituto Vasco de Finanzas las participaciones de la Administración en aquellas entidades que entonces se encontraban dispersas y que estuvieran relacionadas con la instrumentación financiera de políticas públicas en la Comunidad Autónoma de Euskadi (créditos, avales, participaciones en fondos de capital-riesgo, etcétera), y continuar el proceso de reordenación del Instituto Vasco de Finanzas, asumiendo la gestión de los instrumentos de financiación pública, con el fin de consolidar la actividad del ente público Instituto Vasco de Finanzas en su actuación como agencia financiera y de crédito de la Administración.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.13392857142857142
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0028",
+          "citation": "Ley 19/2023, Artículo 10",
+          "text": "Artículo 10. Transparencia, publicidad y rendición de cuentas. 1. El Instituto Vasco de Finanzas llevará a cabo sus actuaciones atendiendo a los siguientes principios: principio de transparencia, a fin de que la ciudadanía pueda disponer de información relevante sobre las decisiones adoptadas y sobre las personas responsables de dichas decisiones; principio de publicidad activa, facilitando y divulgando en su página web toda la información de que disponga sobre su actividad, y principio de neutralidad tecnológica. 2. El Instituto Vasco de Finanzas elaborará una memoria anual de actividades que permita tener conocimiento general de las actuaciones llevadas a cabo, que deberá remitirse al Parlamento Vasco, durante el primer trimestre del año, y ponerse a disposición y conocimiento de toda la ciudadanía de la Comunidad Autónoma de Euskadi a través de la página web del instituto. 3. Sin perjuicio de las comparecencias ante el Parlamento Vasco a requerimiento de este en los términos que establezca su Reglamento, la persona titular de la Dirección General del Instituto Vasco de Finanzas deberá presentar al Parlamento Vasco, con carácter anual, la memoria de actividades del instituto, así como las líneas generales de actuación para el ejercicio.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.11929824561403508
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0008",
+          "citation": "Ley 19/2023",
+          "text": "En el ejercicio de sus funciones, por tanto, el Instituto Vasco de Finanzas, dada su condición de instrumento central de la política financiera y de crédito público de las entidades del sector público de la Comunidad Autónoma de Euskadi, deberá contar con la necesaria autonomía de gestión y emplear criterios de gestión profesional, con absoluto respeto a los principios de sostenibilidad financiera propios de un productor de mercado. No obstante, la actuación del Instituto Vasco de Finanzas en el ejercicio de sus funciones deberá adecuarse a las directrices generales que, en relación con la política financiera y de crédito público, establezca el Gobierno Vasco o el departamento al que se encuentre adscrito. Asimismo, la reorganización del ente requerirá una adaptación de su estructura organizativa al objeto de disponer de los medios necesarios para el desarrollo de sus funciones, una estructura organizativa que deberá ser complementada mediante los futuros estatutos del instituto, que desarrollarán las funciones, composición y nombramiento de los órganos de gobierno, la estructura orgánica y funcional de los servicios del ente y su régimen de funcionamiento.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.11858974358974358
+        }
+      ]
+    },
+    "¿Qué empresa asume las obligaciones de servicio público para el voto por correo en las elecciones de 2024?": {
+      "answer": "La Sociedad Estatal Correos y Telégrafos, SA, S.M.E. (Correos) asume las obligaciones de servicio público necesarias para el voto por correo en las elecciones de 2024 [4].",
+      "refused": false,
+      "sources": [
+        {
+          "chunk_id": "BOE-A-2024-6554::0012",
+          "citation": "Orden PJC/284/2024",
+          "text": "Séptimo. Voto por correo de los internos en centros penitenciarios. Las obligaciones de servicio público en relación con el voto por correo de los internos en centros penitenciarios son: a) Entrega y admisión personal en los Centros penitenciarios de los impresos de solicitud de inscripción en el Censo. b) Entrega personal al elector de la documentación enviada por la Oficina del Censo Electoral. c) Recepción personal de la documentación electoral remitida por el elector por correo certificado y urgente. d) Entrega del voto en las Mesas electorales correspondientes el día de la votación. Se adoptarán adecuadas medidas de custodia de esta documentación hasta su entrega en las Mesas electorales y se dará cuenta del detalle de estas a la Junta Electoral Central y al Ministerio del Interior.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.16783216783216784
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0010",
+          "citation": "Orden PJC/284/2024",
+          "text": "Quinto. Voto por correo del personal embarcado. Correos realizará la entrega a las Mesas electorales de la documentación enviada por el elector por correo certificado y urgente desde cualquiera de los puertos en que el buque atraque de acuerdo con lo previsto en el artículo 9 del Real Decreto 605/1999, de 16 de abril, de regulación complementaria de los procesos electorales. Se adoptarán adecuadas medidas de custodia de esta documentación hasta su entrega en las Mesas electorales y se dará cuenta del detalle de estas a la Junta Electoral Central y al Ministerio del Interior.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.15476190476190477
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0008",
+          "citation": "Orden PJC/284/2024",
+          "text": "Cuarto. Voto por correo de electores temporalmente ausentes. Las obligaciones de servicio público en relación con el voto por correo de los electores temporalmente ausentes son, de conformidad con lo previsto en los artículos 4 y 5 del Real Decreto 1621/2007, de 7 de diciembre, por el que se regula un procedimiento de votación para los ciudadanos españoles que se encuentran temporalmente en el extranjero, las siguientes: a) Envío al interesado de la documentación electoral remitida por las Delegaciones Provinciales de la Oficina del Censo Electoral por correo certificado y urgente de acuerdo con lo establecido en los apartados primero y segundo del artículo 4 del Real Decreto 1621/2007, de 7 de diciembre. Cuando se detecten dificultades significativas en el transporte internacional o en la operativa de los operadores designados de los países destinatarios que pongan en riesgo la recepción de dicha documentación electoral, se podrá recurrir, previa autorización de la Junta Electoral Central y del Ministerio del Interior, a mensajería privada o al servicio premium de la Unión Postal Universal, según resulte más ventajoso tanto en calidad como en precio. Todo ello a fin de ofrecer las mayores garantías de éxito en la entrega a sus destinatarios. Ello habrá de ser oportunamente compensado al amparo de lo previsto en el artículo 22.5 de la Ley 43/2010.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.1380952380952381
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0003",
+          "citation": "Orden PJC/284/2024",
+          "text": "Primero. Objeto. En virtud de lo dispuesto en el apartado quinto del artículo 22 de la Ley 43/2010, se encomienda a la Sociedad Estatal Correos y Telégrafos, SA, S.M.E. (en adelante Correos), en su calidad de operador designado para prestar el servicio postal universal, las obligaciones de servicio público necesarias para salvaguardar el normal desarrollo de las elecciones que se convoquen durante el año 2024. Dichos servicios habrán de prestarse, con carácter general, entre el día en el que se publique el Decreto de convocatoria de las Elecciones correspondientes y los cien días siguientes al fijado para la celebración de la votación.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.12937062937062938
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0011",
+          "citation": "Orden PJC/284/2024",
+          "text": "Sexto. Voto del personal de las Fuerzas Armadas y de la Guardia Civil embarcado o en situaciones excepcionales vinculadas con la defensa nacional. Las obligaciones de servicio público en relación con el voto del personal de las Fuerzas Armadas y de la Guardia Civil embarcado o en situaciones excepcionales vinculadas con la defensa nacional son: a) Envío por correo certificado y urgente a la Dirección General de Personal del Ministerio de Defensa de la documentación electoral remitida por la Delegación o Subdelegación de Defensa en la Provincia correspondiente, en el caso del voto del personal de las Fuerzas Armadas; y a la Secretaría de Cooperación Internacional de la Dirección General de la Guardia Civil, en el caso del voto del personal de la Guardia Civil; en coordinación con la Delegación Provincial de la Oficina del Censo Electoral. b) Recepción de la documentación remitida por el elector y entrega a la Mesa electoral.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.12878787878787878
+        }
+      ]
+    },
+    "¿En qué órganos superiores se estructura el Ministerio de Hacienda y Función Pública según el Real Decreto 829/2023?": {
+      "answer": "Según el Real Decreto 829/2023, el Ministerio de Hacienda y Función Pública \"se estructura en los siguientes órganos superiores: a) La Secretaría de Estado de Hacienda. b) La Secretaría de Estado de Presupuestos y Gastos. c) La Secretaría de Estado de Función Pública\" [1].",
+      "refused": false,
+      "sources": [
+        {
+          "chunk_id": "BOE-A-2023-23537::0005",
+          "citation": "Real Decreto 829/2023, Artículo 5",
+          "text": "Artículo 5. Ministerio de Hacienda y Función Pública. 1. Corresponde al Ministerio de Hacienda y Función Pública la propuesta y ejecución de la política del Gobierno en materia de hacienda pública, de presupuestos y de gastos, además del resto de competencias y atribuciones que le confiere el ordenamiento jurídico. 2. Asimismo corresponde al Ministerio de Hacienda y Función Pública la propuesta y ejecución de la política del Gobierno en materia de administración pública, función pública, y gobernanza pública. 3. Este Ministerio se estructura en los siguientes órganos superiores: a) La Secretaría de Estado de Hacienda. b) La Secretaría de Estado de Presupuestos y Gastos. c) La Secretaría de Estado de Función Pública.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-23537",
+          "score": 0.18181818181818182
+        },
+        {
+          "chunk_id": "BOE-A-2023-26727::0003",
+          "citation": "Real Decreto 1230/2023",
+          "text": "Disposición final primera. Supresión de órganos. Quedan suprimidos los siguientes órganos superiores: Ministerio de Hacienda y Función Pública. Ministerio de Transformación Digital. La Secretaría de Estado de Derechos Sociales y Agenda 2030. La Secretaría de Estado de Igualdad y contra la Violencia de Género.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-26727",
+          "score": 0.16666666666666666
+        },
+        {
+          "chunk_id": "BOE-A-2016-10167::0005",
+          "citation": "Real Decreto 415/2016, Artículo 5",
+          "text": "Artículo 5. Ministerio de Hacienda y Función Pública. 1. Corresponde al Ministerio de Hacienda y Función Pública la propuesta y ejecución de la política del Gobierno en materia de hacienda pública, de presupuestos y de gastos, además del resto de competencias y atribuciones que le confiere el ordenamiento jurídico. 2. Igualmente corresponde a este Ministerio la propuesta y ejecución de la política del Gobierno en materia de función y gobernanza públicas. 3. Este Ministerio se estructura en los siguientes órganos superiores: a) La Secretaría de Estado de Hacienda. b) La Secretaría de Estado de Presupuestos y Gastos. c) La Secretaría de Estado de Función Pública.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2016-10167",
+          "score": 0.12692307692307692
+        },
+        {
+          "chunk_id": "BOE-A-2016-10459::0010",
+          "citation": "Real Decreto 424/2016, Artículo 4",
+          "text": "Artículo 4. Ministerio de Hacienda y Función Pública. 1. El Ministerio de Hacienda y Función Pública se estructura en los siguientes órganos superiores y directivos: A) La Secretaría de Estado de Hacienda, de la que dependen los siguientes órganos directivos: 1.º La Secretaría General de Financiación Autonómica y Local, con rango de Subsecretaría. 2.º La Dirección General de Tributos. 3.º La Dirección General del Catastro. 4.º El Tribunal Económico-Administrativo Central, con rango de Dirección General. 5.º La Dirección General de Ordenación del Juego. B) La Secretaría de Estado de Presupuestos y Gastos, de la que dependen los siguientes órganos directivos: 1.º La Dirección General de Presupuestos. 2.º La Dirección General de Costes de Personal y Pensiones Públicas. 3.º La Dirección General de Fondos Comunitarios. C) La Secretaría de Estado de Función Pública, de la que dependen los siguientes órganos directivos: 1.º Secretaría General de Administración Digital, con rango de Subsecretaría. 2.º La Dirección General de la Función Pública. 3.º La Dirección General de Gobernanza Pública. 4.º La Oficina de Conflictos de Intereses, con rango de Dirección General. D) La Subsecretaría de Hacienda y Función Pública, de la que dependen los siguientes órganos directivos: 1.º La Secretaría General Técnica. 2.º La Dirección General del Patrimonio del Estado. 3.º La Inspección General. 4.º La Dirección General de Racionalización y Centralización de la Contratación. 2. Está adscrita a la Secretaría de Estado de Presupuestos y Gastos, la Intervención General de la Administración del Estado, con rango de Subsecretaría. 3. Quedan suprimidos los siguientes órganos directivos: a) La Subsecretaría de Hacienda y Administraciones Públicas.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2016-10459",
+          "score": 0.10833333333333334
+        },
+        {
+          "chunk_id": "BOE-A-2023-23537::0001",
+          "citation": "Real Decreto 829/2023, Artículo 1",
+          "text": "Artículo 1. Departamentos ministeriales. La Administración General del Estado se estructura en los siguientes departamentos ministeriales: Ministerio de Asuntos Exteriores, Unión Europea y Cooperación. Ministerio de la Presidencia, Justicia y Relaciones con las Cortes. Ministerio de Defensa. Ministerio de Hacienda y Función Pública. Ministerio del Interior. Ministerio de Transportes y Movilidad Sostenible. Ministerio de Educación, Formación Profesional y Deportes. Ministerio de Trabajo y Economía Social. Ministerio de Industria y Turismo. Ministerio de Agricultura, Pesca y Alimentación. Ministerio de Política Territorial y Memoria Democrática. Ministerio para la Transición Ecológica y el Reto Demográfico. Ministerio de Vivienda y Agenda Urbana. Ministerio de Cultura. Ministerio de Economía, Comercio y Empresa. Ministerio de Sanidad. Ministerio de Derechos Sociales, Consumo y Agenda 2030. Ministerio de Ciencia, Innovación y Universidades. Ministerio de Igualdad. Ministerio de Inclusión, Seguridad Social y Migraciones. Ministerio de Transformación Digital. Ministerio de Juventud e Infancia.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-23537",
+          "score": 0.10476190476190475
+        }
+      ]
+    }
+  },
+  "search": {
+    "¿Dónde tiene su sede principal el Instituto Vasco de Finanzas?": {
+      "query": "¿Dónde tiene su sede principal el Instituto Vasco de Finanzas?",
+      "results": [
+        {
+          "chunk_id": "BOE-A-2024-993::0012",
+          "citation": "Ley 19/2023, Artículo 1",
+          "text": "Artículo 1. Naturaleza, adscripción, sede y régimen jurídico. 1. El Instituto Vasco de Finanzas es un ente público de derecho privado, con personalidad jurídica propia y plena capacidad de obrar para el cumplimiento de sus fines y funciones, adscrito al departamento competente en materia de finanzas y política financiera a través de la persona titular del mismo. 2. Tiene su sede principal en el municipio de Bilbao, sin perjuicio del establecimiento de otras dependencias en los ámbitos territoriales que determine el Consejo de Administración. 3. Se regirá por lo dispuesto en la presente ley, por la normativa aplicable a los entes públicos de derecho privado y por sus propios estatutos. En sus relaciones con terceros y en el desarrollo de su actividad y, en concreto, en sus operaciones de concesión de financiación, se regirá por el derecho privado. 4. No obstante, se someterá al derecho administrativo en el ejercicio de potestades administrativas, en sus relaciones internas y de organización, en su funcionamiento interno, en la formación de la voluntad de sus órganos y en las obligaciones derivadas en materia de transparencia y participación ciudadana, así como en aquellas materias reguladas por disposiciones de carácter general aplicables a los entes públicos de derecho privado. 5. En particular, se someterán al derecho administrativo los actos dictados con sujeción a una ley perteneciente al ordenamiento jurídico administrativo que incluya a los entes públicos de derecho privado en su ámbito de aplicación y, en concreto, los actos que dicten los órganos competentes del Instituto Vasco de Finanzas en materia de contratación y en materia de transparencia y participación ciudadana.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.17424242424242425
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0013",
+          "citation": "Ley 19/2023, Artículo 2",
+          "text": "Artículo 2. Fines y principios de actuación. 1. El Instituto Vasco de Finanzas tiene como finalidad actuar como instrumento de la política financiera y de crédito público de las entidades del sector público de la Comunidad Autónoma de Euskadi, impulsando de manera sostenible el desarrollo económico y social de la Comunidad Autónoma de Euskadi, a través de la gestión de los instrumentos públicos de financiación y participación pública en los sectores económicos vascos. 2. En el cumplimiento de sus fines y de las funciones encomendadas, el Instituto Vasco de Finanzas se regirá por los principios de legalidad, objetividad, transparencia, publicidad, eficacia y eficiencia, cooperación y lealtad institucional, racionalidad económico-financiera, interés general y social y buena gestión, así como por el resto de los principios que informan el funcionamiento y la interacción con la ciudadanía del sector público de la Comunidad Autónoma de Euskadi. Asimismo, el Instituto Vasco de Finanzas, en su organización y funcionamiento, así como en el ejercicio de los derechos y responsabilidades que asume mediante la participación en otras empresas e instituciones, desarrollará sus funciones con autonomía de gestión, respetando los principios de sostenibilidad financiera propios de un productor de mercado, empleando criterios de gestión profesional y de gestión por objetivos orientados al bien común y al interés general conforme a los principios de responsabilidad ambiental, social y de gobernanza. 3. La actuación del Instituto Vasco de Finanzas se someterá a las directrices generales que en relación con la política financiera y de crédito público le pueda señalar el Gobierno Vasco o el departamento al que se encuentre adscrito.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.1388888888888889
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0002",
+          "citation": "Ley 19/2023",
+          "text": "Tras unos años en los que la actividad del instituto apenas se limitó a su participación en la concesión de préstamos correspondientes al programa para la realización de inversiones científico-tecnológicas en la Comunidad Autónoma del País Vasco, a partir de 2013, el Gobierno Vasco ha pretendido impulsar los instrumentos de acción financiera de la Comunidad Autónoma de Euskadi, particularmente, reforzando el Instituto Vasco de Finanzas y atrayendo hacia sí la gestión de los instrumentos de financiación pública. A tal fin, se inició una reordenación societaria con el fin de centralizar, aglutinar y racionalizar, en torno al Instituto Vasco de Finanzas, el conjunto de instrumentos financieros y participaciones societarias de carácter exclusivamente financiero que, para la instrumentación de la política, básicamente, de promoción económica, tenía la Comunidad Autónoma de Euskadi, dando pleno sentido a las funciones para las que el instituto fue creado y buscando la mejora y optimización de la gestión financiera de la Administración pública vasca. En pocas palabras, se pretendía concentrar en el Instituto Vasco de Finanzas las participaciones de la Administración en aquellas entidades que entonces se encontraban dispersas y que estuvieran relacionadas con la instrumentación financiera de políticas públicas en la Comunidad Autónoma de Euskadi (créditos, avales, participaciones en fondos de capital-riesgo, etcétera), y continuar el proceso de reordenación del Instituto Vasco de Finanzas, asumiendo la gestión de los instrumentos de financiación pública, con el fin de consolidar la actividad del ente público Instituto Vasco de Finanzas en su actuación como agencia financiera y de crédito de la Administración.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.13392857142857142
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0028",
+          "citation": "Ley 19/2023, Artículo 10",
+          "text": "Artículo 10. Transparencia, publicidad y rendición de cuentas. 1. El Instituto Vasco de Finanzas llevará a cabo sus actuaciones atendiendo a los siguientes principios: principio de transparencia, a fin de que la ciudadanía pueda disponer de información relevante sobre las decisiones adoptadas y sobre las personas responsables de dichas decisiones; principio de publicidad activa, facilitando y divulgando en su página web toda la información de que disponga sobre su actividad, y principio de neutralidad tecnológica. 2. El Instituto Vasco de Finanzas elaborará una memoria anual de actividades que permita tener conocimiento general de las actuaciones llevadas a cabo, que deberá remitirse al Parlamento Vasco, durante el primer trimestre del año, y ponerse a disposición y conocimiento de toda la ciudadanía de la Comunidad Autónoma de Euskadi a través de la página web del instituto. 3. Sin perjuicio de las comparecencias ante el Parlamento Vasco a requerimiento de este en los términos que establezca su Reglamento, la persona titular de la Dirección General del Instituto Vasco de Finanzas deberá presentar al Parlamento Vasco, con carácter anual, la memoria de actividades del instituto, así como las líneas generales de actuación para el ejercicio.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.11929824561403508
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0008",
+          "citation": "Ley 19/2023",
+          "text": "En el ejercicio de sus funciones, por tanto, el Instituto Vasco de Finanzas, dada su condición de instrumento central de la política financiera y de crédito público de las entidades del sector público de la Comunidad Autónoma de Euskadi, deberá contar con la necesaria autonomía de gestión y emplear criterios de gestión profesional, con absoluto respeto a los principios de sostenibilidad financiera propios de un productor de mercado. No obstante, la actuación del Instituto Vasco de Finanzas en el ejercicio de sus funciones deberá adecuarse a las directrices generales que, en relación con la política financiera y de crédito público, establezca el Gobierno Vasco o el departamento al que se encuentre adscrito. Asimismo, la reorganización del ente requerirá una adaptación de su estructura organizativa al objeto de disponer de los medios necesarios para el desarrollo de sus funciones, una estructura organizativa que deberá ser complementada mediante los futuros estatutos del instituto, que desarrollarán las funciones, composición y nombramiento de los órganos de gobierno, la estructura orgánica y funcional de los servicios del ente y su régimen de funcionamiento.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.11858974358974358
+        },
+        {
+          "chunk_id": "BOE-A-2023-23218::0010",
+          "citation": "Decreto Legislativo 3/2023, Artículo 3",
+          "text": "Artículo 3. La sede del Instituto Vasco de Administración Pública radica en Vitoria-Gasteiz.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-23218",
+          "score": 0.1159090909090909
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0010",
+          "citation": "Ley 19/2023",
+          "text": "Como se ha señalado, la oportunidad de proceder a la reordenación en la atribución de funciones de esta entidad, que no a su transformación o reestructuración, ha venido predeterminada, asimismo, por un largo y madurado proceso de reflexión que ha valorado la conveniencia de dotar a nuestra Hacienda de un instrumento ejecutor de la política económica y financiera de la Comunidad Autónoma de Euskadi. A estos efectos, no obstante, la elaboración de esta disposición se ha adecuado a los preceptos legales previstos en la Ley 3/2022, de 12 de mayo, del Sector Público Vasco, tanto para la configuración jurídica de los entes públicos de derecho privado como en el contenido mínimo que tiene que tener la norma de constitución de este tipo de entidades. En definitiva, teniendo en cuenta las opciones de regulación que mejor se acomodan a los objetivos perseguidos, así como los antecedentes y el régimen jurídico actualmente vigente, el contenido de esta ley ha quedado conformado por once artículos relativos a la naturaleza, adscripción, sede y régimen jurídico del Instituto Vasco de Finanzas, los fines y principios de actuación y sus funciones, sus órganos de gobierno y la estructura orgánica, los estatutos que desarrollarán las funciones, composición y nombramiento de los órganos de gobierno, la estructura orgánica y funcional de los servicios del ente y su régimen de funcionamiento, su régimen de personal, los recursos económicos y el patrimonio del instituto, su régimen económico-financiero, así como su eventual extinción y liquidación.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.11538461538461539
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0007",
+          "citation": "Ley 19/2023",
+          "text": "Por lo tanto, transcurridos cerca de catorce años desde la creación y puesta en marcha del instituto, se considera necesario y oportuno contar con una normativa reguladora especifica de este, una ley integral del Instituto Vasco de Finanzas que adapte su regulación a la nueva realidad económica y normativa del País Vasco, así como al papel que debe asumir el citado ente como instrumento de la política financiera y de crédito público de las entidades del sector público de la Comunidad Autónoma de Euskadi, a través de la gestión de los instrumentos públicos de financiación y participación pública de la Comunidad Autónoma de Euskadi en los sectores económicos vascos, y sobre la base de las conclusiones alcanzadas tras los distintos estudios y reflexiones realizados por el Gobierno Vasco al respecto. En este nuevo escenario, en definitiva, el Instituto Vasco de Finanzas debe desempeñar un papel central, siendo la entidad clave que ponga en marcha y ejecute las actuaciones planteadas para la consecución de los objetivos anteriormente expuestos. Y, como consecuencia de esa identificación del rol central que ha de jugar el Instituto Vasco de Finanzas en la política financiera del Gobierno Vasco, se reconoce la necesidad de reorganizarlo, acorde al nuevo marco, y que requiere una revisión de la normativa reguladora específica para poder desarrollar las funciones y competencias atribuidas al ente.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.10882352941176471
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0000",
+          "citation": "Ley 19/2023",
+          "text": "Se hace saber a todos los ciudadanos y ciudadanas de Euskadi que el Parlamento Vasco ha aprobado la Ley 19/2023, de 21 de diciembre, Reguladora del Instituto Vasco de Finanzas. EXPOSICIÓN DE MOTIVOS El Estatuto de Autonomía para el País Vasco atribuye a la exclusiva competencia de la Comunidad Autónoma la organización, régimen y funcionamiento de sus instituciones de autogobierno (artículo 10.2), así como sobre el sector público propio del País Vasco (artículo 10.24) y la promoción, desarrollo económico y planificación de la actividad económica del País Vasco (artículo 10.25). En el ejercicio de dichos títulos competenciales, la disposición adicional séptima de la Ley 15/2007, de 28 de diciembre, por la que se aprueban los Presupuestos Generales de la Comunidad Autónoma de Euskadi para el ejercicio 2008, procedió a la creación del Instituto Vasco de Finanzas con el objeto de reordenar la política financiera y de crédito público de la Administración pública de Euskadi, racionalizar y optimizar sus recursos financieros y, en definitiva, incrementar la solidez del sistema financiero público del País Vasco.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.10644257703081232
+        },
+        {
+          "chunk_id": "BOE-A-2024-993::0014",
+          "citation": "Ley 19/2023, Artículo 2",
+          "text": "4. El Instituto Vasco de Finanzas garantizará en su actividad interna y externa el uso de las dos lenguas oficiales de la Comunidad Autónoma de Euskadi. Asimismo, se garantizará a las personas físicas y jurídicas el derecho a usar ambas lenguas en sus relaciones, tanto orales como por escrito, con el instituto, así como a ser atendidos en la lengua oficial de su elección. 5. El ámbito territorial de actuación del instituto es el de la Comunidad Autónoma de Euskadi. No obstante, podrá extender dicho ámbito a aquellas actuaciones que se desarrollen fuera de este territorio con el objetivo de la expansión o internacionalización de empresas o grupos de empresas que tengan su domicilio social y fiscal en la Comunidad Autónoma de Euskadi.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-993",
+          "score": 0.10114942528735632
+        }
+      ]
+    },
+    "¿Qué empresa asume las obligaciones de servicio público para el voto por correo en las elecciones de 2024?": {
+      "query": "¿Qué empresa asume las obligaciones de servicio público para el voto por correo en las elecciones de 2024?",
+      "results": [
+        {
+          "chunk_id": "BOE-A-2024-6554::0012",
+          "citation": "Orden PJC/284/2024",
+          "text": "Séptimo. Voto por correo de los internos en centros penitenciarios. Las obligaciones de servicio público en relación con el voto por correo de los internos en centros penitenciarios son: a) Entrega y admisión personal en los Centros penitenciarios de los impresos de solicitud de inscripción en el Censo. b) Entrega personal al elector de la documentación enviada por la Oficina del Censo Electoral. c) Recepción personal de la documentación electoral remitida por el elector por correo certificado y urgente. d) Entrega del voto en las Mesas electorales correspondientes el día de la votación. Se adoptarán adecuadas medidas de custodia de esta documentación hasta su entrega en las Mesas electorales y se dará cuenta del detalle de estas a la Junta Electoral Central y al Ministerio del Interior.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.16783216783216784
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0010",
+          "citation": "Orden PJC/284/2024",
+          "text": "Quinto. Voto por correo del personal embarcado. Correos realizará la entrega a las Mesas electorales de la documentación enviada por el elector por correo certificado y urgente desde cualquiera de los puertos en que el buque atraque de acuerdo con lo previsto en el artículo 9 del Real Decreto 605/1999, de 16 de abril, de regulación complementaria de los procesos electorales. Se adoptarán adecuadas medidas de custodia de esta documentación hasta su entrega en las Mesas electorales y se dará cuenta del detalle de estas a la Junta Electoral Central y al Ministerio del Interior.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.15476190476190477
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0008",
+          "citation": "Orden PJC/284/2024",
+          "text": "Cuarto. Voto por correo de electores temporalmente ausentes. Las obligaciones de servicio público en relación con el voto por correo de los electores temporalmente ausentes son, de conformidad con lo previsto en los artículos 4 y 5 del Real Decreto 1621/2007, de 7 de diciembre, por el que se regula un procedimiento de votación para los ciudadanos españoles que se encuentran temporalmente en el extranjero, las siguientes: a) Envío al interesado de la documentación electoral remitida por las Delegaciones Provinciales de la Oficina del Censo Electoral por correo certificado y urgente de acuerdo con lo establecido en los apartados primero y segundo del artículo 4 del Real Decreto 1621/2007, de 7 de diciembre. Cuando se detecten dificultades significativas en el transporte internacional o en la operativa de los operadores designados de los países destinatarios que pongan en riesgo la recepción de dicha documentación electoral, se podrá recurrir, previa autorización de la Junta Electoral Central y del Ministerio del Interior, a mensajería privada o al servicio premium de la Unión Postal Universal, según resulte más ventajoso tanto en calidad como en precio. Todo ello a fin de ofrecer las mayores garantías de éxito en la entrega a sus destinatarios. Ello habrá de ser oportunamente compensado al amparo de lo previsto en el artículo 22.5 de la Ley 43/2010.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.1380952380952381
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0003",
+          "citation": "Orden PJC/284/2024",
+          "text": "Primero. Objeto. En virtud de lo dispuesto en el apartado quinto del artículo 22 de la Ley 43/2010, se encomienda a la Sociedad Estatal Correos y Telégrafos, SA, S.M.E. (en adelante Correos), en su calidad de operador designado para prestar el servicio postal universal, las obligaciones de servicio público necesarias para salvaguardar el normal desarrollo de las elecciones que se convoquen durante el año 2024. Dichos servicios habrán de prestarse, con carácter general, entre el día en el que se publique el Decreto de convocatoria de las Elecciones correspondientes y los cien días siguientes al fijado para la celebración de la votación.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.12937062937062938
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0011",
+          "citation": "Orden PJC/284/2024",
+          "text": "Sexto. Voto del personal de las Fuerzas Armadas y de la Guardia Civil embarcado o en situaciones excepcionales vinculadas con la defensa nacional. Las obligaciones de servicio público en relación con el voto del personal de las Fuerzas Armadas y de la Guardia Civil embarcado o en situaciones excepcionales vinculadas con la defensa nacional son: a) Envío por correo certificado y urgente a la Dirección General de Personal del Ministerio de Defensa de la documentación electoral remitida por la Delegación o Subdelegación de Defensa en la Provincia correspondiente, en el caso del voto del personal de las Fuerzas Armadas; y a la Secretaría de Cooperación Internacional de la Dirección General de la Guardia Civil, en el caso del voto del personal de la Guardia Civil; en coordinación con la Delegación Provincial de la Oficina del Censo Electoral. b) Recepción de la documentación remitida por el elector y entrega a la Mesa electoral.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.12878787878787878
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0000",
+          "citation": "Orden PJC/284/2024",
+          "text": "El Consejo de Ministros, en su reunión del día 19 de marzo de 2024, a propuesta de la Vicepresidenta Primera del Gobierno y Ministra de Hacienda, del Ministro del Interior y del Ministro de Economía, Comercio y Empresa, ha aprobado un acuerdo por el que se establecen obligaciones de servicio público al prestador del servicio postal universal en las elecciones que se convoquen durante 2024. Para general conocimiento, se dispone su publicación como anejo a la presente orden. Madrid, 1 de abril de 2024.–El Ministro de la Presidencia, Justicia y Relaciones con las Cortes, Félix Bolaños García. ANEJO Acuerdo del Consejo de Ministros por el que se establecen obligaciones de servicio público al prestador del servicio postal universal en las elecciones que se convoquen durante 2024 Durante el año 2024 está prevista la convocatoria de, al menos, elecciones al Parlamento Europeo y elecciones al Parlamento Vasco, y se ha anunciado la convocatoria de elecciones al Parlamento de Cataluña. La necesidad de contar con esta herramienta con la suficiente antelación, no solo para estos procesos previstos sino también en caso de otras convocatorias que pudieran producirse, hace conveniente aprobar un solo Acuerdo de Consejo de Ministros las obligaciones de servicio público que se imponen al operador postal Correos y Telégrafos, SA, S.M.E., en su condición de prestador del servicio postal universal, para todos los procesos electorales que puedan convocarse durante este año.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.1125
+        },
+        {
+          "chunk_id": "BOE-A-2016-8054::0009",
+          "citation": "Orden PRE/1407/2016",
+          "text": "Séptimo. Voto por correo de los internos en centros penitenciarios. Las obligaciones de servicio público en relación con el voto por correo de los internos en centros penitenciarios son: a) Entrega y admisión en los Centros penitenciarios de los impresos de solicitud de inscripción en el Censo. b) Entrega personal al elector de la documentación enviada por la Oficina del Censo Electoral. c) La recepción de la documentación electoral remitida por el elector por correo certificado y urgente. d) Entrega del voto en las Mesas electorales correspondientes el día de la votación.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2016-8054",
+          "score": 0.11140583554376658
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0009",
+          "citation": "Orden PJC/284/2024",
+          "text": "b) Entrega a las Mesas electorales de la documentación del voto, una vez recibida, de acuerdo con lo establecido en el apartado cuarto del artículo 5 del Real Decreto 1621/2007, de 7 de diciembre. Los sobres recibidos después del día fijado para la votación se remitirán a la junta electoral correspondiente con lo indicado en el apartado cuarto del artículo 5 del citado Real Decreto 1621/2007. Se adoptarán adecuadas medidas de custodia de esta documentación hasta su entrega en las Mesas electorales y se dará cuenta del detalle de estas a la Junta Electoral Central y al Ministerio del Interior.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.1037037037037037
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0005",
+          "citation": "Orden PJC/284/2024",
+          "text": "Una vez recogida la documentación y hasta ser entregada en las Mesas electorales, se deberán adoptar las medidas oportunas para su adecuada custodia. Se dará cuenta a la Junta Electoral Central y al Ministerio del Interior del detalle de estas medidas de custodia. Asimismo, habrá de estarse a la posibilidad de que la Junta Electoral Central acuerde la aplicación de las medidas para el voto por correo ya previstas en anteriores procesos electorales (acuerdos de 28 de mayo y 19 de noviembre de 2020, 18 de marzo y 22 de diciembre de 2021) como consecuencia de la situación excepcional derivada de la pandemia de COVID-19, en lo que respecta a la entrega y recogida de documentación en el domicilio de los electores. Además, se exigirá la identificación personal del elector conforme a la Instrucción 5/2023, de 8 de junio, de la Junta Electoral Central, sobre la interpretación del artículo 73.3 de la Ley Orgánica del Régimen Electoral General.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.09429824561403508
+        },
+        {
+          "chunk_id": "BOE-A-2024-6554::0016",
+          "citation": "Orden PJC/284/2024",
+          "text": "Undécimo. Condiciones específicas de la prestación del servicio. 1. Correos otorgará carácter preferente, dentro de su categoría, a la gestión y distribución de los envíos electorales respecto al resto de envíos postales. 2. Los electores depositarán sus envíos electorales en las oficinas de Correos en los horarios establecidos en cada una de ellas para la admisión. Los empleados postales encargados del reparto domiciliario en el ámbito rural que actúan de ordinario como oficinas móviles admitirán también estos envíos electorales en los horarios y en los puntos acostumbrados de paso, de conformidad con lo previsto en el artículo 29.2 del Reglamento por el que se regula la prestación de los servicios postales, aprobado por el Real Decreto 1829/1999, de 3 de diciembre. Sin perjuicio de lo previsto en este apartado, teniendo en consideración la previsión del artículo 119 de la Ley Orgánica 5/1985, de 19 de junio, de conformidad con el cual durante el periodo electoral todos los días se consideran hábiles, los horarios podrán verse afectados por lo que determine la Junta Electoral Central. Asimismo, habrá de estarse a la posibilidad de que la Junta Electoral Central acuerde la aplicación de las medidas para el voto por correo ya previstas en anteriores procesos electorales (acuerdos de 28 de mayo y 19 de noviembre de 2020, 18 de marzo y 22 de diciembre de 2021) como consecuencia de la situación excepcional derivada de la pandemia de COVID-19, en lo que respecta a la entrega y recogida de documentación en el domicilio de los electores.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-6554",
+          "score": 0.09330628803245436
+        }
+      ]
+    },
+    "¿En qué órganos superiores se estructura el Ministerio de Hacienda y Función Pública según el Real Decreto 829/2023?": {
+      "query": "¿En qué órganos superiores se estructura el Ministerio de Hacienda y Función Pública según el Real Decreto 829/2023?",
+      "results": [
+        {
+          "chunk_id": "BOE-A-2023-23537::0005",
+          "citation": "Real Decreto 829/2023, Artículo 5",
+          "text": "Artículo 5. Ministerio de Hacienda y Función Pública. 1. Corresponde al Ministerio de Hacienda y Función Pública la propuesta y ejecución de la política del Gobierno en materia de hacienda pública, de presupuestos y de gastos, además del resto de competencias y atribuciones que le confiere el ordenamiento jurídico. 2. Asimismo corresponde al Ministerio de Hacienda y Función Pública la propuesta y ejecución de la política del Gobierno en materia de administración pública, función pública, y gobernanza pública. 3. Este Ministerio se estructura en los siguientes órganos superiores: a) La Secretaría de Estado de Hacienda. b) La Secretaría de Estado de Presupuestos y Gastos. c) La Secretaría de Estado de Función Pública.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-23537",
+          "score": 0.18181818181818182
+        },
+        {
+          "chunk_id": "BOE-A-2023-26727::0003",
+          "citation": "Real Decreto 1230/2023",
+          "text": "Disposición final primera. Supresión de órganos. Quedan suprimidos los siguientes órganos superiores: Ministerio de Hacienda y Función Pública. Ministerio de Transformación Digital. La Secretaría de Estado de Derechos Sociales y Agenda 2030. La Secretaría de Estado de Igualdad y contra la Violencia de Género.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-26727",
+          "score": 0.16666666666666666
+        },
+        {
+          "chunk_id": "BOE-A-2016-10167::0005",
+          "citation": "Real Decreto 415/2016, Artículo 5",
+          "text": "Artículo 5. Ministerio de Hacienda y Función Pública. 1. Corresponde al Ministerio de Hacienda y Función Pública la propuesta y ejecución de la política del Gobierno en materia de hacienda pública, de presupuestos y de gastos, además del resto de competencias y atribuciones que le confiere el ordenamiento jurídico. 2. Igualmente corresponde a este Ministerio la propuesta y ejecución de la política del Gobierno en materia de función y gobernanza públicas. 3. Este Ministerio se estructura en los siguientes órganos superiores: a) La Secretaría de Estado de Hacienda. b) La Secretaría de Estado de Presupuestos y Gastos. c) La Secretaría de Estado de Función Pública.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2016-10167",
+          "score": 0.12692307692307692
+        },
+        {
+          "chunk_id": "BOE-A-2016-10459::0010",
+          "citation": "Real Decreto 424/2016, Artículo 4",
+          "text": "Artículo 4. Ministerio de Hacienda y Función Pública. 1. El Ministerio de Hacienda y Función Pública se estructura en los siguientes órganos superiores y directivos: A) La Secretaría de Estado de Hacienda, de la que dependen los siguientes órganos directivos: 1.º La Secretaría General de Financiación Autonómica y Local, con rango de Subsecretaría. 2.º La Dirección General de Tributos. 3.º La Dirección General del Catastro. 4.º El Tribunal Económico-Administrativo Central, con rango de Dirección General. 5.º La Dirección General de Ordenación del Juego. B) La Secretaría de Estado de Presupuestos y Gastos, de la que dependen los siguientes órganos directivos: 1.º La Dirección General de Presupuestos. 2.º La Dirección General de Costes de Personal y Pensiones Públicas. 3.º La Dirección General de Fondos Comunitarios. C) La Secretaría de Estado de Función Pública, de la que dependen los siguientes órganos directivos: 1.º Secretaría General de Administración Digital, con rango de Subsecretaría. 2.º La Dirección General de la Función Pública. 3.º La Dirección General de Gobernanza Pública. 4.º La Oficina de Conflictos de Intereses, con rango de Dirección General. D) La Subsecretaría de Hacienda y Función Pública, de la que dependen los siguientes órganos directivos: 1.º La Secretaría General Técnica. 2.º La Dirección General del Patrimonio del Estado. 3.º La Inspección General. 4.º La Dirección General de Racionalización y Centralización de la Contratación. 2. Está adscrita a la Secretaría de Estado de Presupuestos y Gastos, la Intervención General de la Administración del Estado, con rango de Subsecretaría. 3. Quedan suprimidos los siguientes órganos directivos: a) La Subsecretaría de Hacienda y Administraciones Públicas.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2016-10459",
+          "score": 0.10833333333333334
+        },
+        {
+          "chunk_id": "BOE-A-2023-23537::0001",
+          "citation": "Real Decreto 829/2023, Artículo 1",
+          "text": "Artículo 1. Departamentos ministeriales. La Administración General del Estado se estructura en los siguientes departamentos ministeriales: Ministerio de Asuntos Exteriores, Unión Europea y Cooperación. Ministerio de la Presidencia, Justicia y Relaciones con las Cortes. Ministerio de Defensa. Ministerio de Hacienda y Función Pública. Ministerio del Interior. Ministerio de Transportes y Movilidad Sostenible. Ministerio de Educación, Formación Profesional y Deportes. Ministerio de Trabajo y Economía Social. Ministerio de Industria y Turismo. Ministerio de Agricultura, Pesca y Alimentación. Ministerio de Política Territorial y Memoria Democrática. Ministerio para la Transición Ecológica y el Reto Demográfico. Ministerio de Vivienda y Agenda Urbana. Ministerio de Cultura. Ministerio de Economía, Comercio y Empresa. Ministerio de Sanidad. Ministerio de Derechos Sociales, Consumo y Agenda 2030. Ministerio de Ciencia, Innovación y Universidades. Ministerio de Igualdad. Ministerio de Inclusión, Seguridad Social y Migraciones. Ministerio de Transformación Digital. Ministerio de Juventud e Infancia.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-23537",
+          "score": 0.10476190476190475
+        },
+        {
+          "chunk_id": "BOE-A-2023-23537::0029",
+          "citation": "Real Decreto 829/2023",
+          "text": "Disposición final primera. Supresión de órganos. Quedan suprimidos los siguientes departamentos ministeriales y órganos superiores: Ministerio de Justicia. Ministerio de Transportes, Movilidad y Agenda Urbana. Ministerio de Educación y Formación Profesional. Ministerio de la Presidencia, Relaciones con las Cortes y Memoria Democrática. Ministerio de Política Territorial. Ministerio de Cultura y Deporte. Ministerio de Asuntos Económicos y Transformación Digital. Ministerio de Derechos Sociales y Agenda 2030. Ministerio de Ciencia e Innovación. Ministerio de Consumo. Ministerio de Universidades. La Secretaría de Estado de Transportes, Movilidad y Agenda Urbana. La Secretaría de Estado de Empleo y Economía Social. La Secretaría de Estado de Derechos Sociales. La Secretaría de Estado para la Agenda 2030.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-23537",
+          "score": 0.09733124018838304
+        },
+        {
+          "chunk_id": "BOE-A-2020-1246::0019",
+          "citation": "Real Decreto 139/2020, Artículo 4",
+          "text": "Artículo 4. Ministerio de Hacienda. 1. El Ministerio de Hacienda se estructura en los siguientes órganos superiores y directivos: A) La Secretaría de Estado de Hacienda, de la que dependen los siguientes órganos directivos: 1.º La Secretaría General de Financiación Autonómica y Local, con rango de Subsecretaría. 2.º La Dirección General de Tributos. 3.º La Dirección General del Catastro. 4.º El Tribunal Económico-Administrativo Central, con rango de Dirección General. B) La Secretaría de Estado de Presupuestos y Gastos, de la que dependen los siguientes órganos directivos: 1.º La Dirección General de Presupuestos. 2.º La Dirección General de Costes de Personal. 3.º La Dirección General de Fondos Europeos. C) La Subsecretaría de Hacienda, de la que dependen los siguientes órganos directivos: 1.º La Secretaría General Técnica. 2.º La Dirección General del Patrimonio del Estado. 3.º La Inspección General. 4.º La Dirección General de Racionalización y Centralización de la Contratación. 2. Está adscrita a la Subsecretaría de Hacienda, la Intervención General de la Administración del Estado, con rango de Subsecretaría. 3. Queda suprimida la Dirección General de Costes de Personal y Pensiones Públicas.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2020-1246",
+          "score": 0.09047619047619047
+        },
+        {
+          "chunk_id": "BOE-A-2020-410::0005",
+          "citation": "Real Decreto 2/2020, Artículo 5",
+          "text": "Artículo 5. Ministerio de Hacienda. 1. Corresponde al Ministerio de Hacienda la propuesta y ejecución de la política del Gobierno en materia de hacienda pública, de presupuestos y de gastos, además del resto de competencias y atribuciones que le confiere el ordenamiento jurídico. 2. Este Ministerio se estructura en los siguientes órganos superiores: a) La Secretaría de Estado de Hacienda. b) La Secretaría de Estado de Presupuestos y Gastos.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2020-410",
+          "score": 0.08781362007168458
+        },
+        {
+          "chunk_id": "BOE-A-2018-8580::0010",
+          "citation": "Real Decreto 595/2018, Artículo 4",
+          "text": "Artículo 4. Ministerio de Hacienda. 1. El Ministerio de Hacienda se estructura en los siguientes órganos superiores y directivos: A) La Secretaría de Estado de Hacienda, de la que dependen los siguientes órganos directivos: 1.º La Secretaría General de Financiación Autonómica y Local, con rango de Subsecretaría. 2.º La Dirección General de Tributos. 3.º La Dirección General del Catastro. 4.º El Tribunal Económico-Administrativo Central, con rango de Dirección General. 5.º La Dirección General de Ordenación del Juego. B) La Secretaría de Estado de Presupuestos y Gastos, de la que dependen los siguientes órganos directivos: 1.º La Dirección General de Presupuestos. 2.º La Dirección General de Costes de Personal y Pensiones Públicas. 3.º La Dirección General de Fondos Europeos. C) La Subsecretaría de Hacienda, de la que dependen los siguientes órganos directivos: 1.º La Secretaría General Técnica. 2.º La Dirección General del Patrimonio del Estado. 3.º La Inspección General. 4.º La Dirección General de Racionalización y Centralización de la Contratación. 2. Está adscrita a la Subsecretaría de Hacienda, la Intervención General de la Administración del Estado, con rango de Subsecretaría.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2018-8580",
+          "score": 0.08689024390243902
+        },
+        {
+          "chunk_id": "BOE-A-2016-10459::0000",
+          "citation": "Real Decreto 424/2016",
+          "text": "Una vez establecida por el Real Decreto 415/2016, de 3 de noviembre, la nueva estructura de los departamentos ministeriales se hace necesario desarrollar la misma para incorporar las novedades introducidas por aquél en el organigrama actual y determinar los órganos directivos de los diferentes ministerios. Dentro de la nueva organización, cabe destacar la distribución de funciones que se realiza entre el Ministerio de la Presidencia y para las Administraciones Territoriales y el Ministerio de Hacienda y Función Pública. De conformidad con el Real Decreto 415/2016, de 3 de noviembre, por el que se reestructuran los departamentos ministeriales, se asignan las competencias en materia de administración territorial al Ministerio de la Presidencia y para las Administraciones Territoriales a través de la Secretaría de Estado para las Administraciones Territoriales, mientras que se atribuyen al Ministerio de Hacienda y Función Pública, a través de la Secretaría de Estado de la Función Pública, las relativas a la Función Pública, la Administración Digital y la Gobernanza Pública, incluyéndose en particular dentro de esta última las competencias que hasta ahora venía ejerciendo la Oficina para la Reforma de la Administración Pública.",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2016-10459",
+          "score": 0.08488964346349745
+        }
+      ]
+    }
+  }
+}

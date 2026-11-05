@@ -1,4 +1,5 @@
 import { type FormEvent, useState } from "react";
+import EXAMPLES from "../examples.json";
 
 interface AskFormProps {
   onAsk: (question: string) => void;
@@ -10,12 +11,8 @@ interface AskFormProps {
 
 // Every example must be answerable from the served corpus (BOE Disposiciones
 // Generales, 2015–present). The first two come from the gold eval set (scored
-// 1.00/1.00 end-to-end); the third was verified against the live /search index.
-const EXAMPLES = [
-  "¿Dónde tiene su sede principal el Instituto Vasco de Finanzas?",
-  "¿Qué empresa asume las obligaciones de servicio público para el voto por correo en las elecciones de 2024?",
-  "¿Qué regula la Ley 39/2015?",
-];
+// 1.00/1.00 end-to-end); the third passes every judge in reports/standard_eval.md.
+// Changing them needs scripts/pregenerate-examples.mjs, or they wait for the service.
 
 /** The query input with a submit button and a few example prompts.
  *

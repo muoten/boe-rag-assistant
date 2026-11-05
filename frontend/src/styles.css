@@ -504,3 +504,7 @@ body {
     order: 3;
   }
 }
+
+.pregenerated-note {
+  margin: 0.75rem 0;
+}

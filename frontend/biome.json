@@ -1,7 +1,14 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
-  "files": { "ignore": ["dist", "node_modules", "src/quality-data.json"] },
+  "files": {
+    "ignore": [
+      "dist",
+      "node_modules",
+      "src/quality-data.json",
+      "src/pregenerated-examples.json"
+    ]
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",

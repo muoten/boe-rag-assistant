@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { ApiError, ask, search } from "../api";
+import {
+  ApiError,
+  PREGENERATED_ON,
+  ask,
+  pregeneratedAnswer,
+  pregeneratedResults,
+  search,
+} from "../api";
 import type { AnswerResponse, SearchResponse } from "../types";
 import { AnswerPanel } from "./AnswerPanel";
 import { AskForm } from "./AskForm";
@@ -55,6 +62,7 @@ export function AssistantView() {
   const [results, setResults] = useState<SearchResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [asked, setAsked] = useState<string | null>(null);
+  const [saved, setSaved] = useState(false);
 
   function switchMode(next: Mode) {
     if (next === mode) {
@@ -76,9 +84,13 @@ export function AssistantView() {
     setAsked(query);
     try {
       if (mode === "ask") {
-        setAnswer(await ask(query));
+        const savedAnswer = pregeneratedAnswer(query);
+        setSaved(savedAnswer !== undefined);
+        setAnswer(savedAnswer ?? (await ask(query)));
       } else {
-        setResults(await search(query));
+        const savedResults = pregeneratedResults(query);
+        setSaved(savedResults !== undefined);
+        setResults(savedResults ?? (await search(query)));
       }
       setStatus("done");
     } catch (err) {
@@ -138,6 +150,13 @@ export function AssistantView() {
         <div className="status error" role="alert">
           {error}
         </div>
+      )}
+
+      {status === "done" && saved && (
+        <p className="status-hint pregenerated-note">
+          {mode === "ask" ? "Respuesta pregenerada" : "Resultados pregenerados"} el{" "}
+          {PREGENERATED_ON}. Lo que escribas tú se consulta en el momento.
+        </p>
       )}
 
       {status === "done" && mode === "ask" && answer && <AnswerPanel result={answer} />}
