@@ -22,7 +22,7 @@ interface AskFormProps {
 export function AskForm({
   onAsk,
   loading,
-  placeholder = "Pregunta sobre legislación española…",
+  placeholder = "Pregunta por una norma concreta…",
   label = "Preguntar",
   loadingLabel = "Consultando…",
 }: AskFormProps) {

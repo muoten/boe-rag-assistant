@@ -1,5 +1,5 @@
 import pregenerated from "./pregenerated-examples.json";
-import type { AnswerResponse, SearchResponse } from "./types";
+import type { AnswerResponse, SearchResponse, Source } from "./types";
 
 // Base URL of the JSON API. Injected at build time (VITE_API_BASE_URL = the
 // deployed HF Space); empty string means same-origin (useful for local proxying).
@@ -86,4 +86,20 @@ export function ask(question: string, k = 5): Promise<AnswerResponse> {
  */
 export function search(query: string, k = 10): Promise<SearchResponse> {
   return postJson<SearchResponse>("/search", { query, k });
+}
+
+/**
+ * The passages closest to a refused question, or none if they cannot be fetched.
+ *
+ * Failing here must not hide the refusal, which is already a complete response.
+ *
+ * @param query The refused question.
+ * @param k Number of passages to return.
+ */
+export async function closestPassages(query: string, k = 5): Promise<Source[]> {
+  try {
+    return (await search(query, k)).results;
+  } catch {
+    return [];
+  }
 }

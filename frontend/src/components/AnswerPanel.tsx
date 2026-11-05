@@ -3,6 +3,8 @@ import { SourceCard } from "./SourceCard";
 
 interface AnswerPanelProps {
   result: AnswerResponse;
+  /** The passages closest to a refused question, which did not support an answer. */
+  closest?: Source[];
 }
 
 /** Bracket numbers the answer cites, e.g. "… [2][3]." → {2, 3}.
@@ -21,7 +23,7 @@ export function citedIndices(answer: string): Set<number> {
  * passages stay available, collapsed, under their own heading. Each keeps its
  * original number so the in-text `[n]` still points at the right card.
  */
-export function AnswerPanel({ result }: AnswerPanelProps) {
+export function AnswerPanel({ result, closest = [] }: AnswerPanelProps) {
   if (result.refused) {
     return (
       <section className="answer-panel refused" aria-live="polite">
@@ -30,6 +32,17 @@ export function AnswerPanel({ result }: AnswerPanelProps) {
           que prefiero no inventar. Prueba a reformularla o a preguntar por otra norma.
           Puede que la norma no esté en la parte del BOE consultada.
         </p>
+        {closest.length > 0 && (
+          <>
+            <h2 className="sources-title">Fragmentos más cercanos</h2>
+            <p className="status-hint">Pueden no responder a tu pregunta.</p>
+            <ol className="sources-list">
+              {closest.map((source, i) => (
+                <SourceCard key={source.chunk_id} source={source} index={i + 1} />
+              ))}
+            </ol>
+          </>
+        )}
       </section>
     );
   }

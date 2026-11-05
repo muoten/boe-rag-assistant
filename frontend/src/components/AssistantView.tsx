@@ -3,11 +3,12 @@ import {
   ApiError,
   PREGENERATED_ON,
   ask,
+  closestPassages,
   pregeneratedAnswer,
   pregeneratedResults,
   search,
 } from "../api";
-import type { AnswerResponse, SearchResponse } from "../types";
+import type { AnswerResponse, SearchResponse, Source } from "../types";
 import { AnswerPanel } from "./AnswerPanel";
 import { AskForm } from "./AskForm";
 import { SearchResults } from "./SearchResults";
@@ -63,6 +64,7 @@ export function AssistantView() {
   const [error, setError] = useState<string | null>(null);
   const [asked, setAsked] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
+  const [closest, setClosest] = useState<Source[]>([]);
 
   function switchMode(next: Mode) {
     if (next === mode) {
@@ -70,6 +72,7 @@ export function AssistantView() {
     }
     setMode(next);
     setStatus("idle");
+    setClosest([]);
     setAnswer(null);
     setResults(null);
     setError(null);
@@ -78,6 +81,7 @@ export function AssistantView() {
 
   async function handleSubmit(query: string) {
     setStatus("loading");
+    setClosest([]);
     setError(null);
     setAnswer(null);
     setResults(null);
@@ -86,7 +90,11 @@ export function AssistantView() {
       if (mode === "ask") {
         const savedAnswer = pregeneratedAnswer(query);
         setSaved(savedAnswer !== undefined);
-        setAnswer(savedAnswer ?? (await ask(query)));
+        const result = savedAnswer ?? (await ask(query));
+        setAnswer(result);
+        if (result.refused) {
+          setClosest(await closestPassages(query));
+        }
       } else {
         const savedResults = pregeneratedResults(query);
         setSaved(savedResults !== undefined);
@@ -129,7 +137,7 @@ export function AssistantView() {
         loading={status === "loading"}
         placeholder={
           mode === "ask"
-            ? "Pregunta sobre legislación española…"
+            ? "Pregunta por una norma concreta…"
             : "Busca términos en la legislación española…"
         }
         label={mode === "ask" ? "Preguntar" : "Buscar"}
@@ -159,7 +167,9 @@ export function AssistantView() {
         </p>
       )}
 
-      {status === "done" && mode === "ask" && answer && <AnswerPanel result={answer} />}
+      {status === "done" && mode === "ask" && answer && (
+        <AnswerPanel result={answer} closest={closest} />
+      )}
       {status === "done" && mode === "search" && results && (
         <SearchResults result={results} />
       )}
